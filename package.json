@@ -58,7 +58,7 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
-    "lint": "npx prettier '{src}/**/*.{ts,tsx,js}' --write && npx eslint '{src}/**/*.{ts,tsx,js}' --quiet --fix",
+    "lint": "npx prettier '{src}/**/*.{ts,tsx}' --write && npx eslint '{src}/**/*.{ts,tsx}' --quiet --fix",
     "eslint": "npx eslint '{src}/**/*.{ts,tsx,js}' --quiet",
     "eslint:fix": "npx eslint '{src}/**/*.{ts,tsx,js}' --quiet --fix",
     "prettier": "npx prettier '{src}/**/*.{ts,tsx,js}' --check",
