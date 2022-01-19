@@ -17,54 +17,52 @@ import cloudsmap from '@assets/images/globe_clouds.png';
 // soft Shadows
 softShadows();
 
-const Demo = () => {
+const Globe = () => {
     const earthTexture = React.useMemo(() => new THREE.TextureLoader().load(earthmap), [earthmap]);
     const ringsTexture = React.useMemo(() => new THREE.TextureLoader().load(ringmap), [ringmap]);
     const cloudsTexture = React.useMemo(() => new THREE.TextureLoader().load(cloudsmap), [cloudsmap]);
 
-    const meshRef = React.useRef();
+    const gpref = React.useRef(null);
 
+    React.useEffect(() => {
+        if (gpref.current) {
+            gpref.current.lookAt(new THREE.Vector3(0.0, 1.0, 0.35));
+        }
+    }, [gpref]);
+    return (
+        <group position={[0, -4, 2]} rotation={[0, 0, 0]} ref={gpref}>
+            <mesh>
+                <sphereGeometry attach="geometry" args={[2, 16, 16]} />
+                <meshLambertMaterial attach="material" map={earthTexture} />
+            </mesh>
+            <mesh>
+                <sphereGeometry attach="geometry" args={[2.06, 16, 16]} />
+                <meshLambertMaterial attach="material" map={cloudsTexture} blending={THREE.AdditiveBlending} />
+            </mesh>
+            <mesh>
+                <ringGeometry attach="geometry" args={[2.5, 8, 30]} />
+                <meshLambertMaterial
+                    attach="material"
+                    map={ringsTexture}
+                    side={THREE.DoubleSide}
+                    blending={THREE.AdditiveBlending}
+                />
+            </mesh>
+        </group>
+    );
+};
+
+const Demo = () => {
     return (
         <div id="canvas-container">
             <Header />
             {/* Our Scene & Camera is already built into our canvas */}
-            <Canvas shadows camera={{ position: [-1, 2, 10], fov: 55 }}>
+            <Canvas shadows camera={{ position: [0, 0, 10], fov: 55 }}>
                 {/* This light makes things look pretty */}
                 <ambientLight intensity={0.8} />
                 {/* Our main source of light, also casting our shadow */}
-                <pointLight position={[0, 100, 0]} intensity={0.3} />
-
-                <group>
-                    {/* This mesh is the plane (The floor) */}
-                    <mesh rotation={[0, 0, 0]} position={[0, -3, 0]} receiveShadow>
-                        <planeBufferGeometry attach="geometry" args={[100, 100]} />
-                        <shadowMaterial attach="material" />
-                    </mesh>
-                    <group position={[0, -5, 0]} rotation={[Math.PI / 2, 0, 0]}>
-                        <mesh ref={meshRef}>
-                            <sphereGeometry attach="geometry" args={[2, 100, 100]} />
-                            <meshLambertMaterial attach="material" map={earthTexture} />
-                        </mesh>
-                        <mesh ref={meshRef}>
-                            <sphereGeometry attach="geometry" args={[2.06, 100, 100]} />
-                            <meshLambertMaterial
-                                attach="material"
-                                map={cloudsTexture}
-                                blending={THREE.AdditiveBlending}
-                            />
-                        </mesh>
-                        <mesh ref={meshRef}>
-                            <ringGeometry attach="geometry" args={[2.5, 8, 40]} />
-                            <meshLambertMaterial
-                                attach="material"
-                                map={ringsTexture}
-                                side={THREE.DoubleSide}
-                                blending={THREE.AdditiveBlending}
-                            />
-                        </mesh>
-                    </group>
-                </group>
-                {/* Allows us to move the canvas around for different prespectives */}
+                <pointLight position={[0, 100, 0]} intensity={0.2} />
+                <Globe />
                 <OrbitControls />
             </Canvas>
         </div>
