@@ -7,6 +7,8 @@
     "@react-spring/three": "^9.2.4",
     "@react-three/drei": "^7.12.1",
     "@react-three/fiber": "^7.0.7",
+    "babel-plugin-glsl": "^1.0.0",
+    "glslify": "^7.1.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
@@ -26,39 +28,39 @@
     "workbox-strategies": "^5.1.4",
     "workbox-streams": "^5.1.4"
   },
-   "devDependencies": {
-        "@types/react-dom": "^16.9.14",
-        "@types/three": "^0.132.0",
-        "@types/node": "^15.12.2",
-        "@types/node-sass": "^4.11.1",
-        "@types/react": "^17.0.11",
-        "@types/react-responsive": "^8.0.2",
-        "@types/sass": "^1.16.0",
-        "@types/sass-loader": "^8.0.1",
-        "@typescript-eslint/eslint-plugin": "^4.27.0",
-        "@typescript-eslint/parser": "^4.27.0",
-        "eslint": "^7.28.0",
-        "eslint-config-prettier": "^8.3.0",
-        "eslint-config-react-app": "^6.0.0",
-        "eslint-plugin-prettier": "^3.4.0",
-        "eslint-plugin-react": "^7.24.0",
-        "eslint-plugin-react-hooks": "^4.2.0",
-        "eslint-plugin-tsdoc": "^0.2.14",
-        "husky": "^6.0.0",
-        "lint-staged": "^11.0.0",
-        "prettier": "^2.3.1",
-        "react-test-renderer": "^17.0.2",
-        "sass-loader": "10.1.1",
-        "tsconfig-paths-webpack-plugin": "^3.5.1",
-        "typedoc": "^0.20.36",
-        "typescript": "^4.4.3"
+  "devDependencies": {
+    "@types/node": "^15.12.2",
+    "@types/node-sass": "^4.11.1",
+    "@types/react": "^17.0.11",
+    "@types/react-dom": "^16.9.14",
+    "@types/react-responsive": "^8.0.2",
+    "@types/sass": "^1.16.0",
+    "@types/sass-loader": "^8.0.1",
+    "@types/three": "^0.132.0",
+    "@typescript-eslint/eslint-plugin": "^4.27.0",
+    "@typescript-eslint/parser": "^4.27.0",
+    "eslint": "^7.28.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-tsdoc": "^0.2.14",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.1",
+    "react-test-renderer": "^17.0.2",
+    "sass-loader": "10.1.1",
+    "tsconfig-paths-webpack-plugin": "^3.5.1",
+    "typedoc": "^0.20.36",
+    "typescript": "^4.4.3"
   },
   "scripts": {
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
-    "lint": "npx prettier '{src}/**/*.{ts,tsx}' --write && npx eslint '{src}/**/*.{ts,tsx}' --quiet --fix",
+    "lint": "npx prettier 'src/**/*.{ts,tsx}' --write && npx eslint 'src/**/*.{ts,tsx}' --quiet --fix",
     "eslint": "npx eslint '{src}/**/*.{ts,tsx,js}' --quiet",
     "eslint:fix": "npx eslint '{src}/**/*.{ts,tsx,js}' --quiet --fix",
     "prettier": "npx prettier '{src}/**/*.{ts,tsx,js}' --check",
@@ -68,15 +70,15 @@
     "prepare": "husky install"
   },
   "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged"
-        }
-    },
-    "lint-staged": {
-        "*.{js,ts,tsx}": [
-            "prettier --write"
-        ]
-    },
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "prettier --write"
+    ]
+  },
   "eslintConfig": {
     "extends": [
       "react-app",

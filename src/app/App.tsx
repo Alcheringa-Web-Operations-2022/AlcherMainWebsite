@@ -1,11 +1,11 @@
 import * as React from 'react';
 import '@app/App.scss';
-import Demo from '@pages/demo/Demo';
+import Banner from '@pages/demo/Banner';
 
 function App() {
     return (
         <div>
-            <Demo />
+            <Banner />
         </div>
     );
 }

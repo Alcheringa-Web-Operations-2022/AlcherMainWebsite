@@ -3,14 +3,11 @@ node_modules/**
 dist/**
 src/index.html
 storybook-static/*
+public/*
 docs/**
 .husky/*
 *.cssmodule.scss.d.ts
 *.cssmodule.d.ts
-*.cssmodule
-*.scss
-*.sass
-*.css
 *.yml
 *.yaml
 *.d.ts
@@ -23,8 +20,10 @@ tsconfig.json
 .gitignore
 *.md
 *.html
-.env
+.env.development
+.env.production
 *.json
 *.lock
 *.ejs
 *.snap
+
