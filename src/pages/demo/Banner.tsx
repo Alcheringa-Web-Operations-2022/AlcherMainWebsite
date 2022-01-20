@@ -106,7 +106,13 @@ const Globe = () => {
     }, [gpref]);
 
     useFrame(({}) => {
-        gpref.current.rotation.x -= 0.05;
+        gpref.current.rotation.x -= 0.02;
+        if (gpref.current.position.y < 0) {
+            gpref.current.position.y += 0.02;
+        }
+        if (gpref.current.position.z > -6) {
+            gpref.current.position.z -= 0.02;
+        }
     });
     return (
         <animated.group position={[0, -4, 2]} rotation={[0, 0, 0]} ref={gpref}>
