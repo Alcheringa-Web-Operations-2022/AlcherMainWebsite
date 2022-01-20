@@ -151,7 +151,7 @@ const Demo = () => {
                 {/* Our main source of light, also casting our shadow */}
                 <pointLight position={[0, 100, 0]} intensity={0.2} />
                 <Globe />
-                <OrbitControls />
+                {/* <OrbitControls /> */}
             </Canvas>
         </div>
     );

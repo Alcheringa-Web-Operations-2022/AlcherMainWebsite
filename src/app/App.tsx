@@ -6,6 +6,12 @@ function App() {
     return (
         <div>
             <Banner />
+            <div
+                style={{
+                    width: '100vw',
+                    height: '100vh',
+                }}
+            ></div>
         </div>
     );
 }
