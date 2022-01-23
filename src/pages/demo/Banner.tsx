@@ -3,8 +3,8 @@ import * as React from 'react';
 import { Canvas, extend, ReactThreeFiber, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 // Deai - R3F
-import { softShadows, MeshWobbleMaterial, OrbitControls, shaderMaterial } from '@react-three/drei';
-import { ShaderMaterial } from 'three';
+import { softShadows, MeshWobbleMaterial, OrbitControls, shaderMaterial, useHelper } from '@react-three/drei';
+import { DirectionalLightHelper, ShaderMaterial } from 'three';
 // React Spring
 import { useSpring, animated } from '@react-spring/three';
 // Styles
@@ -92,6 +92,30 @@ extend({ CloudShaderMaterial });
 // soft Shadows
 softShadows();
 
+const Light = () => {
+    const ref = React.useRef();
+    useHelper(ref, DirectionalLightHelper, 1);
+
+    return (
+        <>
+            <ambientLight intensity={0.5} />
+            <directionalLight
+                ref={ref}
+                intensity={0.2}
+                position={[0, 1, 0]}
+                // shadow-camera-far={50}
+                // shadow-camera-left={-100}
+                // shadow-camera-right={100}
+                // shadow-camera-top={100}
+                shadow-camera-bottom={-100}
+                shadow-mapSize-width={2048}
+                shadow-mapSize-height={2048}
+                castShadow
+            />
+        </>
+    );
+};
+
 const Globe = () => {
     const earthTexture = React.useMemo(() => new THREE.TextureLoader().load(earthmap), [earthmap]);
     const ringsTexture = React.useMemo(() => new THREE.TextureLoader().load(ringmap), [ringmap]);
@@ -101,7 +125,7 @@ const Globe = () => {
 
     React.useEffect(() => {
         if (gpref.current) {
-            gpref.current.lookAt(new THREE.Vector3(0.0, 1.0, 0.35));
+            gpref.current.lookAt(new THREE.Vector3(0.0, 1.0, 1.0));
         }
     }, [gpref]);
 
@@ -115,20 +139,20 @@ const Globe = () => {
         }
     });
     return (
-        <animated.group position={[0, -4, 2]} rotation={[0, 0, 0]} ref={gpref}>
-            <mesh>
-                <sphereGeometry attach="geometry" args={[2, 16, 16]} />
+        <animated.group position={[0, -3.3, 2.5]} rotation={[0, 0, 0]} ref={gpref}>
+            <mesh castShadow receiveShadow>
+                <sphereGeometry attach="geometry" args={[2.5, 100, 100]} />
                 <globeShaderMaterial uniforms={{ uTexture: { value: earthTexture } }} />
             </mesh>
-            <mesh>
-                <sphereGeometry attach="geometry" args={[2.06, 16, 16]} />
+            <mesh castShadow receiveShadow>
+                <sphereGeometry attach="geometry" args={[2.52, 100, 100]} />
                 <cloudShaderMaterial
                     uniforms={{ uTexture: { value: cloudsTexture } }}
                     blending={THREE.AdditiveBlending}
                 />
             </mesh>
-            <mesh>
-                <ringGeometry attach="geometry" args={[2.5, 8, 30]} />
+            <mesh castShadow receiveShadow>
+                <ringGeometry attach="geometry" args={[2, 8, 30]} />
                 <meshLambertMaterial
                     attach="material"
                     map={ringsTexture}
@@ -144,14 +168,30 @@ const Demo = () => {
     return (
         <div id="canvas-container">
             <Header />
+
             {/* Our Scene & Camera is already built into our canvas */}
-            <Canvas shadows camera={{ position: [0, 0, 10], fov: 55 }}>
+            <Canvas shadows camera={{ position: [0, 0, 10], fov: 60 }}>
+                <mesh castShadow receiveShadow>
+                    <boxBufferGeometry attach="geometry" args={[0, 10, 0]} />
+                    <MeshWobbleMaterial
+                        color="red"
+                        speed={6}
+                        attach="material"
+                        factor={0.6}
+                        skinning={undefined}
+                        vertexTangents={undefined}
+                        morphTargets={undefined}
+                        morphNormals={undefined}
+                    />
+                </mesh>
+
                 {/* This light makes things look pretty */}
-                <ambientLight intensity={0.8} />
+                {/* <ambientLight intensity={0.4} /> */}
+                <Light />
                 {/* Our main source of light, also casting our shadow */}
-                <pointLight position={[0, 100, 0]} intensity={0.2} />
+                {/* <pointLight position={[0, 100, 0]} intensity={0.2} /> */}
                 <Globe />
-                {/* <OrbitControls /> */}
+                <OrbitControls />
             </Canvas>
         </div>
     );
