@@ -25,7 +25,7 @@ function LandingPage() {
                     trigger: '#hero-trigger',
                     pin: true,
                     start: 'top top',
-                    end: 'bottom top',
+                    end: '+=150%',
                     scrub: true,
                     id: 'banner-trigger',
                 },
@@ -40,7 +40,7 @@ function LandingPage() {
                     trigger: '#alcher-video',
                     pin: true,
                     start: 'top top',
-                    end: '+=150%',
+                    end: '+=180%',
                     id: 'video-container',
                     scrub: true,
                 },
@@ -49,7 +49,19 @@ function LandingPage() {
             tl.to('.section-text', { autoAlpha: 0, duration: 0.1 });
             tl.to(
                 '.video-container',
-                { css: { clipPath: 'circle(100% at 50% 50%)' }, ease: 'power1', duration: 1.8 },
+                {
+                    css: { clipPath: 'circle(100% at 50% 50%)' },
+                    ease: 'power1',
+                    duration: 1.8,
+                    onStart: () => {
+                        console.log('here');
+                        document.getElementById('alcher_intro_video').play();
+                    },
+                    // onComplete: () => {
+                    //     console.log('here');
+                    //     document.getElementById('alcher_intro_video').pause();
+                    // },
+                },
                 '>',
             );
             tl.to('.white__rings', { scale: 4.5, duration: 1.8, ease: 'power0' }, '<');
@@ -80,7 +92,18 @@ function LandingPage() {
                             </p>
                         </div>
                     </div>
-                    <div className="video-container"></div>
+                    <div className="video-container">
+                        <video
+                            src="https://bucket-s3.alcheringa.in/alcherregistratiosstatic/videos/trailer.mp4"
+                            playsInline
+                            webkit-playsinline="true"
+                            preload="auto"
+                            muted
+                            loop
+                            className="video"
+                            id="alcher_intro_video"
+                        ></video>
+                    </div>
                     <div className="main-container">
                         <div></div>
                         <div></div>
