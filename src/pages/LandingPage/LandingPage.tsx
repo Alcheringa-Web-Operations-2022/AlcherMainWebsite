@@ -40,16 +40,20 @@ function LandingPage() {
                     trigger: '#alcher-video',
                     pin: true,
                     start: 'top top',
-                    end: '+=100%',
+                    end: '+=150%',
                     id: 'video-container',
                     scrub: true,
                 },
             });
 
-            tl.to('.section-text', { autoAlpha: 0, duration: 0.2 });
-            tl.to('.white__rings', { scale: 5, duration: 1 }, '>');
-            tl.to('.video-container', { css: { clipPath: 'circle(105% at 50% 50%)' } }, '<');
-            tl.to({}, { duration: 1 }, '>');
+            tl.to('.section-text', { autoAlpha: 0, duration: 0.1 });
+            tl.to(
+                '.video-container',
+                { css: { clipPath: 'circle(100% at 50% 50%)' }, ease: 'power1', duration: 1.8 },
+                '>',
+            );
+            tl.to('.white__rings', { scale: 4.5, duration: 1.8, ease: 'power0' }, '<');
+            tl.to({}, { duration: 0.1 }, '>');
         }
     }, [loading]);
     const imageRef = useRef(null);
@@ -69,7 +73,11 @@ function LandingPage() {
                     <div className="circle-container">
                         <div className="circles-inner-container">
                             <img src={whiteRings} className="white__rings" />
-                            <p className="section-text">Hello there</p>
+                            <p className="section-text">
+                                It is a long established fact that a reader will be distracted by the readable content
+                                of a page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                                more-or-less normal distribution of letters, as opposed to using 'Content here, content
+                            </p>
                         </div>
                     </div>
                     <div className="video-container"></div>
