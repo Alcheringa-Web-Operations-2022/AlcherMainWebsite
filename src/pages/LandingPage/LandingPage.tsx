@@ -47,7 +47,7 @@ function LandingPage() {
             });
 
             tl.to('.section-text', { autoAlpha: 0, duration: 0.2 });
-            tl.to('.white__rings', { scale: 4, duration: 1 }, '>');
+            tl.to('.white__rings', { scale: 5, duration: 1 }, '>');
             tl.to('.video-container', { css: { clipPath: 'circle(105% at 50% 50%)' } }, '<');
         }
     }, [loading]);
