@@ -16,6 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 function LandingPage() {
     const { images, loading } = useCacheBannerImages(frameCount, totalFrames);
     const imageObj = { currentImage: 0 };
+    const videoRef = useRef(null);
 
     useEffect(() => {
         if (!loading) {
@@ -53,14 +54,11 @@ function LandingPage() {
                     css: { clipPath: 'circle(100% at 50% 50%)' },
                     ease: 'power1',
                     duration: 1.8,
-                    onStart: () => {
-                        console.log('here');
-                        document.getElementById('alcher_intro_video').play();
-                    },
+                    onStart: () => videoRef.current.play(),
                     // onComplete: () => {
-                    //     console.log('here');
                     //     document.getElementById('alcher_intro_video').pause();
                     // },
+                    onReverseComplete: () => videoRef.current.pause(),
                 },
                 '>',
             );
@@ -102,6 +100,7 @@ function LandingPage() {
                             loop
                             className="video"
                             id="alcher_intro_video"
+                            ref={videoRef}
                         ></video>
                     </div>
                     <div className="main-container">
