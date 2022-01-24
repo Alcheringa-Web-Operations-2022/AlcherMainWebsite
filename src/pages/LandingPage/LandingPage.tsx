@@ -54,10 +54,15 @@ function LandingPage() {
                     css: { clipPath: 'circle(100% at 52% 50%)' },
                     ease: 'power1',
                     duration: 2,
-                    onStart: () => videoRef.current.play(),
-                    // onComplete: () => {
-                    //     document.getElementById('alcher_intro_video').pause();
-                    // },
+                    onStart: async () => {
+                        try {
+                            videoRef.current.muted = false;
+                            await videoRef.current.play();
+                        } catch (err) {
+                            videoRef.current.muted = true;
+                            videoRef.current.play();
+                        }
+                    },
                     onReverseComplete: () => videoRef.current.pause(),
                 },
                 '>',
@@ -98,6 +103,9 @@ function LandingPage() {
                             loop
                             className="video"
                             id="alcher_intro_video"
+                            controls
+                            muted
+                            autoPlay
                             ref={videoRef}
                         ></video>
                     </div>
