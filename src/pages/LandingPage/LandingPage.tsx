@@ -2,7 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import useCacheBannerImages from '../../hooks/useCacheBannerImages';
+import whiteRings from '@assets/images/white_rings.png';
 import './LandingPage.scss';
+import { Power0 } from 'gsap/all';
 const landingImage = 'https://bucket-s3.alcheringa.in/alcheringain/animation1frames/zoom%20ree0001.png';
 const frameCount = 60;
 const totalFrames = 60;
@@ -14,6 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 function LandingPage() {
     const { images, loading } = useCacheBannerImages(frameCount, totalFrames);
     const imageObj = { currentImage: 0 };
+
     useEffect(() => {
         if (!loading) {
             gsap.to(imageObj, {
@@ -31,6 +34,21 @@ function LandingPage() {
                     if (imgSrc) imageRef.current.src = imgSrc;
                 },
             });
+
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '#alcher-video',
+                    pin: true,
+                    start: 'top top',
+                    end: '+=100%',
+                    id: 'video-container',
+                    scrub: true,
+                },
+            });
+
+            tl.to('.section-text', { autoAlpha: 0, duration: 0.2 });
+            tl.to('.white__rings', { scale: 4, duration: 1 }, '>');
+            tl.to('.video-container', { css: { clipPath: 'circle(105% at 50% 50%)' } }, '<');
         }
     }, [loading]);
     const imageRef = useRef(null);
@@ -45,15 +63,21 @@ function LandingPage() {
                 <img id="banner-img" alt="Alcheringa 2022" src={landingImage} ref={imageRef} />
             </section>
             <section id="hero-trigger"></section>
-            <section id="alcher-video">
-                <div className="circle-container">
-                    <p className="section-text">Hello there</p>
+            <section>
+                <div id="alcher-video">
+                    <div className="circle-container">
+                        <div className="circles-inner-container">
+                            <img src={whiteRings} className="white__rings" />
+                            <p className="section-text">Hello there</p>
+                        </div>
+                    </div>
+                    <div className="video-container"></div>
+                    <div className="main-container">
+                        <div></div>
+                        <div></div>
+                    </div>
                 </div>
-                <div className="video-container"></div>
-                <div className="main-container">
-                    <div></div>
-                    <div></div>
-                </div>
+                <div></div>
             </section>
         </div>
     );
