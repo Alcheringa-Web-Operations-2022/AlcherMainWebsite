@@ -1,19 +1,159 @@
-import { gsap, Bounce } from 'gsap';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 import { useEffect, useRef } from 'react';
 
 import bg_green from '../assets/backgrounds/bg-green.png';
 import '../assets/styles/from_33sec.css';
 
 const From_33sec = () => {
-    const pronitesHead = useRef();
-    const proshowsHead = useRef();
-    const humourfestHead = useRef();
-    const competitionsHead = useRef();
-    const flickeringaHead = useRef();
+    const pronitesHeadRef = useRef();
+    const proshowsHeadRef = useRef();
+    const humourfestHeadRef = useRef();
+    const competitionsHeadRef = useRef();
+    const exhibitionHeadRef = useRef();
+    const flickeringaHeadRef = useRef();
 
     useEffect(() => {
-        console.log('hi');
-        // gsap.to(flickeringaHead, 2, { visibility: 'hidden', ease: Bounce.easeIn });
+        gsap.registerPlugin(ScrollTrigger);
+        const animatePronitesHead = gsap.to(pronitesHeadRef.current, {
+            scrollTrigger: {
+                trigger: pronitesHeadRef.current,
+                start: 'top center',
+                end: 'bottom center',
+                markers: true,
+                toggleActions: 'play reverse play reverse',
+            },
+            duration: 0.45,
+            opacity: 1,
+            fontSize: '6.2rem',
+            ease: 'Power4.easeOut',
+        });
+        const animatePronitesDescription = gsap.to(pronitesHeadRef.current.nextSibling, {
+            scrollTrigger: {
+                trigger: pronitesHeadRef.current,
+                start: 'top center',
+                end: 'bottom center',
+                toggleActions: 'play reverse play reverse',
+            },
+            display: 'block',
+        });
+        const animateProshowsHead = gsap.to(proshowsHeadRef.current, {
+            scrollTrigger: {
+                trigger: proshowsHeadRef.current,
+                start: 'top center',
+                end: 'bottom center',
+                markers: true,
+                toggleActions: 'play reverse play reverse',
+            },
+            duration: 0.45,
+            opacity: 1,
+            fontSize: '6.2rem',
+            ease: 'Power4.easeOut',
+        });
+        const animateProshowsDescription = gsap.to(proshowsHeadRef.current.nextSibling, {
+            scrollTrigger: {
+                trigger: proshowsHeadRef.current,
+                start: 'top center',
+                end: 'bottom center',
+                toggleActions: 'play reverse play reverse',
+            },
+            display: 'block',
+        });
+        const animateHumourfestHead = gsap.to(humourfestHeadRef.current, {
+            scrollTrigger: {
+                trigger: humourfestHeadRef.current,
+                start: 'top center',
+                end: 'bottom center',
+                markers: true,
+                toggleActions: 'play reverse play reverse',
+            },
+            duration: 0.45,
+            opacity: 1,
+            fontSize: '6.2rem',
+            ease: 'Power4.easeOut',
+        });
+        const animateHumourfestDescription = gsap.to(humourfestHeadRef.current.nextSibling, {
+            scrollTrigger: {
+                trigger: humourfestHeadRef.current,
+                start: 'top center',
+                end: 'bottom center',
+                toggleActions: 'play reverse play reverse',
+            },
+            display: 'block',
+        });
+        const animateCompetitionsHead = gsap.to(competitionsHeadRef.current, {
+            scrollTrigger: {
+                trigger: competitionsHeadRef.current,
+                start: 'top center',
+                end: 'bottom center',
+                markers: true,
+                toggleActions: 'play reverse play reverse',
+            },
+            duration: 0.45,
+            opacity: 1,
+            fontSize: '6.2rem',
+            ease: 'Power4.easeOut',
+        });
+        const animateCompetitionsDescription = gsap.to(competitionsHeadRef.current.nextSibling, {
+            scrollTrigger: {
+                trigger: competitionsHeadRef.current,
+                start: 'top center',
+                end: 'bottom center',
+                toggleActions: 'play reverse play reverse',
+            },
+            display: 'block',
+        });
+        const animateExhibitionHead = gsap.to(exhibitionHeadRef.current, {
+            scrollTrigger: {
+                trigger: exhibitionHeadRef.current,
+                start: 'top center',
+                end: 'bottom center',
+                markers: true,
+                toggleActions: 'play reverse play reverse',
+            },
+            duration: 0.45,
+            opacity: 1,
+            fontSize: '6.2rem',
+            ease: 'Power4.easeOut',
+        });
+        const animateExhibitionDescription = gsap.to(exhibitionHeadRef.current.nextSibling, {
+            scrollTrigger: {
+                trigger: exhibitionHeadRef.current,
+                start: 'top center',
+                end: 'bottom center',
+                toggleActions: 'play reverse play reverse',
+            },
+            display: 'block',
+        });
+        const animateFlickeringaHead = gsap.to(flickeringaHeadRef.current, {
+            scrollTrigger: {
+                trigger: flickeringaHeadRef.current,
+                start: 'top center',
+                end: 'bottom center',
+                markers: true,
+                toggleActions: 'play reverse play reverse',
+            },
+            duration: 0.45,
+            opacity: 1,
+            fontSize: '6.2rem',
+            ease: 'Power4.easeOut',
+        });
+        const animateFlickeringaDescription = gsap.to(flickeringaHeadRef.current.nextSibling, {
+            scrollTrigger: {
+                trigger: flickeringaHeadRef.current,
+                start: 'top center',
+                end: 'bottom center',
+                toggleActions: 'play reverse play reverse',
+            },
+            display: 'block',
+        });
+
+        return () => {
+            animateCompetitionsHead.kill();
+            animateCompetitionsHead.scrollTrigger.kill();
+            animateCompetitionsDescription.kill();
+            animateCompetitionsDescription.scrollTrigger.kill();
+        };
     }, []);
 
     return (
@@ -34,43 +174,53 @@ const From_33sec = () => {
             </div>
             <div className="text-container">
                 <div className="event-container">
-                    <div className="event-head">PRONITES</div>
-                    {/* <div className="event-description">
+                    <div className="event-head" ref={pronitesHeadRef}>
+                        PRONITES
+                    </div>
+                    <div className="event-description">
                         vitae auctor eu augue ut lectus arcu bibendum at varius vel pharetra vel turpis nunc
-                    </div> */}
+                    </div>
                 </div>
                 <div className="event-container">
-                    <div className="event-head">PROSHOWS</div>
+                    <div className="event-head" ref={proshowsHeadRef}>
+                        PROSHOWS
+                    </div>
                     <div className="event-description">
                         vitae auctor eu augue ut lectus arcu bibendum at varius vel pharetra vel turpis nunc vitae
                         auctor eu augue ut lectus arcu bibendum at varius vel pharetra vel turpis nunc
                     </div>
                 </div>
                 <div className="event-container">
-                    <div className="event-head">HUMOUR FEST</div>
-                    {/* <div className="event-description">
+                    <div className="event-head" ref={humourfestHeadRef}>
+                        HUMOUR FEST
+                    </div>
+                    <div className="event-description">
                         vitae auctor eu augue ut lectus arcu bibendum at varius vel pharetra vel turpis nunc
-                    </div> */}
+                    </div>
                 </div>
                 <div className="event-container">
-                    <div className="event-head">COMPETITIONS</div>
-                    {/* <div className="event-description">
+                    <div className="event-head" ref={competitionsHeadRef}>
+                        COMPETITIONS
+                    </div>
+                    <div className="event-description">
                         vitae auctor eu augue ut lectus arcu bibendum at varius vel pharetra vel turpis nunc
-                    </div> */}
+                    </div>
                 </div>
                 <div className="event-container">
-                    <div className="event-head">EXHIBITION</div>
-                    {/* <div className="event-description">
+                    <div className="event-head" ref={exhibitionHeadRef}>
+                        EXHIBITION
+                    </div>
+                    <div className="event-description">
                         vitae auctor eu augue ut lectus arcu bibendum at varius vel pharetra vel turpis nunc
-                    </div> */}
+                    </div>
                 </div>
                 <div className="event-container">
-                    <div className="event-head" ref={flickeringaHead}>
+                    <div className="event-head" ref={flickeringaHeadRef}>
                         FLICKERINGA
                     </div>
-                    {/* <div className="event-description">
+                    <div className="event-description">
                         vitae auctor eu augue ut lectus arcu bibendum at varius vel pharetra vel turpis nunc
-                    </div> */}
+                    </div>
                 </div>
             </div>
             <div className="img-container-2">
