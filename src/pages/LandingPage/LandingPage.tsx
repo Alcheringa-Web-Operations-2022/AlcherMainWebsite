@@ -41,7 +41,7 @@ function LandingPage() {
                     trigger: '#alcher-video',
                     pin: true,
                     start: 'top top',
-                    end: '+=180%',
+                    end: '+=250%',
                     id: 'video-container',
                     scrub: true,
                 },
@@ -51,9 +51,9 @@ function LandingPage() {
             tl.to(
                 '.video-container',
                 {
-                    css: { clipPath: 'circle(100% at 50% 50%)' },
+                    css: { clipPath: 'circle(100% at 52% 50%)' },
                     ease: 'power1',
-                    duration: 1.8,
+                    duration: 2,
                     onStart: () => videoRef.current.play(),
                     // onComplete: () => {
                     //     document.getElementById('alcher_intro_video').pause();
@@ -62,8 +62,7 @@ function LandingPage() {
                 },
                 '>',
             );
-            tl.to('.white__rings', { scale: 4.5, duration: 1.8, ease: 'power0' }, '<');
-            tl.to({}, { duration: 0.1 }, '>');
+            tl.to('.white__rings', { scale: 4.5, duration: 2, ease: 'power0' }, '<');
         }
     }, [loading]);
     const imageRef = useRef(null);
@@ -96,7 +95,6 @@ function LandingPage() {
                             playsInline
                             webkit-playsinline="true"
                             preload="auto"
-                            muted
                             loop
                             className="video"
                             id="alcher_intro_video"
