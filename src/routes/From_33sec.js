@@ -37,45 +37,46 @@ const sectionImagesBottom = [
 const From_33sec = () => {
     const titlesRef = useRef([]);
     useEffect(() => {
-        titlesRef.current.forEach((ref, index) => {
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: ref,
-                    start: '-10% 40%',
-                    end: '110% 40%',
-                    markers: true,
-                    toggleActions: 'play reverse play reverse',
-                },
-            });
-            tl.to(ref, {
-                duration: 0.45,
-                opacity: 1,
-                fontSize: '5.8rem',
-                ease: 'power4.inOut',
-            });
-            tl.to(ref.nextSibling, {
-                autoAlpha: 1,
-                // duration: 0.45,
-            });
-
-            const ht = document.querySelector('.img-side').offsetHeight;
-            gsap.fromTo(
-                '.img-wrapper',
-                {
-                    translateY: -1 * index * ht,
-                },
-                {
-                    translateY: -1 * (index + 1) * ht,
+        gsap.delayedCall(1, () => {
+            titlesRef.current.forEach((ref, index) => {
+                const tl = gsap.timeline({
                     scrollTrigger: {
                         trigger: ref,
-                        start: 'top 40%',
-                        end: 'bottom 40%',
-                        toggleActions: 'play none none reverse',
+                        start: '-10% 40%',
+                        end: '110% 40%',
+                        toggleActions: 'play reverse play reverse',
                     },
-                },
-            );
+                });
+                tl.to(ref, {
+                    duration: 0.45,
+                    opacity: 1,
+                    fontSize: '5.8rem',
+                    ease: 'power4.inOut',
+                });
+                tl.to(ref.nextSibling, {
+                    autoAlpha: 1,
+                    // duration: 0.45,
+                });
+
+                const ht = document.querySelector('.img-side').offsetHeight;
+                gsap.fromTo(
+                    '.img-wrapper',
+                    {
+                        translateY: -1 * index * ht,
+                    },
+                    {
+                        translateY: -1 * (index + 1) * ht,
+                        scrollTrigger: {
+                            trigger: ref,
+                            start: 'top 40%',
+                            end: 'bottom 40%',
+                            toggleActions: 'play none none reverse',
+                        },
+                    },
+                );
+            });
         });
-    }, [sectionTitles, sectionDescriptions, sectionImagesTop, sectionImagesBottom]);
+    }, [titlesRef]);
 
     return (
         <div className="container-main">

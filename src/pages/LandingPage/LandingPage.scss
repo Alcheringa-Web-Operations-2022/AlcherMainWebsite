@@ -129,13 +129,10 @@
                 }
             }
         }
-
         #events-container {
-            height: 100vh;
+            position: relative;
+            background: transparent;
+            // height: 100%;
         }
-    }
-    #events-container {
-        position: relative;
-        // height: 100%;
     }
 }

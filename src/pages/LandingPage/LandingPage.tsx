@@ -148,10 +148,9 @@ function LandingPage() {
                         </div>
                     </div>
                 </div>
-                <div id="events-container"></div>
-            </section>
-            <section id="events-container">
-                <From_33sec />
+                <div id="events-container">
+                    <From_33sec />
+                </div>
             </section>
         </div>
     );
