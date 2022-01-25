@@ -29,7 +29,6 @@ function LandingPage() {
                     end: '+=150%',
                     scrub: true,
                     id: 'banner-trigger',
-
                 },
                 onUpdate: () => {
                     const imgSrc = images[Math.round(imageObj.currentImage)];
@@ -45,7 +44,6 @@ function LandingPage() {
                     end: '+=250%',
                     id: 'video-container',
                     scrub: true,
-
                 },
             });
 
@@ -55,7 +53,6 @@ function LandingPage() {
                     opacity: 0,
                 },
                 duration: 0.5,
-
             });
             tl.to(
                 '.video-container',
@@ -86,10 +83,10 @@ function LandingPage() {
                 start: 'top bottom',
                 end: '+=100%',
                 scrub: true,
-
-                id: 'cricles'
-            }, css: { 'margin-top': '0' }
-        })
+                id: 'cricles',
+            },
+            css: { 'margin-top': '0' },
+        });
     }, [loading]);
     const imageRef = useRef(null);
 
