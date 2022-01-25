@@ -55,7 +55,6 @@ const From_33sec = () => {
                 });
                 tl.to(ref.nextSibling, {
                     autoAlpha: 1,
-                    duration: 0.45,
                     ease: 'power3.inOut',
                 });
 

@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import From_33sec from '../routes/From_33sec';
+import Footer from '../routes/Footer';
 import React, { useEffect } from 'react';
 import '@app/App.scss';
 //import '../styles/locomotive-scroll.css';
@@ -25,6 +26,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/from_33sec" element={<From_33sec />} />
+                <Route path="/footer" element={<Footer />} />
             </Routes>
         </Router>
     );

@@ -7,6 +7,7 @@ import greenBg from '@assets/images/green_bg.png';
 import './LandingPage.scss';
 import { Power0 } from 'gsap/all';
 import From_33sec from '../../routes/From_33sec';
+import Footer from '../../routes/Footer';
 const landingImage = 'https://bucket-s3.alcheringa.in/alcheringain/animation1frames/zoom%20ree0001.png';
 const frameCount = 60;
 const totalFrames = 60;
@@ -19,7 +20,6 @@ function LandingPage() {
     const { images, loading } = useCacheBannerImages(frameCount, totalFrames);
     const imageObj = { currentImage: 0 };
     const videoRef = useRef(null);
-    const eventImagesRef = useRef([]);
 
     useEffect(() => {
         if (!loading) {
@@ -86,6 +86,7 @@ function LandingPage() {
                         trigger: '#events-container',
                         start: 'top bottom',
                         end: 'top 90%',
+                        // markers: true,
                         onEnter: () => {
                             gsap.to('.video-container', { background: 'transparent' });
                         },
@@ -168,6 +169,11 @@ function LandingPage() {
                 </div>
                 <div id="events-container">
                     <From_33sec />
+                </div>
+            </section>
+            <section id="footer">
+                <div id="footer-container">
+                    <Footer />
                 </div>
             </section>
         </div>
