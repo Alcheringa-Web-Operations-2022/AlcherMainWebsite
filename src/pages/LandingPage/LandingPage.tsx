@@ -6,6 +6,7 @@ import whiteRings from '@assets/images/white_rings.png';
 import greenBg from '@assets/images/green_bg.png';
 import './LandingPage.scss';
 import { Power0 } from 'gsap/all';
+import From_33sec from '../../routes/From_33sec';
 const landingImage = 'https://bucket-s3.alcheringa.in/alcheringain/animation1frames/zoom%20ree0001.png';
 const frameCount = 60;
 const totalFrames = 60;
@@ -47,7 +48,6 @@ function LandingPage() {
                     scrub: true,
                 },
             });
-
             tl.to('.section-text', { autoAlpha: 0, duration: 0.1 });
             tl.to(
                 '.video-container',
@@ -149,6 +149,9 @@ function LandingPage() {
                     </div>
                 </div>
                 <div id="events-container"></div>
+            </section>
+            <section id="events-container">
+                <From_33sec />
             </section>
         </div>
     );

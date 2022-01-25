@@ -1,3 +1,6 @@
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+import From_33sec from '../routes/From_33sec';
 import React, { useEffect } from 'react';
 import '@app/App.scss';
 //import '../styles/locomotive-scroll.css';
@@ -10,9 +13,20 @@ import LandingPage from '@pages/LandingPage/LandingPage';
 function App() {
     //useLocoScroll();
     return (
-        <div>
-            <LandingPage />
-        </div>
+        <Router>
+            <div>
+                {/* <div
+                    style={{
+                        width: '100vw',
+                        height: '100vh',
+                    }}
+                ></div> */}
+            </div>
+            <Routes>
+                <Route path="/" element={<LandingPage />} />
+                <Route path="/from_33sec" element={<From_33sec />} />
+            </Routes>
+        </Router>
     );
 }
 
