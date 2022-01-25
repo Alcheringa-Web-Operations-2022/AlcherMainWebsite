@@ -29,6 +29,7 @@ function LandingPage() {
                     end: '+=150%',
                     scrub: true,
                     id: 'banner-trigger',
+
                 },
                 onUpdate: () => {
                     const imgSrc = images[Math.round(imageObj.currentImage)];
@@ -44,10 +45,18 @@ function LandingPage() {
                     end: '+=250%',
                     id: 'video-container',
                     scrub: true,
+
                 },
             });
 
-            tl.to('.section-text', { autoAlpha: 0, duration: 0.1 });
+            tl.to('.section-text', {
+                css: {
+                    top: '10%',
+                    opacity: 0,
+                },
+                duration: 0.5,
+
+            });
             tl.to(
                 '.video-container',
                 {
@@ -69,6 +78,18 @@ function LandingPage() {
             );
             tl.to('.white__rings', { scale: 4.5, duration: 2, ease: 'power0' }, '<');
         }
+
+        //position of the circles
+        gsap.to('.white__rings', {
+            scrollTrigger: {
+                trigger: '#alcher-video',
+                start: 'top bottom',
+                end: '+=100%',
+                scrub: true,
+
+                id: 'cricles'
+            }, css: { 'margin-top': '0' }
+        })
     }, [loading]);
     const imageRef = useRef(null);
 
