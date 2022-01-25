@@ -19,6 +19,7 @@ function LandingPage() {
     const { images, loading } = useCacheBannerImages(frameCount, totalFrames);
     const imageObj = { currentImage: 0 };
     const videoRef = useRef(null);
+    const eventImagesRef = useRef([]);
 
     useEffect(() => {
         if (!loading) {
@@ -48,7 +49,7 @@ function LandingPage() {
                     scrub: true,
                 },
             });
-            tl.to('.section-text', { autoAlpha: 0, duration: 0.1 });
+            tl.to('.section-text', { autoAlpha: 0, top: 0, duration: 0.15 });
             tl.to(
                 '.video-container',
                 {
@@ -96,6 +97,17 @@ function LandingPage() {
                     },
                 },
             );
+
+            gsap.to('.img-container', {
+                scrollTrigger: {
+                    trigger: '#events-container',
+                    start: 'top top',
+                    end: 'bottom bottom',
+                    toggleActions: 'play reverse play reverse',
+                },
+                position: 'fixed',
+                duration: 4,
+            });
         }
     }, [loading]);
     const imageRef = useRef(null);
@@ -110,7 +122,7 @@ function LandingPage() {
                 <img id="banner-img" alt="Alcheringa 2022" src={landingImage} ref={imageRef} />
             </section>
             <section id="hero-trigger"></section>
-            <section id="green_bg_wrapper" style={{ backgroundImage: `url(${greenBg})` }}>
+            <section id="green_bg_wrapper" style={{ backgroundColor: 'green' }}>
                 <div id="alcher-video">
                     <div className="circle-container">
                         <div className="circles-inner-container">
@@ -136,6 +148,12 @@ function LandingPage() {
                                 muted
                                 autoPlay
                                 ref={videoRef}
+                                onPause={() => {
+                                    videoRef.current.style.cursor = 'url(https://i.ibb.co/J2Rs7CN/play.png), auto';
+                                }}
+                                onPlay={() => {
+                                    videoRef.current.style.cursor = 'url(https://i.ibb.co/5YjXb7X/play.png), auto';
+                                }}
                             ></video>
                         </div>
                         <div className="video_top_text">

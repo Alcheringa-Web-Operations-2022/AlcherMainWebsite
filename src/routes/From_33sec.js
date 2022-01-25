@@ -42,20 +42,21 @@ const From_33sec = () => {
                 const tl = gsap.timeline({
                     scrollTrigger: {
                         trigger: ref,
-                        start: '-10% 40%',
-                        end: '110% 40%',
+                        start: '-25% 40%',
+                        end: '125% 40%',
                         toggleActions: 'play reverse play reverse',
                     },
                 });
                 tl.to(ref, {
                     duration: 0.45,
                     opacity: 1,
-                    fontSize: '5.8rem',
-                    ease: 'power4.inOut',
+                    fontSize: '6rem',
+                    ease: 'power3.inOut',
                 });
                 tl.to(ref.nextSibling, {
                     autoAlpha: 1,
-                    // duration: 0.45,
+                    duration: 0.45,
+                    ease: 'power3.inOut',
                 });
 
                 const ht = document.querySelector('.img-side').offsetHeight;
@@ -72,6 +73,7 @@ const From_33sec = () => {
                             end: 'bottom 40%',
                             toggleActions: 'play none none reverse',
                         },
+                        duration: 0.35,
                     },
                 );
             });
