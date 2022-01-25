@@ -6,10 +6,36 @@
 
 .img-container {
     position: fixed;
-    left: 5%;
-    top: 5%;
     overflow: hidden;
+}
+
+.img-container {
+    position: fixed;
+    overflow: hidden;
+}
+
+.img-pos-11 {
+    top: 5%;
+    left: 5%;
     height: 50vh;
+}
+
+.img-pos-21 {
+    bottom: 5%;
+    left: 5%;
+    height: 30vh;
+}
+
+.img-pos-12 {
+    top: 5%;
+    right: 5%;
+    height: 50vh;
+}
+
+.img-pos-22 {
+    bottom: 5%;
+    right: 5%;
+    height: 30vh;
 }
 
 .img-wrapper {
@@ -22,6 +48,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
 }
 
 .text-container {
@@ -40,13 +67,13 @@
 
 .event-head {
     font-weight: bold;
-    font-size: 5rem;
+    font-size: 5.2rem;
     text-align: center;
     opacity: 0.65;
 }
 
 .event-description {
-    font-size: 1rem;
+    font-size: 1.2rem;
     text-align: center;
     max-width: 55ch;
     margin: auto;

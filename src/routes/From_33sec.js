@@ -8,41 +8,56 @@ import '../assets/styles/from_33sec.css';
 gsap.registerPlugin(ScrollTrigger);
 const sectionTitles = ['PRONITES', 'PROSHOWS', 'HUMOUR FEST', 'COMPETITIONS', 'EXHIBITION', 'FLICKERINGA'];
 const sectionDescriptions = [
-    'vitae auctor eu augue ut lectus arcu bibendum at varius vel pharetra vel turpis nunc vitae',
-    'vitae auctor eu augue ut lectus arcu bibendum at varius vel pharetra vel turpis nunc vitae',
-    'vitae auctor eu augue ut lectus arcu bibendum at varius vel pharetra vel turpis nunc vitae',
-    'vitae auctor eu augue ut lectus arcu bibendum at varius vel pharetra vel turpis nunc vitae',
-    'vitae auctor eu augue ut lectus arcu bibendum at varius vel pharetra vel turpis nunc vitae',
-    'vitae auctor eu augue ut lectus arcu bibendum at varius vel pharetra vel turpis nunc vitae',
+    'urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt arcu non sodales neque sodales ut etiam sit amet nisl purus in',
+    'urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt arcu non sodales neque sodales ut etiam sit amet nisl purus in',
+    'urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt arcu non sodales neque sodales ut etiam sit amet nisl purus in',
+    'urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt arcu non sodales neque sodales ut etiam sit amet nisl purus in',
+    'urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt arcu non sodales neque sodales ut etiam sit amet nisl purus in',
+    'urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt arcu non sodales neque sodales ut etiam sit amet nisl purus in',
+];
+const sectionImagesTop = [
+    'https://terrigen-cdn-dev.marvel.com/content/prod/1x/snh_online_6072x9000_hero_03_opt.jpg',
+    'https://terrigen-cdn-dev.marvel.com/content/prod/1x/snh_online_6072x9000_posed_01.jpg',
+    'https://terrigen-cdn-dev.marvel.com/content/prod/1x/snh_online_6072x9000_hero_03_opt.jpg',
+    'https://terrigen-cdn-dev.marvel.com/content/prod/1x/snh_online_6072x9000_posed_01.jpg',
+    'https://terrigen-cdn-dev.marvel.com/content/prod/1x/snh_online_6072x9000_hero_03_opt.jpg',
+    'https://terrigen-cdn-dev.marvel.com/content/prod/1x/snh_online_6072x9000_posed_01.jpg',
+    'https://terrigen-cdn-dev.marvel.com/content/prod/1x/snh_online_6072x9000_posed_01.jpg',
+];
+const sectionImagesBottom = [
+    'https://www.denofgeek.com/wp-content/uploads/2021/12/spider-man-no-way-home-poster-tom-holland-sony.jpg',
+    'https://static0.cbrimages.com/wordpress/wp-content/uploads/2021/11/spider-man-3-imax-header.jpg',
+    'https://www.denofgeek.com/wp-content/uploads/2021/12/spider-man-no-way-home-poster-tom-holland-sony.jpg',
+    'https://static0.cbrimages.com/wordpress/wp-content/uploads/2021/11/spider-man-3-imax-header.jpg',
+    'https://www.denofgeek.com/wp-content/uploads/2021/12/spider-man-no-way-home-poster-tom-holland-sony.jpg',
+    'https://static0.cbrimages.com/wordpress/wp-content/uploads/2021/11/spider-man-3-imax-header.jpg',
+    'https://static0.cbrimages.com/wordpress/wp-content/uploads/2021/11/spider-man-3-imax-header.jpg',
 ];
 
 const From_33sec = () => {
     const titlesRef = useRef([]);
     useEffect(() => {
         titlesRef.current.forEach((ref, index) => {
-            gsap.to(ref, {
+            const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: ref,
-                    start: 'top 30%',
-                    end: 'bottom 30%',
+                    start: '-10% 40%',
+                    end: '110% 40%',
                     markers: true,
                     toggleActions: 'play reverse play reverse',
                 },
+            });
+            tl.to(ref, {
                 duration: 0.45,
                 opacity: 1,
-                fontSize: '5.2rem',
+                fontSize: '5.8rem',
+                ease: 'power4.inOut',
+            });
+            tl.to(ref.nextSibling, {
+                autoAlpha: 1,
+                // duration: 0.45,
             });
 
-            gsap.to(ref.nextSibling, {
-                scrollTrigger: {
-                    trigger: ref,
-                    start: 'top 30%',
-                    end: 'bottom 30%',
-                    toggleActions: 'play reverse play reverse',
-                },
-                autoAlpha: 1,
-                duration: 0.45,
-            });
             const ht = document.querySelector('.img-side').offsetHeight;
             gsap.fromTo(
                 '.img-wrapper',
@@ -53,28 +68,42 @@ const From_33sec = () => {
                     translateY: -1 * (index + 1) * ht,
                     scrollTrigger: {
                         trigger: ref,
-                        start: 'top 30%',
-                        end: 'bottom 30%',
+                        start: 'top 40%',
+                        end: 'bottom 40%',
                         toggleActions: 'play none none reverse',
                     },
                 },
             );
         });
-    }, []);
+    }, [sectionTitles, sectionDescriptions, sectionImagesTop, sectionImagesBottom]);
 
     return (
         <div className="container-main">
-            <div className="img-container">
+            <div className="img-container img-pos-11">
                 <div className="img-wrapper">
-                    {sectionTitles.map((_, i) => {
-                        return (
-                            <img
-                                key={i}
-                                className="img-side"
-                                src="https://static1.moviewebimages.com/wordpress/wp-content/uploads/2022/01/Spider-Man-No-Way-Home-Poster-1.jpg"
-                                alt="img2"
-                            />
-                        );
+                    {sectionImagesTop.map((src, i) => {
+                        return <img key={i} className="img-side" src={src} alt="img-top" />;
+                    })}
+                </div>
+            </div>
+            <div className="img-container img-pos-21">
+                <div className="img-wrapper">
+                    {sectionImagesBottom.map((src, i) => {
+                        return <img key={i} className="img-side" src={src} alt="img-top" />;
+                    })}
+                </div>
+            </div>
+            <div className="img-container img-pos-12">
+                <div className="img-wrapper">
+                    {sectionImagesTop.map((src, i) => {
+                        return <img key={i} className="img-side" src={src} alt="img-top" />;
+                    })}
+                </div>
+            </div>
+            <div className="img-container img-pos-22">
+                <div className="img-wrapper">
+                    {sectionImagesBottom.map((src, i) => {
+                        return <img key={i} className="img-side" src={src} alt="img-top" />;
                     })}
                 </div>
             </div>
