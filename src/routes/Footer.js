@@ -7,6 +7,7 @@ import colleges from '../assets/footer/colleges.svg';
 import phoneLeft from '../assets/footer/phoneLeft.png';
 import phoneRight from '../assets/footer/phoneRight.png';
 import alcherLadyImg from '../assets/alcher-lady.png';
+import footerBg from '@assets/images/space_bg.png';
 
 import { useEffect, useRef } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -37,7 +38,13 @@ const Footer = () => {
         });
     }, []);
     return (
-        <div className="footer-container">
+        <div
+            className="footer-container"
+            style={{
+                background: `url(${footerBg})`,
+                backgroundSize: 'cover',
+            }}
+        >
             <div className="icons-container" ref={iconsContainerRef}>
                 <div className="icon-wrapper">
                     <img width="150" src={editions} alt="editions" />

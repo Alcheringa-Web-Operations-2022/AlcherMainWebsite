@@ -2,7 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import useCacheBannerImages from '../../hooks/useCacheBannerImages';
-import whiteRings from '@assets/images/white_rings.png';
+import whiteRings from '@assets/images/white_rings.svg';
+import spaceBg from '@assets/images/space_bg.png';
 import greenBg from '@assets/images/green_bg.png';
 import './LandingPage.scss';
 import { Power0 } from 'gsap/all';
@@ -119,7 +120,13 @@ function LandingPage() {
 
     return (
         <div className="landing-container">
-            <section id="banner-image-wrapper">
+            <section
+                id="banner-image-wrapper"
+                style={{
+                    background: `url(${spaceBg})`,
+                    backgroundPosition: '100% 0%',
+                }}
+            >
                 <img id="banner-img" alt="Alcheringa 2022" src={landingImage} ref={imageRef} />
             </section>
             <section id="hero-trigger"></section>
