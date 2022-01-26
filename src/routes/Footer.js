@@ -1,3 +1,4 @@
+import gsap from 'gsap';
 import '../assets/styles/footer.css';
 import editions from '../assets/footer/editions.svg';
 import footfall from '../assets/footer/footfall.svg';
@@ -5,8 +6,9 @@ import events from '../assets/footer/events.svg';
 import colleges from '../assets/footer/colleges.svg';
 import phoneLeft from '../assets/footer/phoneLeft.png';
 import phoneRight from '../assets/footer/phoneRight.png';
+import alcherLadyImg from '../assets/alcher-lady.png';
+
 import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -14,28 +16,25 @@ gsap.registerPlugin(ScrollTrigger);
 const Footer = () => {
     const iconsContainerRef = useRef();
     useEffect(() => {
-        gsap.to(iconsContainerRef.current, {
+        gsap.to('.phones-container', {
             scrollTrigger: {
-                trigger: iconsContainerRef.current,
-                pin: true,
-                start: 'top top',
-                end: 'bottom bottom',
-                // markers: true,
+                trigger: '.phones-container',
+                start: 'top 70%',
+                end: 'top top',
+                toggleActions: 'play reverse play reverse',
+                scrub: true,
             },
+            opacity: 1,
         });
 
-        gsap.to(
-            '.phones-container img',
-            {
-                scrollTrigger: {
-                    trigger: '.phones-container img',
-                    toggleActions: 'play reverse play reverse',
-                    markers: true,
-                },
-                opacity: 1,
+        gsap.to('.alcher-lady-container-2 img', {
+            scrollTrigger: {
+                trigger: '.alcher-lady-container-1',
+                start: '100% 60%',
+                scrub: true,
             },
-            '>',
-        );
+            width: '40vw',
+        });
     }, []);
     return (
         <div className="footer-container">
@@ -66,6 +65,16 @@ const Footer = () => {
                     Maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam
                     at lectus urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt
                 </div>
+            </div>
+            <div className="alcher-lady-container-1"></div>
+            <div className="alcher-lady-container-2">
+                <p>
+                    EVENTS <br /> CAMPAIGNS <br /> MUN <br /> TEAM <br /> CONTACT <br /> SPONSORS
+                </p>
+                <img src={alcherLadyImg} alt="alcher-lady" />
+                <p>
+                    EVENTS <br /> CAMPAIGNS <br /> MUN <br /> TEAM <br /> CONTACT <br /> SPONSORS
+                </p>
             </div>
         </div>
     );
