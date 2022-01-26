@@ -12,8 +12,9 @@ const preloadImage = async (index: number, setImages) => {
         const imgSrc = currentFrame(index);
         img.src = imgSrc;
         setImages((prev) => [...prev, imgSrc]);
-        resolve(index);
-        // img.onload = resolve();
+        //resolve(index);
+        img.onload = () => resolve(index);
+        img.onerror = () => resolve(index);
         // img.onerror = reject();
     });
 };
@@ -27,8 +28,10 @@ const useCacheBannerImages = (frameCount: number, totalFrames: number) => {
         const cacheImages = async () => {
             const array = new Array(frameCount).fill(undefined);
             const promises = array.map((_, i) => {
-                return preloadImage((i + 1) * multiplier, setImages);
+                return preloadImage(Math.round(i * multiplier + 1), setImages);
             });
+
+            promises.push(preloadImage(totalFrames, setImages));
 
             await Promise.all(promises);
             setLoading(false);

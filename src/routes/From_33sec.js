@@ -39,12 +39,31 @@ const From_33sec = () => {
     useEffect(() => {
         gsap.delayedCall(1, () => {
             titlesRef.current.forEach((ref, index) => {
+                const ht = document.querySelector('.img-side').offsetHeight;
+                gsap.fromTo(
+                    '.img-wrapper',
+                    {
+                        translateY: -1 * index * ht,
+                    },
+                    {
+                        translateY: -1 * (index + 1) * ht,
+                        scrollTrigger: {
+                            trigger: ref,
+                            start: '-25% 40%',
+                            end: '125% 40%',
+                            toggleActions: 'play none none reverse',
+                        },
+                        duration: 1.4,
+                    },
+                );
+
                 const tl = gsap.timeline({
                     scrollTrigger: {
                         trigger: ref,
                         start: '-25% 40%',
                         end: '125% 40%',
                         toggleActions: 'play reverse play reverse',
+                        srub: true,
                     },
                 });
                 tl.to(ref, {
@@ -57,24 +76,6 @@ const From_33sec = () => {
                     autoAlpha: 1,
                     ease: 'power3.inOut',
                 });
-
-                const ht = document.querySelector('.img-side').offsetHeight;
-                gsap.fromTo(
-                    '.img-wrapper',
-                    {
-                        translateY: -1 * index * ht,
-                    },
-                    {
-                        translateY: -1 * (index + 1) * ht,
-                        scrollTrigger: {
-                            trigger: ref,
-                            start: 'top 40%',
-                            end: 'bottom 40%',
-                            toggleActions: 'play none none reverse',
-                        },
-                        duration: 0.35,
-                    },
-                );
             });
         });
     }, [titlesRef]);

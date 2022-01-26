@@ -16,24 +16,56 @@ gsap.registerPlugin(ScrollTrigger);
 const Footer = () => {
     const iconsContainerRef = useRef();
     useEffect(() => {
-        gsap.to('.phones-container', {
-            scrollTrigger: {
-                trigger: '.phones-container',
-                start: 'top 70%',
-                end: 'top top',
-                toggleActions: 'play reverse play reverse',
-                scrub: true,
-            },
-            opacity: 1,
-        });
+        gsap.delayedCall(1, () => {
+            gsap.fromTo(
+                '.phones-container',
+                { y: 200 },
+                {
+                    scrollTrigger: {
+                        trigger: '.phones-container',
+                        start: 'top bottom',
+                        end: 'center center',
+                        toggleActions: 'play none none reverse',
+                        id: 'phones',
+                    },
+                    opacity: 1,
+                    y: 0,
+                },
+            );
 
-        gsap.to('.alcher-lady-container-2 img', {
-            scrollTrigger: {
-                trigger: '.alcher-lady-container-1',
-                start: '100% 60%',
-                scrub: true,
-            },
-            width: '40vw',
+            gsap.fromTo(
+                '.alcher-lady-container-2 img',
+                { y: 0 },
+                {
+                    scrollTrigger: {
+                        trigger: '.alcher-lady-container-1',
+                        start: 'top bottom',
+                        id: 'alcher_lady',
+                        toggleActions: 'play none none reverse',
+                    },
+                    y: -250,
+                    scale: 1.2,
+                },
+            );
+
+            gsap.fromTo(
+                '.alcher-lady-container-2 img',
+                { y: -250, scale: 1.2 },
+                {
+                    scrollTrigger: {
+                        trigger: '.alcher-lady-container-2',
+                        start: 'top bottom',
+                        end: 'top center',
+                        id: 'alcher_lady_back',
+                        scrub: true,
+                        toggleActions: 'play none none reverse',
+                        // markers: true,
+                    },
+                    duration: 1,
+                    y: 0,
+                    scale: 1,
+                },
+            );
         });
     }, []);
     return (
