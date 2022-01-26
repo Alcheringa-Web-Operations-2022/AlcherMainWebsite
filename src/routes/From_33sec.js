@@ -39,25 +39,6 @@ const From_33sec = () => {
     useEffect(() => {
         gsap.delayedCall(1, () => {
             titlesRef.current.forEach((ref, index) => {
-                const tl = gsap.timeline({
-                    scrollTrigger: {
-                        trigger: ref,
-                        start: '-10% 40%',
-                        end: '110% 40%',
-                        toggleActions: 'play reverse play reverse',
-                    },
-                });
-                tl.to(ref, {
-                    duration: 0.45,
-                    opacity: 1,
-                    fontSize: '5.8rem',
-                    ease: 'power4.inOut',
-                });
-                tl.to(ref.nextSibling, {
-                    autoAlpha: 1,
-                    // duration: 0.45,
-                });
-
                 const ht = document.querySelector('.img-side').offsetHeight;
                 gsap.fromTo(
                     '.img-wrapper',
@@ -68,12 +49,33 @@ const From_33sec = () => {
                         translateY: -1 * (index + 1) * ht,
                         scrollTrigger: {
                             trigger: ref,
-                            start: 'top 40%',
-                            end: 'bottom 40%',
+                            start: '-25% 40%',
+                            end: '125% 40%',
                             toggleActions: 'play none none reverse',
                         },
+                        duration: 1.4,
                     },
                 );
+
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: ref,
+                        start: '-25% 40%',
+                        end: '125% 40%',
+                        toggleActions: 'play reverse play reverse',
+                        srub: true,
+                    },
+                });
+                tl.to(ref, {
+                    duration: 0.45,
+                    opacity: 1,
+                    fontSize: '6rem',
+                    ease: 'power3.inOut',
+                });
+                tl.to(ref.nextSibling, {
+                    autoAlpha: 1,
+                    ease: 'power3.inOut',
+                });
             });
         });
     }, [titlesRef]);
