@@ -100,7 +100,7 @@ function LandingPage() {
                     autoAlpha: 0,
                     duration: 0.4,
                 },
-                '<',
+                '>',
             );
 
             gsap.to('#green_bg_wrapper', {

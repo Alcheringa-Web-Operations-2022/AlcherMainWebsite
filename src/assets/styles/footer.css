@@ -3,13 +3,14 @@
     color: white;
     height: 100%;
     width: 100%;
+    overflow: hidden;
 }
 
 .icons-container {
     display: flex;
     justify-content: space-around;
     padding-top: 20vh;
-    padding-bottom: 45vh;
+    padding-bottom: 20vh;
 }
 
 /* .icons-container img {
@@ -27,8 +28,10 @@
 .phones-container {
     display: flex;
     justify-content: center;
+    height: 100vh;
+    padding: 5vh 0;
     gap: 180px;
-    opacity: 0.4;
+    opacity: 0.3;
 }
 
 .phones-wrapper {
@@ -49,4 +52,26 @@
     font-size: 28px;
     font-weight: 500;
     line-height: 38px;
+}
+
+.alcher-lady-container-1 {
+    height: 40vh;
+}
+.alcher-lady-container-2 {
+    display: flex;
+    justify-content: space-between;
+    padding:0 2rem;
+    height:90vh;
+}
+
+.alcher-lady-container-2 p {
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 55px;
+}
+
+.alcher-lady-container-2 img {
+    margin-top: auto;
+    height: 100%;
+    object-fit: contain;
 }
