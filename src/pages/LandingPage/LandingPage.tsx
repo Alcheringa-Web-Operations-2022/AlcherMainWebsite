@@ -3,8 +3,10 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import useCacheBannerImages from '../../hooks/useCacheBannerImages';
 import whiteRings from '@assets/images/white_rings.png';
+import greenBg from '@assets/images/green_bg.png';
 import './LandingPage.scss';
 import { Power0 } from 'gsap/all';
+import From_33sec from '../../routes/From_33sec';
 const landingImage = 'https://bucket-s3.alcheringa.in/alcheringain/animation1frames/zoom%20ree0001.png';
 const frameCount = 60;
 const totalFrames = 60;
@@ -57,7 +59,7 @@ function LandingPage() {
             tl.to(
                 '.video-container',
                 {
-                    css: { clipPath: 'circle(100% at 52% 50%)' },
+                    css: { clipPath: 'circle(100% at 50% 50%)' },
                     ease: 'power1',
                     duration: 2,
                     onStart: async () => {
@@ -74,6 +76,46 @@ function LandingPage() {
                 '>',
             );
             tl.to('.white__rings', { scale: 4.5, duration: 2, ease: 'power0' }, '<');
+            tl.to('.circle-container', { autoAlpha: 0, duration: 0 }, '>');
+            tl.to(
+                '.video-wrapper',
+                { left: '25%', right: '25%', bottom: '40%', onStart: () => (videoRef.current.controls = false) },
+                '>',
+            );
+            tl.from('.video_top_text', { y: 50, autoAlpha: 0 }, '>');
+
+            gsap.to(
+                { opacity: 0 },
+                {
+                    opacity: 1,
+                    scrollTrigger: {
+                        trigger: '#events-container',
+                        markers: true,
+                        start: 'top bottom',
+                        end: 'top 90%',
+                        onEnter: () => {
+                            gsap.to('.video-container', { background: 'transparent' });
+                        },
+                        onEnterBack: () => {
+                            gsap.to('.video-container', { background: ' #9b3d4f' });
+                        },
+                        id: 'video-container',
+                        scrub: true,
+                    },
+                },
+            );
+
+            gsap.to('#green_bg_wrapper', {
+                backgroundPosition: `0px -1200px`,
+                scrollTrigger: {
+                    trigger: '#events-container',
+                    markers: true,
+                    start: 'top center',
+                    end: 'bottom top',
+                    id: 'video-container',
+                    scrub: true,
+                },
+            });
         }
 
         //position of the circles
@@ -100,7 +142,7 @@ function LandingPage() {
                 <img id="banner-img" alt="Alcheringa 2022" src={landingImage} ref={imageRef} />
             </section>
             <section id="hero-trigger"></section>
-            <section>
+            <section id="green_bg_wrapper" style={{ backgroundImage: `url(${greenBg})` }}>
                 <div id="alcher-video">
                     <div className="circle-container">
                         <div className="circles-inner-container">
@@ -113,26 +155,34 @@ function LandingPage() {
                         </div>
                     </div>
                     <div className="video-container">
-                        <video
-                            src="https://bucket-s3.alcheringa.in/alcherregistratiosstatic/videos/trailer.mp4"
-                            playsInline
-                            webkit-playsinline="true"
-                            preload="auto"
-                            loop
-                            className="video"
-                            id="alcher_intro_video"
-                            controls
-                            muted
-                            autoPlay
-                            ref={videoRef}
-                        ></video>
-                    </div>
-                    <div className="main-container">
-                        <div></div>
-                        <div></div>
+                        <div className="video-wrapper">
+                            <video
+                                src="https://bucket-s3.alcheringa.in/alcherregistratiosstatic/videos/trailer.mp4"
+                                playsInline
+                                webkit-playsinline="true"
+                                preload="auto"
+                                loop
+                                className="video"
+                                id="alcher_intro_video"
+                                controls
+                                muted
+                                autoPlay
+                                ref={videoRef}
+                            ></video>
+                        </div>
+                        <div className="video_top_text">
+                            <p className="title">VOYAGE TO NEOTERRA</p>
+                            <p className="subtitle">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                exercitation ullamco laboris.
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <div></div>
+                <div id="events-container">
+                    <From_33sec />
+                </div>
             </section>
         </div>
     );

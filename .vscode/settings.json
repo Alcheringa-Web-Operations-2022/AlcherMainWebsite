@@ -5,6 +5,5 @@
         "source.fixAll.eslint": true
     },
     "eslint.run": "onSave",
-    "prettier.disableLanguages": [],
     "eslint.alwaysShowStatus": true,
 }

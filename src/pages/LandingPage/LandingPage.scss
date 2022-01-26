@@ -23,68 +23,119 @@
         height: 100vh;
     }
 
-    #alcher-video {
-        height: 100vh;
+    #green_bg_wrapper:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.35);
+    }
+
+    #green_bg_wrapper {
         position: relative;
-        z-index: 2;
-        margin-top: -30vh;
-        .circle-container {
-            position: absolute;
-            top: 0%;
-            right: 0%;
-            width: 100%;
+        background-size: cover;
+        #alcher-video {
+            height: 100vh;
+            position: relative;
             z-index: 2;
-            height: 100%;
-            display: grid;
-            place-items: center;
-            background-color: white;
-            background-clip: circle(0% at 50% 50%);
-
-            .circles-inner-container {
-                position: relative;
+            margin-top: -30vh;
+            .circle-container {
+                position: absolute;
+                top: 0%;
+                right: 0%;
                 width: 100%;
-                height: 100vh;
-                overflow: hidden;
-                padding: 1rem;
+                z-index: 2;
+                height: 100%;
+                display: grid;
+                place-items: center;
+                background-color: white;
+                background-clip: circle(0% at 50% 50%);
 
-                .white__rings {
+                .circles-inner-container {
+                    position: relative;
                     width: 100%;
-                    height: 100%;
-                    object-fit: contain;
-                    object-position: center;
-                    margin-top:-60%;
+                    height: 100vh;
+                    overflow: hidden;
+                    padding: 1rem;
+
+                    .white__rings {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                        object-position: center;
+                        margin-top:-60%;
+                    }
+
+                    .section-text {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        font-family: 'Roboto', sans-serif;
+                        font-size: 1.5rem;
+                        max-width: 90vw;
+                        width: 800px;
+                        text-align: center;
+                        color: #2d2d2d;
+                    }
+                }
+            }
+
+            .video-container {
+                position: relative;
+                width: 100vw;
+                z-index: 3;
+                height: 100vh;
+                clip-path: circle(0% at 50% 50%);
+                outline: none;
+                background-color: #9b3d4f;
+                color: white;
+
+                .video-wrapper {
+                    position: absolute;
+                    top: 0%;
+                    bottom: 0%;
+                    left: 0%;
+                    right: 0%;
+                    .video {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        outline: none;
+                        border-radius: 0.3rem;
+                    }
                 }
 
-                .section-text {
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    font-family: 'Roboto', sans-serif;
-                    font-size: 1.5rem;
-                    max-width: 90vw;
-                    width: 800px;
+                .video_top_text {
+                    position: relative;
+                    z-index: 4;
                     text-align: center;
-                    color: #2d2d2d;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    top: 50%;
+                    .title {
+                        width: 900px;
+                        max-width: 90vw;
+                        font-size: 4.3rem;
+                        font-weight: 900;
+                        font-style: normal;
+                    }
+                    .subtitle {
+                        margin-top: 2rem;
+                        width: 700px;
+                        max-width: 90vw;
+                        font-size: 1.3rem;
+                    }
                 }
             }
         }
-
-        .video-container {
-            position: absolute;
-            top: 0%;
-            right: 0%;
-            width: 100vw;
-            z-index: 3;
-            height: 100vh;
-            clip-path: circle(0% at 50% 50%);
-            outline: none;
-            .video {
-                width: 100vw;
-                height: 100%;
-                object-fit: cover;
-                outline: none;
-            }
+        #events-container {
+            position: relative;
+            background: transparent;
+            // height: 100%;
         }
     }
    
