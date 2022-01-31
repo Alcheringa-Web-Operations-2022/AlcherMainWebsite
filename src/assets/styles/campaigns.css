@@ -1,0 +1,26 @@
+.campaigns-container-main {
+    background-color: black;
+    /* position: relative; */
+    overflow: hidden;
+    height: 100vh;
+    width: 100%;
+}
+
+.campaigns-head {
+    font-weight: 700;
+    font-size: 5.5vw;
+    color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transform-style: preserve-3d;
+}
+
+.campaigns-img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    padding: 10px;
+    opacity: 0;
+}

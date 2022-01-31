@@ -38,18 +38,22 @@
 
 .events-planet-wrapper {
     margin: auto;
+    position: relative;
 }
 
 .events-planet-wrapper h1 {
     position: absolute;
     top: 48%;
-    left: 38.5%;
+    left: 0;
+    right: 0;
+    margin: auto;
     text-align: center;
     font-size: 90px;
     font-weight: 600;
     transform: scale(0.9, 1.5);
 }
-/* 
-.events-img-wrapper-1 img {
-    width: 250px;
-} */
+
+.event-wrapper {
+    height: 100vh;
+    background-color: gray;
+}
