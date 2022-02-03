@@ -4,7 +4,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import useCacheBannerImages from '../../hooks/useCacheBannerImages';
 import whiteRings from '@assets/images/white_rings.svg';
 import spaceBg from '@assets/images/space_bg.png';
+import starsBg from '@assets/images/stars_bg.png';
 import greenBg from '@assets/images/green_bg.png';
+import alcherlogo from '@assets/images/alcherlogo.svg';
 import './LandingPage.scss';
 import From_33sec from '../../routes/From_33sec';
 import Footer from '../../routes/Footer';
@@ -126,7 +128,41 @@ function LandingPage() {
                 duration: 4,
             });
         }
+        //logo animation
+        gsap.to('.logo-container', {
+            scrollTrigger: {
+                trigger: 'body',
+                start: '2vh',
+                toggleActions: 'play reverse play reverse',
+            },
+            css: {
+                'margin-top': '-50vh',
+            },
+            duration: 0.2,
+        });
 
+        //navigation
+        const tl = gsap.timeline({ paused: true, reversed: true });
+
+        tl.to('.bottom-nav', {
+            css: {
+                bottom: '-20vh',
+            },
+            duration: 0.2,
+        });
+        tl.to('.top-nav', {
+            css: {
+                top: '0',
+            },
+            duration: 0.2,
+        });
+        document.addEventListener('wheel', (e) => {
+            if (e.deltaY > 0) {
+                tl.play();
+            } else {
+                tl.reverse();
+            }
+        });
         //position of the circles
         gsap.to('.white__rings', {
             scrollTrigger: {
@@ -147,13 +183,35 @@ function LandingPage() {
 
     return (
         <div className="landing-container">
+            <div className="navigation">
+                <div className="top-nav">
+                    <div className="">EVENTS</div>
+                    <div className="">CAMPAIGNS</div>
+                    <div className="">MUN</div>
+                    <div className="">TEAM</div>
+                    <div className="">CONTACT</div>
+                    <div className="">SPONSORS</div>
+                </div>
+                <div className="bottom-nav">
+                    <div className="">EVENTS</div>
+                    <div className="">CAMPAIGNS</div>
+                    <div className="">MUN</div>
+                    <div className="">TEAM</div>
+                    <div className="">CONTACT</div>
+                    <div className="">SPONSORS</div>
+                </div>
+            </div>
             <section
                 id="banner-image-wrapper"
                 style={{
-                    background: `url(${spaceBg})`,
+                    background: `url(${starsBg})`,
                     backgroundPosition: '100% 0%',
                 }}
             >
+                <div className="logo-container">
+                    <img src={alcherlogo} alt="" />
+                    <button>JOIN NOW</button>
+                </div>
                 <img id="banner-img" alt="Alcheringa 2022" src={landingImage} ref={imageRef} />
             </section>
             <section id="hero-trigger"></section>

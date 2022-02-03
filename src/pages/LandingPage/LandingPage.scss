@@ -6,6 +6,41 @@
 
 .landing-container {
     background-color:rgb(177, 87, 87);
+    
+    .navigation{
+        .top-nav{
+            z-index:100;
+            display:flex;
+            width:100%;
+            padding:1% 25%;
+            background-color: transparent;
+            position:fixed;
+            top:-20vh;
+            justify-content: space-between;
+            color:white;
+            font-weight:bold;
+            div{
+                cursor:pointer;
+            }
+
+        }
+        .bottom-nav{
+            z-index:100;
+            display:flex;
+            width:100%;
+            padding:1% 25%;
+            background-color: transparent;
+            position:fixed;
+            bottom:0;
+            justify-content: space-between;
+            color:white;
+            font-weight:bold;
+            div{
+                cursor:pointer;
+            }
+        }
+        
+    }
     #banner-image-wrapper {
         background-color: black;
         height: 100vh;
@@ -16,8 +51,31 @@
             height: 100%;
             object-fit: cover;
             object-position: center;
+            position:absolute;
+            top:0;
+            left:0;
         }
+        .logo-container{
+            margin:5% auto;
+            width:70%;
+            max-width:800px;
+            display:flex;
+            flex-direction:column;
+            justify-content: center;
+            align-items: center;
+           img{
+               width:100%;
+           }
+           button{
+               margin-top:1rem;
+               background-color:#EE6337;
+               color:white;
+               padding:1rem 2rem;
+               border:none;
+           }
+          }
     }
+    
 
     #hero-trigger {
         height: 100vh;
