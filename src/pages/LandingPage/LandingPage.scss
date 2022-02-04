@@ -12,16 +12,26 @@
             z-index:100;
             display:flex;
             width:100%;
-            padding:1% 25%;
+            padding:1% 5%;
             background-color: transparent;
             position:fixed;
             top:-20vh;
             justify-content: space-between;
             color:white;
             font-weight:bold;
-            div{
-                cursor:pointer;
+            .nav-links{
+                display:flex;
+                justify-content: space-around;
+                width:50%;
+                div{
+                    cursor:pointer;
+                   
+                }
+
             }
+                
+                
+            
 
         }
         .bottom-nav{
@@ -101,7 +111,8 @@
             left:0;
             width:100vw;
             height: 100%;
-            background-color: #9b3d4f;
+            background: url('https://i.ibb.co/M9TvS2G/desert-bg.jpg');
+            background-size:contain;
 
         }
 

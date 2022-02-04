@@ -6,6 +6,7 @@ import whiteRings from '@assets/images/white_rings.svg';
 import spaceBg from '@assets/images/space_bg.png';
 import starsBg from '@assets/images/stars_bg.png';
 import greenBg from '@assets/images/green_bg.png';
+import forestBg from '@assets/images/forest_bg.jpg';
 import alcherlogo from '@assets/images/alcherlogo.svg';
 import './LandingPage.scss';
 import From_33sec from '../../routes/From_33sec';
@@ -143,7 +144,6 @@ function LandingPage() {
 
         //navigation
         const tl = gsap.timeline({ paused: true, reversed: true });
-
         tl.to('.bottom-nav', {
             css: {
                 bottom: '-20vh',
@@ -185,12 +185,17 @@ function LandingPage() {
         <div className="landing-container">
             <div className="navigation">
                 <div className="top-nav">
-                    <div className="">EVENTS</div>
-                    <div className="">CAMPAIGNS</div>
-                    <div className="">MUN</div>
-                    <div className="">TEAM</div>
-                    <div className="">CONTACT</div>
-                    <div className="">SPONSORS</div>
+                    <div>
+                        <img src="" alt="" />
+                    </div>
+                    <div className="nav-links">
+                        <div className="">EVENTS</div>
+                        <div className="">CAMPAIGNS</div>
+                        <div className="">MUN</div>
+                        <div className="">TEAM</div>
+                        <div className="">CONTACT</div>
+                        <div className="">SPONSORS</div>
+                    </div>
                 </div>
                 <div className="bottom-nav">
                     <div className="">EVENTS</div>
@@ -215,7 +220,7 @@ function LandingPage() {
                 <img id="banner-img" alt="Alcheringa 2022" src={landingImage} ref={imageRef} />
             </section>
             <section id="hero-trigger"></section>
-            <section id="green_bg_wrapper" style={{ background: `url(${greenBg})` }}>
+            <section id="green_bg_wrapper" style={{ background: `url(${forestBg})` }}>
                 <div id="desert_bg" />
                 <div id="alcher-video">
                     <div className="circle-container">
