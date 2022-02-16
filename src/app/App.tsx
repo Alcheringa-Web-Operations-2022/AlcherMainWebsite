@@ -5,6 +5,7 @@ import From_33sec from '../routes/From_33sec';
 import Footer from '../routes/Footer';
 import EventsPage from '../routes/EventsPage';
 import Campaigns from '../routes/Campaigns';
+import Voyage2Neoterra from '../routes/Voyage2Neoterra';
 import '@app/App.scss';
 //import '../styles/locomotive-scroll.css';
 import Banner from '@pages/demo/Banner';
@@ -28,6 +29,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/banner" element={<Banner />} />
+                <Route path="/voyage2neoterra" element={<Voyage2Neoterra />} />
                 <Route path="/campaigns" element={<Campaigns />} />
                 <Route path="/from_33sec" element={<From_33sec />} />
                 <Route path="/footer" element={<Footer />} />

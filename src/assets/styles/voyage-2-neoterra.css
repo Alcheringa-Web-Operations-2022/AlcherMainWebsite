@@ -1,0 +1,129 @@
+.v2n-container-main {
+    background-color: black;
+    height: 100vh;
+    width: 100vw;
+    color: aliceblue;
+}
+
+.v2n-wrapper-main {
+    height: 100vh;
+    width: 100vw;
+    padding-right: 2vw;
+    position: absolute;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: space-between;
+}
+
+.v2n-wrapper-right {
+    position: relative;
+}
+
+.v2n-wrapper-left {
+    position: relative;
+    color: white;
+    height: 100vh;
+}
+
+.v2n-wrapper-left img {
+    position: absolute;
+    bottom: 0;
+    height: 36vw;
+}
+
+.v2n-wrapper-left h1 {
+    position: absolute;
+    top: 40%;
+    left: 38%;
+    font-size: 4.3vw;
+    font-weight: 550;
+    transform: scale(1, 1.4);
+}
+
+.v2n-wrapper-left p {
+    position: absolute;
+    top: 52%;
+    left: 38%;
+    font-size: 1.3vw;
+    max-width: 35ch;
+}
+
+.v2n-wrapper-right {
+    height: 100vh;
+}
+
+.v2n-wrapper-right div {
+    top: 50%;
+    right: 0;
+    margin-right: 7vw;
+    position: absolute;
+    display: flex;
+    transform: translate(0, -50%);
+}
+
+.v2n-wrapper-right .img-1 {
+    height: 40vw;
+    margin-right: -2.5vw;
+}
+.v2n-wrapper-right .img-2 {
+    margin-top: 3vw;
+    height: 35vw;
+}
+
+.v2n-wrapper-right .img-3 {
+    top: 50%;
+    right: 0;
+    position: absolute;
+    width: 15vw;
+    transform: translate(0, 70%);
+}
+
+/* mobile */
+@media only screen and (max-width: 500px) {
+    .v2n-wrapper-left img {
+        position: absolute;
+        bottom: 0;
+        height: 65%;
+    }
+    .v2n-wrapper-left h1 {
+        top: 10vw;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font-size: 8vw;
+    }
+    .v2n-wrapper-left p {
+        top: 22vw;
+        left: 0;
+        right: 0;
+        margin: auto;
+        text-align: center;
+        font-size: 3vw;
+    }
+    .v2n-wrapper-main {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .v2n-wrapper-right div {
+        width: 100%;
+        margin-top: 5vw;
+        margin-right: 0;
+    }
+    .v2n-wrapper-right .img-1 {
+        height: 50vw;
+        position: absolute;
+        bottom: -3vw;
+        left: -3vw;
+    }
+    .v2n-wrapper-right .img-2 {
+        height: 80vw;
+        margin: auto;
+        z-index: 0;
+    }
+    .v2n-wrapper-right .img-3 {
+        top: 65%;
+        right: 10%;
+        position: absolute;
+        width: 25vw;
+    }
+}
