@@ -25,9 +25,10 @@
     height: 100vh;
 }
 
-.v2n-wrapper-left img {
+.v2n-wrapper-left .img-l {
     position: absolute;
     bottom: 0;
+    opacity: 0;
     height: 36vw;
 }
 
@@ -35,8 +36,10 @@
     position: absolute;
     top: 40%;
     left: 38%;
-    font-size: 4.3vw;
+    font-size: 4vw;
     font-weight: 550;
+    opacity: 0;
+    white-space: nowrap;
     transform: scale(1, 1.4);
 }
 
@@ -44,6 +47,7 @@
     position: absolute;
     top: 52%;
     left: 38%;
+    opacity: 0;
     font-size: 1.3vw;
     max-width: 35ch;
 }
@@ -63,11 +67,13 @@
 
 .v2n-wrapper-right .img-1 {
     height: 40vw;
-    margin-right: -2.5vw;
+    opacity: 0;
+    margin-right: -20vw;
 }
 .v2n-wrapper-right .img-2 {
     margin-top: 3vw;
     height: 35vw;
+    z-index: 0;
 }
 
 .v2n-wrapper-right .img-3 {
@@ -75,6 +81,7 @@
     right: 0;
     position: absolute;
     width: 15vw;
+    opacity: 0;
     transform: translate(0, 70%);
 }
 
