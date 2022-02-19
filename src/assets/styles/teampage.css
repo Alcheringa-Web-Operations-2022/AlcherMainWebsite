@@ -1,0 +1,91 @@
+.container-main {
+    position: relative;
+    /* position: relative; */
+}
+
+/* .img-container {
+    height: 100vh;
+    overflow: hidden;
+} */
+
+.img-pos-left {
+    top: 40%;
+    bottom:40%;
+    left: 5%;
+    height: 30vh;
+    width: 30vh;
+    position: relative;
+}
+
+.img-pos-21 {
+    bottom: 5%;
+    left: 5%;
+    height: 40vh;
+}
+
+.img-pos-right {
+    top: 40%;
+    bottom:40%;
+    right: 5%;
+    height: 30vh;
+    width: 30vh;
+    position: relative;
+}
+
+.img-pos-22 {
+    bottom: 5%;
+    right: 5%;
+    height: 40vh;
+}
+
+.img-wrapper {
+    font-size: 0;
+    height: 40vh;
+    width: 300px;
+}
+
+.imgsection{
+  height: 100vh; width:100%;   
+}
+.text-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    text-align: center;
+    margin: 10vh 0px 30vh 0px;
+    z-index: 20;
+    position: fixed;
+    /* height: 100vh; */
+    /* max-width: 700px; */
+}
+.img-container{
+    position: absolute;
+}
+.imagesection{
+    width:50px;
+}
+.eachteamdiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.event-container {
+    margin: 15px 0px;
+    text-align: center;
+}
+
+.event-head {
+    font-weight: bold;
+    font-size: 5.2rem;
+    text-align: center;
+    opacity: 0.65;
+}
+
+.event-description {
+    font-size: 1.2rem;
+    text-align: center;
+    max-width: 55ch;
+    margin: auto;
+    opacity: 0;
+    /* max-width: 700px; */
+}

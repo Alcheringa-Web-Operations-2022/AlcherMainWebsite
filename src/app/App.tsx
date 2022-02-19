@@ -5,6 +5,7 @@ import From_33sec from '../routes/From_33sec';
 import Footer from '../routes/Footer';
 import EventsPage from '../routes/EventsPage';
 import Campaigns from '../routes/Campaigns';
+import Teamspage from '../routes/Teamspage';
 import Voyage2Neoterra from '../routes/Voyage2Neoterra';
 import '@app/App.scss';
 //import '../styles/locomotive-scroll.css';
@@ -34,6 +35,7 @@ function App() {
                 <Route path="/from_33sec" element={<From_33sec />} />
                 <Route path="/footer" element={<Footer />} />
                 <Route path="/eventspage" element={<EventsPage />} />
+                <Route path="/teams" element={<Teamspage />} />
             </Routes>
         </Router>
     );
