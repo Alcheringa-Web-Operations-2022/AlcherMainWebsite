@@ -51,8 +51,8 @@ function TeamsPage2() {
                 const tl = gsap.timeline({
                     scrollTrigger: {
                         trigger: sectionsRef.current[i],
-                        start: 'top top',
-                        end: '+=100%',
+                        start: '10% top',
+                        end: 'bottom 90%',
                         toggleActions: 'play none none reverse',
                     },
                     id: i,
