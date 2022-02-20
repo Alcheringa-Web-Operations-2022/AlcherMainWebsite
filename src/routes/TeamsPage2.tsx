@@ -1,5 +1,6 @@
 import gsap from 'gsap/all';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import useLocoScroll from 'hooks/useLocoScroll';
 import React, { useEffect, useRef } from 'react';
 import './TeamsPage.scss';
 
@@ -162,8 +163,8 @@ function TeamsPage2() {
                 const tl = gsap.timeline({
                     scrollTrigger: {
                         trigger: sectionsRef.current[i],
-                        start: 'top top',
-                        end: '+=100%',
+                        start: '10% top',
+                        end: 'bottom 90%',
                         toggleActions: 'play none none reverse',
                     },
                     id: i,
@@ -182,7 +183,8 @@ function TeamsPage2() {
                 tl.to(
                     titlesRef.current[i],
                     {
-                        scale: 1.2,
+                        scale: 1.3,
+                        opacity: 1,
                         duration: 1,
                     },
                     '<',
@@ -190,7 +192,8 @@ function TeamsPage2() {
                 tl.to(
                     titlesRef.current[(i - 1) % sectionsRef.current.length],
                     {
-                        scale: 1,
+                        scale: 0.9,
+                        opacity: 0.8,
                         duration: 1,
                     },
                     '<',
