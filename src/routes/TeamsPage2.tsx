@@ -58,7 +58,7 @@ function TeamsPage2() {
                     id: i,
                 });
                 tl.to('.teams__images__main', {
-                    y: `-=${window.innerHeight * 0.95}`,
+                    y: `-=${window.innerHeight}`,
                     duration: 1,
                 });
                 tl.fromTo(teamsImagesRef.current[i], { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.8 }, '<');
@@ -71,7 +71,7 @@ function TeamsPage2() {
                 tl.to(
                     titlesRef.current[i],
                     {
-                        scale: 1.2,
+                        scale: 1.3,
                         opacity: 1,
                         duration: 1,
                     },
@@ -80,7 +80,7 @@ function TeamsPage2() {
                 tl.to(
                     titlesRef.current[(i - 1) % sectionsRef.current.length],
                     {
-                        scale: 1,
+                        scale: 0.9,
                         opacity: 0.8,
                         duration: 1,
                     },
