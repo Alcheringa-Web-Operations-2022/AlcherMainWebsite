@@ -14,6 +14,7 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import useLocoScroll from '../hooks/useLocoScroll';
 import LandingPage from '@pages/LandingPage/LandingPage';
+import TeamsPage2 from '../routes/TeamsPage2';
 
 function App() {
     //useLocoScroll();
@@ -36,6 +37,7 @@ function App() {
                 <Route path="/footer" element={<Footer />} />
                 <Route path="/eventspage" element={<EventsPage />} />
                 <Route path="/teams" element={<Teamspage />} />
+                <Route path="/teams2" element={<TeamsPage2 />} />
             </Routes>
         </Router>
     );

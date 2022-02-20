@@ -27,27 +27,24 @@ const sectionImagesBottom = [
 
 function Teamspage() {
     const titlesRef = useRef([]);
-    const imagesref=useRef([]);
+    const imagesref = useRef([]);
     useEffect(() => {
         gsap.delayedCall(1, () => {
             imagesref.current.forEach((panel, i) => {
                 ScrollTrigger.create({
-                  trigger: panel,
-                  start: "top top", 
-                  scrub: true,
-                  pin: true, 
-                  opacity:1,
-                  markers: true,
-                  pinSpacing: false
+                    trigger: panel,
+                    start: 'top top',
+                    scrub: true,
+                    pin: true,
+                    opacity: 1,
+                    markers: true,
+                    pinSpacing: false,
                 });
-              });
-              
-           
+            });
         });
     }, [imagesref]);
 
     useEffect(() => {
-      
         gsap.delayedCall(1, () => {
             titlesRef.current.forEach((ref, index) => {
                 // const ht = document.querySelector('.img-side').offsetHeight;
@@ -71,7 +68,6 @@ function Teamspage() {
                 //     },
                 // );
 
-
                 const tl = gsap.timeline({
                     scrollTrigger: {
                         trigger: ref,
@@ -94,21 +90,20 @@ function Teamspage() {
                 // });
             });
         });
-    }, [titlesRef,]);
+    }, [titlesRef]);
 
     return (
         <div className="">
             <div className="img-container">
                 {sectionImagesBottom.map((el, i) => {
                     return (
-                        <div className="imgsection" ref={(el) => (imagesref.current[i] = el)}>           
+                        <div className="imgsection" ref={(el) => (imagesref.current[i] = el)} key={i}>
                             <img className="" src={el} alt="img-top" />
                         </div>
-                    
                     );
-                    })}
+                })}
             </div>
-        
+
             <div className="text-container">
                 {sectionTitles.map((el, i) => {
                     return (
