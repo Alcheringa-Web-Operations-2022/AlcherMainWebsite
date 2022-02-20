@@ -34,8 +34,7 @@ function App() {
                 <Route path="/from_33sec" element={<From_33sec />} />
                 <Route path="/footer" element={<Footer />} />
                 <Route path="/eventspage" element={<EventsPage />} />
-                <Route path="/teams" element={<Teamspage />} />
-                <Route path="/teams2" element={<TeamsPage2 />} />
+                <Route path="/teams" element={<TeamsPage2 />} />
             </Routes>
         </Router>
     );
