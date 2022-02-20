@@ -1,5 +1,6 @@
 import gsap from 'gsap/all';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import useLocoScroll from 'hooks/useLocoScroll';
 import React, { useEffect, useRef } from 'react';
 import './TeamsPage.scss';
 
@@ -57,7 +58,7 @@ function TeamsPage2() {
                     id: i,
                 });
                 tl.to('.teams__images__main', {
-                    y: `-=${window.innerHeight}`,
+                    y: `-=${window.innerHeight * 0.95}`,
                     duration: 1,
                 });
                 tl.fromTo(teamsImagesRef.current[i], { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.8 }, '<');
@@ -71,6 +72,7 @@ function TeamsPage2() {
                     titlesRef.current[i],
                     {
                         scale: 1.2,
+                        opacity: 1,
                         duration: 1,
                     },
                     '<',
@@ -79,6 +81,7 @@ function TeamsPage2() {
                     titlesRef.current[(i - 1) % sectionsRef.current.length],
                     {
                         scale: 1,
+                        opacity: 0.8,
                         duration: 1,
                     },
                     '<',

@@ -9,7 +9,6 @@ import Teamspage from '../routes/Teamspage';
 import Voyage2Neoterra from '../routes/Voyage2Neoterra';
 import '@app/App.scss';
 //import '../styles/locomotive-scroll.css';
-import Banner from '@pages/demo/Banner';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import useLocoScroll from '../hooks/useLocoScroll';
@@ -30,7 +29,6 @@ function App() {
             </div>
             <Routes>
                 <Route path="/" element={<LandingPage />} />
-                <Route path="/banner" element={<Banner />} />
                 <Route path="/voyage2neoterra" element={<Voyage2Neoterra />} />
                 <Route path="/campaigns" element={<Campaigns />} />
                 <Route path="/from_33sec" element={<From_33sec />} />
