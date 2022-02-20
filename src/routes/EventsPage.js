@@ -4,10 +4,13 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import MotionPathPlugin from 'gsap/MotionPathPlugin';
 
-import '../assets/styles/events-page.css';
+import './EventsPage.scss';
 import alcherPlanet from '@assets/images/alcher-planet.png';
 
 gsap.registerPlugin(MotionPathPlugin);
+ScrollTrigger.defaults({
+    markers: true,
+});
 gsap.registerPlugin(ScrollTrigger);
 
 const EVENTS = ['PRONITES', 'PROSHOWS', 'HUMOUR FEST', 'COMPETITIONS', 'EXHIBITION', 'FLICKERINGA'];
@@ -16,91 +19,79 @@ function EventsPage() {
     const eventsHeadRef = useRef([]);
     const alcherPlanetRef = useRef();
     const globalCenterRef = useRef();
-    useEffect(() => {
-        gsap.delayedCall(1, () => {
-            const PI = Math.PI;
-            const radius = alcherPlanetRef.current.width / 2 + 70;
 
+    useEffect(() => {
+        const cx = window.innerWidth / 2,
+            cy = window.innerHeight / 2;
+        const PI = Math.PI;
+        const radius = (alcherPlanetRef.current.width / 2) * 1.2;
+
+        const rotate = (angle) => {
+            return {
+                x: radius * Math.cos(angle),
+                y: radius * Math.sin(angle),
+            };
+        };
+        gsap.delayedCall(1, () => {
             gsap.to('.events-animation', { visibility: 'visible' });
-            eventsHeadRef.current.forEach((ref, i) => {
-                gsap.to(ref, {
-                    duration: 2,
-                    xPercent: -50,
-                    yPercent: -50,
-                    motionPath: {
-                        path: [
-                            { x: radius * Math.cos((2 * PI * -4) / 6), y: radius * Math.sin((2 * PI * -4) / 6) },
-                            { x: radius * Math.cos((2 * PI * -3) / 6), y: radius * Math.sin((2 * PI * -3) / 6) },
-                            { x: radius * Math.cos((2 * PI * -2) / 6), y: radius * Math.sin((2 * PI * -2) / 6) },
-                            { x: radius * Math.cos((2 * PI * -1) / 6), y: radius * Math.sin((2 * PI * -1) / 6) },
-                            { x: radius * Math.cos((2 * PI * 0) / 6), y: radius * Math.sin((2 * PI * 0) / 6) },
-                            { x: radius * Math.cos((2 * PI * 1) / 6), y: radius * Math.sin((2 * PI * 1) / 6) },
-                            { x: ref.offsetLeft - 300, y: 300 },
-                        ],
-                        start: 0.2 + i / 10,
-                        align: globalCenterRef.current,
-                        curviness: 0.5,
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.event-container-main',
+                    start: 'top top',
+                    end: '+=100%',
+                },
+            });
+            const bz_data = [
+                rotate(Math.PI / 4),
+                rotate((3 * Math.PI) / 4),
+                rotate((-3 * Math.PI) / 4),
+                rotate(Math.PI / 4),
+                /*p1*/
+            ];
+            eventsHeadRef.current.map((el, i) => {
+                const pos = el.getBoundingClientRect();
+                tl.to(
+                    el,
+                    {
+                        xPercent: -50,
+                        yPercent: -50,
+                        motionPath: {
+                            path: [
+                                { x: radius * Math.cos((2 * PI * -4) / 6), y: radius * Math.sin((2 * PI * -4) / 6) },
+                                { x: radius * Math.cos((2 * PI * -3) / 6), y: radius * Math.sin((2 * PI * -3) / 6) },
+                                { x: radius * Math.cos((2 * PI * -2) / 6), y: radius * Math.sin((2 * PI * -2) / 6) },
+                                { x: radius * Math.cos((2 * PI * -1) / 6), y: radius * Math.sin((2 * PI * -1) / 6) },
+                                { x: radius * Math.cos((2 * PI * 0) / 6), y: radius * Math.sin((2 * PI * 0) / 6) },
+                                { x: radius * Math.cos((2 * PI * 1) / 6), y: radius * Math.sin((2 * PI * 1) / 6) },
+                                { x: pos.x - cx + el.offsetWidth / 2, y: pos.y - cy + el.offsetHeight / 2 },
+                            ],
+                            start: 0.2 + i / 10,
+                            align: globalCenterRef.current,
+                            curviness: 1,
+                        },
+                        duration: 1.5 + i / 4,
                     },
-                });
+                    '<',
+                );
             });
         });
     }, []);
 
     return (
         <div className="events-container-main">
-            <span className="global-center" ref={globalCenterRef}></span>
-            <div className="events-animation">
-                {EVENTS.map((event, i) => {
+            <span className="global__center" ref={globalCenterRef}></span>
+            <div className="events-container-banner">
+                <img src={alcherPlanet} className="alcher__planet" ref={alcherPlanetRef} />
+                <h1 className="events__title">EVENTS</h1>
+            </div>
+            <div className="events__nav">
+                {EVENTS.map((el, i) => {
                     return (
-                        <div key={i} className="event-animation-head" ref={(el) => (eventsHeadRef.current[i] = el)}>
-                            {event}
-                        </div>
+                        <p key={i} className="event__name" ref={(el) => (eventsHeadRef.current[i] = el)}>
+                            {el}
+                        </p>
                     );
                 })}
-                {/* <div className="event-animation-head">hello</div> */}
-            </div>
-            <div className="events-container-top">
-                <div className="events-img-wrapper">
-                    <img
-                        width="250px"
-                        height="250px"
-                        src="https://sportshub.cbsistatic.com/i/2022/01/21/6c422820-0c68-41e2-8496-ccc76599f26a/spider-man-no-way-home-multiverse-poster.jpg"
-                        alt="img-1"
-                    />
-                    <img
-                        width="300px"
-                        height="250px"
-                        src="https://assets-prd.ignimgs.com/2021/12/03/sm-nwh-doc-ock-1638544600230.jpg"
-                        alt="img-2"
-                    />
-                </div>
-                <div className="events-planet-wrapper">
-                    <img
-                        width="450px"
-                        src={alcherPlanet}
-                        alt="alcher-planet"
-                        ref={(el) => (alcherPlanetRef.current = el)}
-                        id="alcher-planet"
-                    />
-                    <h1>EVENTS</h1>
-                </div>
-                <div className="events-img-wrapper">
-                    <img
-                        width="250px"
-                        height="250px"
-                        src="https://sportshub.cbsistatic.com/i/2022/01/21/6c422820-0c68-41e2-8496-ccc76599f26a/spider-man-no-way-home-multiverse-poster.jpg"
-                        alt="img-1"
-                    />
-                    <img
-                        width="300px"
-                        height="250px"
-                        src="https://assets-prd.ignimgs.com/2021/12/03/sm-nwh-doc-ock-1638544600230.jpg"
-                        alt="img-2"
-                    />
-                </div>
-            </div>
-            <div className="events-container-bottom">
-                <div className="event-wrapper"></div>
             </div>
         </div>
     );
