@@ -10,12 +10,12 @@ export default function useLocoScroll() {
         let locoScroll = null;
 
         const scrollEl = document.querySelector('#smooth-scroll');
-
+        console.log(scrollEl);
         locoScroll = new LocomotiveScroll({
             el: scrollEl,
             smooth: true,
             lerp: 0.075,
-            multiplier: 0.9,
+            multiplier: 0.8,
         });
 
         locoScroll.on('scroll', ScrollTrigger.update);

@@ -181,15 +181,9 @@ function TeamsPage2() {
                 });
                 tl.to('.teams__images__main', {
                     y: `-=${window.innerHeight}`,
-                    duration: 1,
+                    duration: 0.9,
                 });
-                tl.fromTo(teamsImagesRef.current[i], { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.8 }, '<');
-                tl.fromTo(
-                    teamsImagesRef.current[(i - 1) % sectionsRef.current.length],
-                    { autoAlpha: 1 },
-                    { autoAlpha: 0, duration: 0.5 },
-                    '<',
-                );
+
                 tl.to(
                     titlesRef.current[i],
                     {

@@ -17,16 +17,13 @@ import TeamsPage2 from '../routes/TeamsPage2';
 
 function App() {
     //useLocoScroll();
+    useEffect(() => {
+        window.onbeforeunload = function () {
+            window.scrollTo(0, 0);
+        };
+    }, []);
     return (
         <Router>
-            <div>
-                {/* <div
-                    style={{
-                        width: '100vw',
-                        height: '100vh',
-                    }}
-                ></div> */}
-            </div>
             <Routes>
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/voyage2neoterra" element={<Voyage2Neoterra />} />
