@@ -80,7 +80,7 @@ const Events = () => {
                     trigger: '#events-container',
                     start: 'top top',
                     end: 'bottom 80%',
-                    toggleActions: 'play reverse play reverse',
+                    toggleActions: 'play none none reverse',
                     // markers: true,
                     id: 'events-container',
                 },
@@ -92,6 +92,30 @@ const Events = () => {
                     left: 0,
                 },
             });
+
+            const ntl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '#events-container',
+                    start: 'bottom 90%',
+                    end: 'bottom bottom',
+                    toggleActions: 'play none none reverse',
+                    // markers: true,
+                    id: 'events-container',
+                },
+            });
+            ntl.to('.v2n-wrapper-main', {
+                autoAlpha: 0,
+                y: '-=50%',
+                duration: 0.6,
+            });
+            ntl.to(
+                '.icons-container',
+                {
+                    y: '-=100',
+                    duration: 0.8,
+                },
+                '<',
+            );
             const tl2 = gsap.timeline({
                 scrollTrigger: {
                     trigger: '#events-container',

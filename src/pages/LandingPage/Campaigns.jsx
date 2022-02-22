@@ -25,7 +25,7 @@ const Campaigns = () => {
     const campaignsHeadRef = useRef();
     const campaignsImgRef = useRef([]);
     useEffect(() => {
-        gsap.delayedCall(0, () => {
+        gsap.delayedCall(0.1, () => {
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: '.campaigns-container-main',
@@ -60,9 +60,7 @@ const Campaigns = () => {
                     delay: -12,
                     ease: 'power4.in',
                     css: {
-                        left: `${index % 2 ? '45%' : '55%'}`,
-                        // width: ref.width * 10,
-                        transform: `scale(10)`,
+                        transform: `translate(0%) scale(2)`,
                     },
                 });
                 tl.to(ref, {
