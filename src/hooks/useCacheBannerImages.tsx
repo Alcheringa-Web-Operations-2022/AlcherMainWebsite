@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 const currentFrame = (index) => {
     index = index;
-    return `https://bucket-s3.alcheringa.in/alcheringain/animation1frames/zoom%20ree${index
+    return `https://bucket-s3.alcheringa.in/alcheringain/animationframes/alcher%20web${index
         .toString()
-        .padStart(4, '0')}.png`;
+        .padStart(4, '0')}.jpg`;
 };
 
 const preloadImage = async (index: number, setImages) => {

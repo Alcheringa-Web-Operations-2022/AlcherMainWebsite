@@ -1,5 +1,5 @@
 import gsap from 'gsap';
-import '../assets/styles/footer.css';
+import '../assets/styles/footer.scss';
 import editions from '../assets/footer/editions.svg';
 import footfall from '../assets/footer/footfall.svg';
 import events from '../assets/footer/events.svg';
@@ -8,7 +8,14 @@ import phoneLeft from '../assets/footer/phoneLeft.png';
 import phoneRight from '../assets/footer/phoneRight.png';
 import alcherLadyImg from '../assets/alcher-lady.png';
 import footerBg from '@assets/images/space_bg.png';
-
+import phone from '@assets/images/phone.svg';
+import footerFort from '@assets/images/footer-fort.svg';
+import alcherLogoFooter from '@assets/images/alcher-logo-footer.png';
+import instagramIcon from '@assets/images/instagram.png';
+import facebookIcon from '@assets/images/facebook.png';
+import twitterIcon from '@assets/images/twitter.png';
+import youtubeIcon from '@assets/images/youtube.png';
+import footerStarsBg from '@assets/images/stars.png';
 import { useEffect, useRef } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -73,32 +80,29 @@ const Footer = () => {
         <div
             className="footer-container"
             style={{
-                background: `url(${footerBg})`,
+                background: `url(${footerStarsBg})`,
                 backgroundSize: 'cover',
             }}
         >
             <div className="icons-container" ref={iconsContainerRef}>
                 <div className="icon-wrapper">
-                    <img width="150" src={editions} alt="editions" />
-                    26 <br /> EDITIONS
+                    <span className="font-clash-display">26</span> <br /> EDITIONS
                 </div>
                 <div className="icon-wrapper">
-                    <img width="150" src={footfall} alt="footfall" />
-                    140k <br /> FOOTBALL
+                    <span className="font-clash-display">140k </span>
+                    <br /> FOOTBALL
                 </div>
                 <div className="icon-wrapper">
-                    <img width="150" src={events} alt="events" />
-                    100+ <br /> EVENTS
+                    <span className="font-clash-display">100+ </span>
+                    <br /> EVENTS
                 </div>
                 <div className="icon-wrapper">
-                    <img width="150" src={colleges} alt="colleges" />
-                    500+ <br /> COLLEGES
+                    <span className="font-clash-display"> 500+</span> <br /> COLLEGES
                 </div>
             </div>
             <div className="phones-container">
                 <div className="phones-wrapper">
-                    <img src={phoneLeft} alt="phone-left" />
-                    <img src={phoneRight} alt="phone-right" />
+                    <img src={phone} alt="phone-left" />
                 </div>
                 <div className="phones-text-wrapper">
                     Maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam
@@ -106,14 +110,38 @@ const Footer = () => {
                 </div>
             </div>
             <div className="alcher-lady-container-1"></div>
-            <div className="alcher-lady-container-2">
-                <p>
-                    EVENTS <br /> CAMPAIGNS <br /> MUN <br /> TEAM <br /> CONTACT <br /> SPONSORS
-                </p>
-                <img src={alcherLadyImg} alt="alcher-lady" />
-                <p>
-                    EVENTS <br /> CAMPAIGNS <br /> MUN <br /> TEAM <br /> CONTACT <br /> SPONSORS
-                </p>
+            <div className="footer-links" style={{ backgroundImage: `url(${footerFort})` }}>
+                <div>
+                    <div className="links-left">
+                        <div>EVENTS</div>
+                        <div>CAMPAIGNS</div>
+                        <div>MUN</div>
+                        <div>TEAM</div>
+                        <div>CONTACT</div>
+                        <div>SPONSORS</div>
+                    </div>
+                    <div className="contacts">+91sbfskf</div>
+                </div>
+                <div>
+                    <div className="logo-footer">
+                        <img src={alcherLogoFooter} />
+                    </div>
+                    <div className="social-links">
+                        <div>
+                            <img src={instagramIcon} />
+                        </div>
+                        <div>
+                            <img src={facebookIcon} />
+                        </div>
+                        <div>
+                            <img src={twitterIcon} />
+                        </div>
+
+                        <div>
+                            <img src={youtubeIcon} />
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );
