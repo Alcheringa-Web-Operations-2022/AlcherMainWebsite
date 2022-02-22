@@ -4,25 +4,67 @@
     width: 100%;
     .teams__container{
         position: fixed;
-        top:60%;
+        top:100%;
         display:flex;
         flex-direction: column;
         align-items: center;
         height: 100vh;
         width: 100%;
+
+        @media(max-width:800px){
+          display: none;
+        }
+
         .team__head{
             margin:1.2rem 0rem;
             h1{
                 color:white;
                 opacity: 0.7;
-                font-size: 5rem;
+                font-size: 4.5rem;
+                @media(max-width:1000px){
+                    font-size: 4rem;
+                }
                 font-weight: 900;
                 font-family: Arial, Helvetica, sans-serif;
             }
         }
     }
+    .teams__info{
+      height: 100vh;
+      width: 100%;
+      color:white;
+      position: relative;
+      div{
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        width: 600px;
+        max-width: 90vw;
+        figure{
+          border-radius: 5px;
+        }
+        h1{
+          font-size:3.5rem;
+          text-align: center;
+          opacity: 0.9;
+          @media (max-width:600px){
+                      text-align: left;
+                    }
+         
+        }
+        p{
+          font-size: 1.2rem;
+          text-align: center;
+          opacity: 0.8;
+           @media (max-width:600px){
+            text-align: left;
+          }
+        }
+      }
+    }
     .teams__scroller{
-        height: 100vh;
+        height: 200vh;
         position: relative;
         z-index: -1;
     }
@@ -32,31 +74,72 @@
         top:100vh;
         left:0;
         width: 100%;
+
         .teams__images{
             height: 100vh;
             padding:3rem;
-            padding-top:12vh;
+            padding-top:8vh;
             background: transparent;
             position: relative;
             z-index: 2;
+            display:flex;
+            flex-direction: column;
+            gap:0.5rem;
+
+            .mobile__teams__title{
+              font-size:2rem;
+              font-weight: bold;
+              color:white;
+                @media(min-width:800px){
+                display: none;
+              }
+            }
+
+            @media(max-width:800px){
+              padding:1rem;
+              padding-top: 10vh;
+            }
+            
+            .teams__images__wrapper{
+              height: 100%;
+              @media(max-width:800px){
+                 flex:1;
+                 height: 80vh;
+                }
             display: flex;
             justify-content: space-between;
-            
-            div{
-                width:230px;
-                max-width: 40vw;
+
+            @media(max-width:800px){
+              justify-content: center;
+              gap:1rem;
+            }
+            .teams__images__vert{
+              @media(max-width:800px){
+                 flex:1;
+                 max-width: 400px;
+                }
+                border-radius: 10px;
+                
                 display: flex;
-                flex-direction: column;
                 justify-content: space-between;
                 gap:3rem;
-                img{
-                    width:100%;
-                    margin-bottom: 1rem;
-                    object-fit: cover;
-                    flex:1;
-                    max-height: 39vh
-                };
+                flex-direction: column;
+                @media(min-width:800px){
+                  min-width: 240px;
+                  max-width: 250px;
+                }
+                @media(max-width:800px){
+                  justify-content: center;
+                  gap:1rem;
+                  max-width: 300px;
+                }
+                @media(max-width:500px){
+                  max-width: 90vw;
+                }
+                
             }
+            }
+            
         }
     }
 }
@@ -66,14 +149,20 @@
     color: #ffffff;
     float: left;
     font-family: 'Lato', Arial, sans-serif;
-    font-size: 16px;
-    margin: 10px 1%;
-    max-width: 310px;
-    min-width: 250px;
+    font-size: 12px;
     overflow: hidden;
     position: relative;
     text-align: left;
     width: 100%;
+     max-height: 40vh;
+
+    height: 100%;
+    border-radius: 5px;
+    @media (max-width:800px){
+      max-height: 40vh;
+    }
+
+    
   }
   
   .snip1527 * {
@@ -83,10 +172,19 @@
     transition: all 0.25s ease;
   }
   
+  .snip1527image{
+    height: 100%;
+  }
   .snip1527 img {
+    height: 100%;
     width: 100%;
     vertical-align: top;
     position: relative;
+    border-radius: 5px;
+    border: 3px solid white;
+    @media (max-width:800px){
+      height: 45vh;
+    }
   }
   .snip1527 figcaption div {
     display: flex;
@@ -148,3 +246,12 @@
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
   }
+
+
+
+.snip1527 figcaption > div{
+  flex-direction: row !important;
+  @media(max-width: 800px){
+    flex-direction: column!important;
+  }
+}
