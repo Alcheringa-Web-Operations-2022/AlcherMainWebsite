@@ -13,6 +13,7 @@ import alcherPlanet from '@assets/images/alcher-planet.png';
 
 import { EVENTS, EventImages } from './EventData';
 import { ScrollToPlugin, TextPlugin } from 'gsap/all';
+import useLocoScroll from '../hooks/useLocoScroll';
 
 gsap.registerPlugin(MotionPathPlugin);
 gsap.registerPlugin(ScrollTrigger);
@@ -57,6 +58,7 @@ const SliderContainer = ({ images, index }) => {
 };
 
 function EventsPage() {
+    //useLocoScroll();
     const eventsHeadRef = useRef([]);
     const alcherPlanetRef = useRef();
     const globalCenterRef = useRef();
@@ -72,12 +74,6 @@ function EventsPage() {
         const PI = Math.PI;
         const radius = (alcherPlanetRef.current.width / 2) * 1.2;
 
-        const rotate = (angle) => {
-            return {
-                x: radius * Math.cos(angle),
-                y: radius * Math.sin(angle),
-            };
-        };
         gsap.delayedCall(1, () => {
             gsap.to('.events-animation', { visibility: 'visible' });
             const rv_tl = gsap.timeline({
@@ -180,7 +176,7 @@ function EventsPage() {
     }, []);
 
     return (
-        <div className="events-animation">
+        <div className="events-animation" id="smooth-scroll">
             <div className="events-container-main">
                 <span className="global__center" ref={globalCenterRef}></span>
                 <div className="events-container-banner">

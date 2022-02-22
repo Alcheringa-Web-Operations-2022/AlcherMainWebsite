@@ -24,14 +24,6 @@ function App() {
     }, []);
     return (
         <Router>
-            <div>
-                {/* <div
-                    style={{
-                        width: '100vw',
-                        height: '100vh',
-                    }}
-                ></div> */}
-            </div>
             <Routes>
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/voyage2neoterra" element={<Voyage2Neoterra />} />
