@@ -17,14 +17,29 @@
     transform-style: preserve-3d;
 }
 
-.campaigns-img {
-    position: absolute;
-    left: 50%;
-    top: 40%;
-    padding: 10px;
-    opacity: 0;
-    width:200px;
-    transform: scale(0.7);
+.box:nth-of-type(even){
+  position: absolute;
+  top: 50%;
+  left: 65%;
+  height: auto;
+  visibility:hidden;
+}
+
+.box{
+    transform: translate(-50%,-50%);
+      width: 50%;
+      opacity: 0;
+}
+.box:nth-of-type(odd){
+  position: absolute;
+  top: 45%;
+  left: 35%;
+  height: auto;
+  visibility:hidden;
+}
+
+.box img{
+    width: 100%;
 }
 .campaigns-img {
     width:100%;

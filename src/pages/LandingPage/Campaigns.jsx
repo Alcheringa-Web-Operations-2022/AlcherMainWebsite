@@ -25,50 +25,33 @@ const Campaigns = () => {
     const campaignsHeadRef = useRef();
     const campaignsImgRef = useRef([]);
     useEffect(() => {
-        gsap.delayedCall(0, () => {
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: '.campaigns-container-main',
-                    scrub: true,
-                    start: 'top top',
-                    end: (imgs.length * 100) / 2 + '%',
-                    pin: true,
-                },
-            });
-
-            tl.to(campaignsHeadRef.current, {
-                scale: 20,
-                duration: 15,
-                ease: 'power4.in',
-            });
-            tl.to(campaignsHeadRef.current, {
-                opacity: 0,
-                duration: 1,
-                delay: -1,
-            });
-            tl.to(campaignsHeadRef.current, {
-                delay: 5,
-            });
-            campaignsImgRef.current.reverse().forEach((ref, index) => {
-                tl.to(ref, {
-                    opacity: 1,
-                    delay: -12,
-                    duration: 4,
-                });
-                tl.to(ref, {
-                    duration: 20,
-                    delay: -12,
-                    ease: 'power4.in',
-                    css: {
-                        left: `${index % 2 ? '0%' : '80%'}`,
-                        top: `80%`,
+        gsap.delayedCall(1, () => {
+            const action = gsap
+                .timeline({
+                    scrollTrigger: {
+                        trigger: '.campaigns-container-main',
+                        pin: true,
+                        start: 'top top',
+                        end: '+=3000',
+                        scrub: 0.5,
                     },
-                });
-                tl.to(ref, {
-                    opacity: 0,
-                    duration: 1,
-                });
-            });
+                    defaults: { duration: 1, ease: 'none' },
+                })
+                .to('.campaigns-head', { scale: 10, autoAlpha: 0 })
+                .to('.box:nth-of-type(odd)', { autoAlpha: 1, stagger: -2 }, 1)
+                .to('.box:nth-of-type(even)', { autoAlpha: 1, stagger: -2 }, 1)
+                .to(
+                    '.box:nth-of-type(odd)',
+                    { scale: 4, transformOrigin: '30% center', xPercent: -200, stagger: -4 },
+                    2.5,
+                )
+                .to('.box:nth-of-type(odd)', { autoAlpha: 0, stagger: -4 }, 3)
+                .to(
+                    '.box:nth-of-type(even)',
+                    { scale: 4, transformOrigin: '70% center', xPercent: 100, stagger: -4 },
+                    4,
+                )
+                .to('.box:nth-of-type(even)', { autoAlpha: 0, stagger: -4 }, 4.5);
         });
     }, []);
 
@@ -76,12 +59,7 @@ const Campaigns = () => {
         <div className="campaigns-container-main">
             {campaigns_head.map((h, i) => {
                 return (
-                    <div
-                        key={i}
-                        className="campaigns-img"
-                        ref={(el) => (campaignsImgRef.current[i] = el)}
-                        style={{ transform: `translate(${i % 2 ? '10%' : '-70%'}, ${i % 2 ? '-50%' : '-50%'})` }}
-                    >
+                    <div key={i} className="box" ref={(el) => (campaignsImgRef.current[i] = el)}>
                         <div>{campaigns_head[i]}</div>
                         <img src={imgs[i]} />
                     </div>
