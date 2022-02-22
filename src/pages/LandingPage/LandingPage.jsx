@@ -21,9 +21,9 @@ const frameCount = 35;
 const totalFrames = 90;
 
 gsap.registerPlugin(ScrollTrigger);
-// ScrollTrigger.defaults({
-//     markers: true,
-// });
+ScrollTrigger.defaults({
+    markers: true,
+});
 function LandingPage() {
     const { images, loading } = useCacheBannerImages(frameCount, totalFrames);
     const imageObj = { currentImage: 0 };
@@ -83,8 +83,8 @@ function LandingPage() {
                     opacity: 0,
                 },
                 duration: 0.5,
+                delay: 0.8,
             });
-            console.log(window.innerWidth);
 
             tl.to(
                 '.video-container',

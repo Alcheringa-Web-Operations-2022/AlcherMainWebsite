@@ -61,17 +61,31 @@ const Events = () => {
             //         opacity: 0,
             //     },
             // });
+
+            const rmain_tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '#events-container',
+                    start: 'top top',
+                    end: 'bottom 70%',
+                    toggleActions: 'play none none reverse',
+                    // markers: true,
+                    id: 'events-container',
+                },
+            });
+            rmain_tl.to('#banner-img', {
+                y: '-=100%',
+            });
             const tl = gsap.timeline({
                 scrollTrigger: {
-                    trigger: '.v2n-container-main',
+                    trigger: '#events-container',
                     start: 'top top',
-                    end: '+=300%',
+                    end: 'bottom 80%',
                     toggleActions: 'play reverse play reverse',
                     // markers: true,
                     id: 'events-container',
                 },
             });
-            tl.to('.v2n-container-main', {
+            tl.to('.v2n-wrapper-main', {
                 css: {
                     position: 'fixed',
                     top: 0,
@@ -109,51 +123,90 @@ const Events = () => {
                         id: 'event-trigger-1',
                         // markers: true,
                         start: 'top top',
-                        toggleActions: 'play reverse play reverse',
+                        toggleActions: 'play none none reverse',
                         end: '+=400%',
                     },
                 });
-                timeline.to(imgsEventRef.current[i], {
-                    opacity: 0,
-                    duration: 0.1,
-                });
+                timeline.to(
+                    imgsEventRef.current[i],
+                    {
+                        opacity: 0,
+                        duration: 0.5,
+                    },
+                    '<',
+                );
+                timeline.to(
+                    imgsAstroRef.current[i],
+                    {
+                        translateX: window.innerWidth < 500 ? '50vw' : '4vw',
+                        duration: 0.5,
+                    },
+                    '<',
+                );
+                timeline.to(
+                    eventsHeadRef.current[i],
+                    {
+                        opacity: 0,
+                        duration: 0.5,
+                    },
+                    '<',
+                );
+                timeline.to(
+                    imgsLeftRef.current[i],
+                    {
+                        opacity: 0,
+                        duration: 0.5,
+                    },
+                    '<',
+                );
                 timeline.to(imgsEventRef.current[i + 1], {
                     opacity: 1,
-                    duration: 0.1,
+                    duration: 0.5,
                 });
-                timeline.to(imgsAstroRef.current[i], {
-                    translateX: window.innerWidth < 500 ? '50vw' : '4vw',
-                    duration: 0.1,
-                });
-                timeline.to(imgsAstroRef.current[i + 1], {
-                    opacity: 1,
-                    translateX: window.innerWidth < 500 ? '7vw' : '-10vw',
-                    duration: 0.1,
-                });
-                timeline.to(eventsHeadRef.current[i], {
-                    opacity: 0,
-                    duration: 0.1,
-                });
-                timeline.to(eventsHeadRef.current[i + 1], {
-                    opacity: 1,
-                    duration: 0.1,
-                });
-                timeline.to(imgsLeftRef.current[i], {
-                    opacity: 0,
-                    duration: 0.1,
-                });
-                timeline.to(imgsLeftRef.current[i + 1], {
-                    opacity: 1,
-                    duration: 0.1,
-                });
-                timeline.to(eventsDescriptionRef.current[i], {
-                    opacity: 0,
-                    duration: 0.1,
-                });
-                timeline.to(eventsDescriptionRef.current[i + 1], {
-                    opacity: 1,
-                    duration: 0.1,
-                });
+
+                timeline.to(
+                    imgsAstroRef.current[i + 1],
+                    {
+                        opacity: 1,
+                        translateX: window.innerWidth < 500 ? '7vw' : '-10vw',
+                        duration: 0.5,
+                    },
+                    '<',
+                );
+
+                timeline.to(
+                    eventsHeadRef.current[i + 1],
+                    {
+                        opacity: 1,
+                        duration: 0.5,
+                    },
+                    '<',
+                );
+
+                timeline.to(
+                    imgsLeftRef.current[i + 1],
+                    {
+                        opacity: 1,
+                        duration: 0.5,
+                    },
+                    '<',
+                );
+                timeline.to(
+                    eventsDescriptionRef.current[i],
+                    {
+                        opacity: 0,
+                        duration: 0.5,
+                    },
+                    '<',
+                );
+                timeline.to(
+                    eventsDescriptionRef.current[i + 1],
+                    {
+                        opacity: 1,
+                        duration: 0.5,
+                    },
+                    '<',
+                );
             }
         });
     }, []);
