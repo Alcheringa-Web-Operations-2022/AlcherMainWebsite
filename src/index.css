@@ -1,17 +1,41 @@
-/* @font-face {
-  font-family: vangauard-cf;
-  src: url('/vanguard-cf.ttf');
-} */
+@font-face {
+  font-family: "CustomFont";
+  src: local("CustomFont"),url('./vanguard-cf.otf') format("truetype");
+  font-weight: 500;
+  
+}
+@font-face {
+  font-family: "hk";
+  src: local("hk"),url('./hk.otf') format("truetype");
+  font-weight: 500;
+  
+}
+@font-face {
+  font-family: "clashdisplay";
+  src: local("clashdisplay"),url('./clashdisplay.otf') format("truetype");
+  font-weight: 500;
+  
+}
 body {
   margin: 0;
-  font-family: vangaurd-cf, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family:CustomFont,'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size:2.2rem;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.font-clash-display{
+  font-family : "clashdisplay";
+  font-weight:700;
+  font-size:3rem;
+}
+
+.font-family-hk{
+  font-family : "clashdisplay";
 }
