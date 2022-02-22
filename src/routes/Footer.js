@@ -27,7 +27,7 @@ const Footer = () => {
         gsap.delayedCall(1, () => {
             gsap.fromTo(
                 '.phones-container',
-                { y: 500 },
+                { y: 300 },
                 {
                     scrollTrigger: {
                         trigger: '.phones-container',

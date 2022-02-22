@@ -64,8 +64,8 @@ const Events = () => {
 
             const rmain_tl = gsap.timeline({
                 scrollTrigger: {
-                    trigger: '#events-container',
-                    start: 'top top',
+                    trigger: '#alcher-video',
+                    start: 'center top',
                     end: 'bottom 70%',
                     toggleActions: 'play none none reverse',
                     // markers: true,
@@ -79,7 +79,7 @@ const Events = () => {
                 scrollTrigger: {
                     trigger: '#events-container',
                     start: 'top top',
-                    end: 'bottom 80%',
+                    end: 'bottom bottom',
                     toggleActions: 'play none none reverse',
                     // markers: true,
                     id: 'events-container',
@@ -96,7 +96,7 @@ const Events = () => {
             const ntl = gsap.timeline({
                 scrollTrigger: {
                     trigger: '#events-container',
-                    start: 'bottom 90%',
+                    start: 'bottom bottom',
                     end: 'bottom bottom',
                     toggleActions: 'play none none reverse',
                     // markers: true,
@@ -105,7 +105,7 @@ const Events = () => {
             });
             ntl.to('.v2n-wrapper-main', {
                 autoAlpha: 0,
-                y: '-=50%',
+                y: '-=20%',
                 duration: 0.6,
             });
             ntl.to(
@@ -151,14 +151,7 @@ const Events = () => {
                         end: '+=400%',
                     },
                 });
-                timeline.to(
-                    imgsEventRef.current[i],
-                    {
-                        opacity: 0,
-                        duration: 0.5,
-                    },
-                    '<',
-                );
+
                 timeline.to(
                     imgsAstroRef.current[i],
                     {
@@ -183,10 +176,26 @@ const Events = () => {
                     },
                     '<',
                 );
+                timeline.to(
+                    eventsDescriptionRef.current[i],
+                    {
+                        opacity: 0,
+                        duration: 0.5,
+                    },
+                    '<',
+                );
                 timeline.to(imgsEventRef.current[i + 1], {
                     opacity: 1,
                     duration: 0.5,
                 });
+                timeline.to(
+                    imgsEventRef.current[i],
+                    {
+                        opacity: 0,
+                        duration: 0.5,
+                    },
+                    '<',
+                );
 
                 timeline.to(
                     imgsAstroRef.current[i + 1],
@@ -215,14 +224,7 @@ const Events = () => {
                     },
                     '<',
                 );
-                timeline.to(
-                    eventsDescriptionRef.current[i],
-                    {
-                        opacity: 0,
-                        duration: 0.5,
-                    },
-                    '<',
-                );
+
                 timeline.to(
                     eventsDescriptionRef.current[i + 1],
                     {
@@ -235,7 +237,10 @@ const Events = () => {
         });
     }, []);
     return (
-        <div className="v2n-container-main" style={{ backgroundImage: `url(${footerStarsBg})` }}>
+        <div
+            className="v2n-container-main"
+            style={{ backgroundImage: `url(${footerStarsBg})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}
+        >
             {EVENTS_HEAD.map((e, i) => {
                 return (
                     <div className="v2n-wrapper-main" key={i}>

@@ -269,7 +269,14 @@ function LandingPage() {
                     <img id="banner-img" alt="Alcheringa 2022" src={landingImage} ref={imageRef} />
                 </section>
                 <section id="hero-trigger"></section>
-                <section id="green_bg_wrapper" style={{ backgroundImage: `url(${footerStarsBg})` }}>
+                <section
+                    id="green_bg_wrapper"
+                    style={{
+                        backgroundImage: `url(${footerStarsBg})`,
+                        backgroundRepeat: 'no-repeat',
+                        backgroundSize: 'cover',
+                    }}
+                >
                     <div id="desert_bg" />
                     <div id="alcher-video">
                         <div className="circle-container">
