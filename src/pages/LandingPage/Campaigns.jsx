@@ -25,7 +25,7 @@ const Campaigns = () => {
     const campaignsHeadRef = useRef();
     const campaignsImgRef = useRef([]);
     useEffect(() => {
-        gsap.delayedCall(0.1, () => {
+        gsap.delayedCall(0, () => {
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: '.campaigns-container-main',
@@ -60,13 +60,13 @@ const Campaigns = () => {
                     delay: -12,
                     ease: 'power4.in',
                     css: {
-                        transform: `translate(0%) scale(2)`,
+                        left: `${index % 2 ? '0%' : '80%'}`,
+                        top: `80%`,
                     },
                 });
                 tl.to(ref, {
                     opacity: 0,
                     duration: 1,
-                    delay: -1,
                 });
             });
         });
@@ -80,7 +80,7 @@ const Campaigns = () => {
                         key={i}
                         className="campaigns-img"
                         ref={(el) => (campaignsImgRef.current[i] = el)}
-                        style={{ transform: `translate(${i % 2 ? '0%' : '-100%'}, -50%)` }}
+                        style={{ transform: `translate(${i % 2 ? '10%' : '-70%'}, ${i % 2 ? '-50%' : '-50%'})` }}
                     >
                         <div>{campaigns_head[i]}</div>
                         <img src={imgs[i]} />

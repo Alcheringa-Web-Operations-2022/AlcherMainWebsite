@@ -20,10 +20,11 @@
 .campaigns-img {
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 40%;
     padding: 10px;
     opacity: 0;
     width:200px;
+    transform: scale(0.7);
 }
 .campaigns-img {
     width:100%;
