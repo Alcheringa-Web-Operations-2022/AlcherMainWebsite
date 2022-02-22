@@ -1,4 +1,8 @@
-import { useEffect, useRef } from 'react';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import './Slider.scss';
+import { useEffect, useRef, useState } from 'react';
+import Slider from 'react-slick';
 
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -7,18 +11,60 @@ import MotionPathPlugin from 'gsap/MotionPathPlugin';
 import './EventsPage.scss';
 import alcherPlanet from '@assets/images/alcher-planet.png';
 
-gsap.registerPlugin(MotionPathPlugin);
-ScrollTrigger.defaults({
-    markers: true,
-});
-gsap.registerPlugin(ScrollTrigger);
+import { EVENTS, EventImages } from './EventData';
+import { ScrollToPlugin, TextPlugin } from 'gsap/all';
 
-const EVENTS = ['PRONITES', 'PROSHOWS', 'HUMOUR FEST', 'COMPETITIONS', 'EXHIBITION', 'FLICKERINGA'];
+gsap.registerPlugin(MotionPathPlugin);
+gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(TextPlugin);
+gsap.registerPlugin(ScrollToPlugin);
+const SlideItem = ({ imgSrc }) => {
+    return (
+        <div className="item">
+            <img src={imgSrc} alt="" />
+        </div>
+    );
+};
+
+const SliderContainer = ({ images, index }) => {
+    const [current, setCurrent] = useState(2);
+    const slider_settings = {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        arrows: true,
+        dots: false,
+        centerMode: true,
+        variableWidth: true,
+        infinite: true,
+        focusOnSelect: true,
+        cssEase: 'linear',
+        touchMove: true,
+        initialSlide: 2,
+        afterChange: (index) => setCurrent(index),
+    };
+    return (
+        <div className={`slider slider-${index}`}>
+            <div className="slider-wrapper">
+                <Slider {...slider_settings}>
+                    {images.map((el, i) => {
+                        return <SlideItem key={i} imgSrc={el.src} />;
+                    })}
+                </Slider>
+            </div>
+            <h1 className="current__image">{images[current].title}</h1>
+        </div>
+    );
+};
 
 function EventsPage() {
     const eventsHeadRef = useRef([]);
     const alcherPlanetRef = useRef();
     const globalCenterRef = useRef();
+    const eventSecRef = useRef();
+    const eventsRef = useRef([]);
+    const spacersRef = useRef([]);
+
+    const [current, setCurrent] = useState(null);
 
     useEffect(() => {
         const cx = window.innerWidth / 2,
@@ -34,20 +80,76 @@ function EventsPage() {
         };
         gsap.delayedCall(1, () => {
             gsap.to('.events-animation', { visibility: 'visible' });
+            const rv_tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.events-container-main',
+                    start: 'top top',
+                    end: 'bottom top',
+                    toggleActions: 'reverse reverse play reverse',
+                },
+            });
+            rv_tl.to('.car__wrapper', { autoAlpha: 0 });
+            const car_tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: eventSecRef.current,
+                    start: 'top bottom',
+                    end: 'bottom bottom',
+                    toggleActions: 'play none none reverse',
+                },
+            });
+            car_tl.to('.events-container-banner', {
+                y: '-=100%',
+                duration: 0.5,
+            });
+
+            spacersRef.current.map((ref, i) => {
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: ref,
+                        start: 'top bottom',
+                        end: '+=100%',
+                        id: `spacer-${i}`,
+                        toggleActions: 'play none none reverse',
+                    },
+                });
+                const prev = (i - 1 + EVENTS.length) % EVENTS.length;
+                tl.to(`.slider-${prev}`, {
+                    y: `-=${window.innerHeight}`,
+                    duration: 0.5,
+                });
+
+                tl.to(eventsRef.current[prev], {
+                    autoAlpha: 0,
+                    duration: 0.3,
+                    delay: -0.3,
+                });
+
+                tl.to(eventsRef.current[i], {
+                    autoAlpha: 1,
+                    duration: 0.3,
+                });
+                tl.fromTo(
+                    `.slider-${i}`,
+                    {
+                        y: `+=${window.innerHeight}`,
+                        duration: 0.5,
+                    },
+                    {
+                        y: 0,
+                        autoAlpha: 1,
+                    },
+                    '<',
+                );
+            });
+
             const tl = gsap.timeline({
                 scrollTrigger: {
-                    trigger: '.event-container-main',
+                    trigger: '.events-container-main',
                     start: 'top top',
                     end: '+=100%',
                 },
             });
-            const bz_data = [
-                rotate(Math.PI / 4),
-                rotate((3 * Math.PI) / 4),
-                rotate((-3 * Math.PI) / 4),
-                rotate(Math.PI / 4),
-                /*p1*/
-            ];
+
             eventsHeadRef.current.map((el, i) => {
                 const pos = el.getBoundingClientRect();
                 tl.to(
@@ -78,19 +180,69 @@ function EventsPage() {
     }, []);
 
     return (
-        <div className="events-container-main">
-            <span className="global__center" ref={globalCenterRef}></span>
-            <div className="events-container-banner">
-                <img src={alcherPlanet} className="alcher__planet" ref={alcherPlanetRef} />
-                <h1 className="events__title">EVENTS</h1>
+        <div className="events-animation">
+            <div className="events-container-main">
+                <span className="global__center" ref={globalCenterRef}></span>
+                <div className="events-container-banner">
+                    <img src={alcherPlanet} className="alcher__planet" ref={alcherPlanetRef} />
+                    <h1 className="events__title">EVENTS</h1>
+                </div>
+                <div className="events__nav">
+                    {EVENTS.map((el, i) => {
+                        return (
+                            <div
+                                key={i}
+                                className={'event__name' + (current == i ? ' active' : '')}
+                                ref={(el) => (eventsHeadRef.current[i] = el)}
+                                onClick={async () => {
+                                    gsap.to('.car__wrapper', { autoAlpha: 0, duration: 0.2 });
+                                    await gsap.to(window, { scrollTo: spacersRef.current[i] });
+                                    setTimeout(() => {
+                                        setCurrent(i);
+                                        spacersRef.current.map((el, i) => {
+                                            gsap.to(eventsRef.current[i], { autoAlpha: 0, duration: 0 });
+                                        });
+                                        gsap.to(eventsRef.current[i], { autoAlpha: 1 });
+                                        gsap.to('.car__wrapper', { autoAlpha: 1 });
+                                        gsap.to(`.slider-${i}`, { autoAlpha: 1, y: 0 });
+                                    }, (i + 2) * 100);
+                                }}
+                            >
+                                <div></div>
+                                <p>{el.title}</p>
+                            </div>
+                        );
+                    })}
+                </div>
             </div>
-            <div className="events__nav">
-                {EVENTS.map((el, i) => {
-                    return (
-                        <p key={i} className="event__name" ref={(el) => (eventsHeadRef.current[i] = el)}>
-                            {el}
-                        </p>
-                    );
+            <section style={{ height: '100vh', backgroundColor: 'black' }} className="round__spacer"></section>
+            <div className="events__section" ref={eventSecRef}>
+                <div className="car__wrapper">
+                    {EVENTS.map((el, i) => {
+                        return (
+                            <section
+                                className="carousel__section"
+                                key={i}
+                                ref={(el) => (eventsRef.current[i] = el)}
+                                style={{
+                                    zIndex: `${EVENTS.length - i}`,
+                                }}
+                            >
+                                <div className="event__wrapper">
+                                    <h1>{el.title}</h1>
+                                    <SliderContainer images={EventImages[i]} index={i} />
+                                    <div className="event__data">
+                                        <p>{el.day}</p>
+                                        <p>{el.time}</p>
+                                    </div>
+                                </div>
+                            </section>
+                        );
+                    })}
+                </div>
+
+                {new Array(EVENTS.length).fill(0).map((el, i) => {
+                    return <section className="event__spacer" key={i} ref={(el) => (spacersRef.current[i] = el)} />;
                 })}
             </div>
         </div>

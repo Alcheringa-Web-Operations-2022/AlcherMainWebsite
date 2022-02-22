@@ -4,6 +4,11 @@
     width: 100%;
     min-height: 150vh;
 
+    .round__spacer{
+        @media (max-width:700px){
+            display: none;
+        }
+    }
     .global__center{
         position: fixed;
         top:50%;
@@ -50,8 +55,96 @@
         left:0;
         right:0;
         z-index: 3;
-        .event__name{
-            font-size: 1.1rem;
+
+        @media (max-width:700px){
+            display: none;
         }
+        .event__name{
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: flex;
+            gap:0.5rem;
+            align-items: center;
+            justify-content: space-between;
+            &.active{
+                transform: scale(1.2);
+                font-weight: bold;
+                div{
+                    transform: scale(1.2);
+                    background-color: white;
+                }
+            }
+            p{
+                transition: all 0.1s ease-in;
+            }
+            div{
+                height: 6px;
+                width: 6px;
+                border-radius: 100%;
+                background-color: rgb(214, 204, 204);
+            }
+            &:hover{
+                transform: scale(1.1);
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.events__section{
+    position: relative;
+    background-color: black;
+    .car__wrapper{
+        height: 100vh;
+        position:fixed;
+        top:0;
+        left:0;
+    }
+    .carousel__section{
+        color:white;
+        position: fixed;
+        top:0;
+        left:0;
+        width: 100vw;
+        background: transparent;
+        z-index: 100;
+        opacity: 0;
+        .event__wrapper{
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            h1{
+                font-size:2rem;
+                opacity: 0.9;
+            }
+           
+            .event__data{
+                margin-top: 1rem;
+                display:flex;
+                align-items: center;
+                width: 200px;
+                justify-content: space-between;
+                font-size: 1rem;
+                opacity: 0.8;
+            }
+
+            .current__image{
+                text-align: center;
+                font-size: 1.5rem;
+                opacity: 0.9;
+            }
+
+            .slider{
+                opacity: 0;
+            }
+            
+        }
+    }
+
+    .event__spacer{
+        height:200vh;
     }
 }

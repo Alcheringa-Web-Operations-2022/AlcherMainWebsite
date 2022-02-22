@@ -17,6 +17,11 @@ import TeamsPage2 from '../routes/TeamsPage2';
 
 function App() {
     //useLocoScroll();
+    useEffect(() => {
+        window.onbeforeunload = function () {
+            window.scrollTo(0, 0);
+        };
+    }, []);
     return (
         <Router>
             <div>
