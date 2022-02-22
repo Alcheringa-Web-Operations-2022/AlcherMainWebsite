@@ -38,8 +38,8 @@ const Campaigns = () => {
                     defaults: { duration: 1, ease: 'none' },
                 })
                 .to('.campaigns-head', { scale: 10, autoAlpha: 0 })
-                .to('.box:nth-of-type(odd)', { autoAlpha: 1, stagger: -2 }, 1)
-                .to('.box:nth-of-type(even)', { autoAlpha: 1, stagger: -2 }, 1)
+                .to('.box:nth-of-type(odd)', { autoAlpha: 1, stagger: -2 }, 1.2)
+                .to('.box:nth-of-type(even)', { autoAlpha: 1, stagger: -2 }, 1.4)
                 .to(
                     '.box:nth-of-type(odd)',
                     { scale: 4, transformOrigin: '30% center', xPercent: -200, stagger: -4 },
