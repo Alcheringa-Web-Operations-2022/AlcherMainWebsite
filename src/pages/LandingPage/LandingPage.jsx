@@ -60,7 +60,7 @@ function LandingPage() {
                     trigger: '#alcher-video',
                     pin: true,
                     start: 'top top',
-                    end: '+=300%',
+                    end: '+=600%',
                     id: 'video-container',
                     scrub: true,
                 },
@@ -91,8 +91,8 @@ function LandingPage() {
                 '.video-container',
                 {
                     css: { clipPath: 'circle(100% at 50% 50%)' },
-                    ease: 'power1',
-                    duration: 24,
+                    duration: 16,
+                    ease: 'ease-in',
                     onStart: async () => {
                         videoOverRef.current.style.cursor = 'url(https://i.ibb.co/5YjXb7X/play.png), auto';
                         try {
@@ -107,7 +107,7 @@ function LandingPage() {
                 },
                 '>',
             );
-            tl.to('.white__rings', { scale: 4.5, duration: 24, ease: 'power0' }, '<');
+            tl.to('.white__rings', { scale: 4.5, duration: 16, ease: 'ease-in' }, '<');
             tl.to('.circle-container', { autoAlpha: 0, duration: 0 }, window.innerWidth < 500 ? '<' : '>');
             tl.to(
                 '.video-wrapper',
@@ -299,12 +299,18 @@ function LandingPage() {
                                     <div
                                         className="video-over"
                                         ref={videoOverRef}
-                                        onClick={() => {
+                                        onClick={async () => {
                                             // videoRef.current.controls = false;
                                             if (videoRef.current.paused) {
-                                                videoRef.current.play();
                                                 videoOverRef.current.style.cursor =
                                                     'url(https://i.ibb.co/5YjXb7X/play.png), auto';
+                                                try {
+                                                    videoRef.current.muted = false;
+                                                    await videoRef.current.play();
+                                                } catch (err) {
+                                                    videoRef.current.muted = true;
+                                                    videoRef.current.play();
+                                                }
                                             } else {
                                                 videoRef.current.pause();
                                                 videoOverRef.current.style.cursor =
