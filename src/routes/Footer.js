@@ -109,7 +109,7 @@ const Footer = () => {
                     at lectus urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt
                 </div>
             </div>
-            <div className="alcher-lady-container-1"></div>
+
             <div className="footer-links" style={{ backgroundImage: `url(${footerFort})` }}>
                 <div>
                     <div className="links-left">

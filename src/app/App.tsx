@@ -32,8 +32,8 @@ function App() {
                 {/* <Route path="/campaignsdemo" element={<Campaigns />} /> */}
                 <Route path="/from_33sec" element={<From_33sec />} />
                 <Route path="/footer" element={<Footer />} />
-                <Route path="/eventspage" element={<EventsPage />} />
-                <Route path="/teams" element={<TeamsPage2 />} />
+                <Route path="/events" element={<EventsPage />} />
+                <Route path="/team" element={<TeamsPage2 />} />
             </Routes>
         </Router>
     );

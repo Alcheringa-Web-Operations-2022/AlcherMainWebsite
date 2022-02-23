@@ -1,9 +1,9 @@
 .campaigns-container-main {
     background-color: black;
-    /* position: relative; */
     overflow: hidden;
     height: 100vh;
     width: 100%;
+    color:white;
 }
 
 .campaigns-head {
@@ -17,30 +17,42 @@
     transform-style: preserve-3d;
 }
 
-.box:nth-of-type(even){
-  position: absolute;
-  top: 50%;
-  left: 65%;
-  height: auto;
-  visibility:hidden;
-}
+
 
 .box{
-    transform: translate(-50%,-50%);
-      width: 50%;
+      top: 50%;
+      left: 50%;
+      height:28vw;
+      background-size:contain;
+      visibility:hidden;
+      position: absolute;
+      transform: translate(-50%,-50%);
+      width: 50vw;
       opacity: 0;
-}
-.box:nth-of-type(odd){
-  position: absolute;
-  top: 45%;
-  left: 35%;
-  height: auto;
-  visibility:hidden;
 }
 
 .box img{
     width: 100%;
 }
+
 .campaigns-img {
     width:100%;
+}
+
+.content{
+  position:absolute;
+  bottom:0;
+  left:0;
+  padding:2.5%;
+  .heading{
+    font-size:1.2vw;
+    
+    
+    
+  }
+  .desc{
+    font-size:1vw;
+    font-family:clashdisplay;
+    margin-top:10px;
+  }
 }
