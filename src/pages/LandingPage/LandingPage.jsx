@@ -65,19 +65,6 @@ function LandingPage() {
                     scrub: true,
                 },
             });
-            // gsap.to('.section-text', {
-            //     scrollTrigger: {
-            //         trigger: '#alcher-video',
-            //         start: 'top top',
-            //         end: '+=300%',
-            //         scrub: true,
-            //     },
-            //     css: {
-            //         top: '10%',
-            //         opacity: 0,
-            //     },
-            //     duration: 0.1,
-            // });
             tl.to('.section-text', {
                 css: {
                     top: '10%',
@@ -124,6 +111,7 @@ function LandingPage() {
                 },
                 window.innerWidth < 500 ? '<' : '>',
             );
+            tl.to('#banner-img', { y: '-=100%', duration: 0 }, '<');
             tl.from('.video_top_text', { y: 50, autoAlpha: 0 }, '>');
             tl.to(
                 '#desert_bg',

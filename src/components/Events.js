@@ -61,20 +61,6 @@ const Events = () => {
             //         opacity: 0,
             //     },
             // });
-
-            const rmain_tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: '#alcher-video',
-                    start: '10% top',
-                    end: 'bottom 70%',
-                    toggleActions: 'play none none reverse',
-                    // markers: true,
-                    id: 'events-container',
-                },
-            });
-            rmain_tl.to('#banner-img', {
-                y: '-=100%',
-            });
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: '#events-container',
