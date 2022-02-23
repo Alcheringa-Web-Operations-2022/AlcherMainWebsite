@@ -91,7 +91,7 @@ function LandingPage() {
                 {
                     css: { clipPath: 'circle(100% at 50% 50%)' },
                     ease: 'power1',
-                    duration: 20,
+                    duration: 24,
                     onStart: async () => {
                         videoOverRef.current.style.cursor = 'url(https://i.ibb.co/5YjXb7X/play.png), auto';
                         try {
@@ -106,7 +106,7 @@ function LandingPage() {
                 },
                 '>',
             );
-            tl.to('.white__rings', { scale: 4.5, duration: 20, ease: 'power0' }, '<');
+            tl.to('.white__rings', { scale: 4.5, duration: 24, ease: 'power0' }, '<');
             tl.to('.circle-container', { autoAlpha: 0, duration: 0 }, window.innerWidth < 500 ? '<' : '>');
             tl.to(
                 '.video-wrapper',
@@ -119,7 +119,7 @@ function LandingPage() {
                     onReverseComplete: () => {
                         videoRef.current.controls = true;
                     },
-                    duration: window.innerWidth < 800 ? 4 : 12,
+                    duration: window.innerWidth < 800 ? 8 : 16,
                 },
                 window.innerWidth < 500 ? '<' : '>',
             );
@@ -128,7 +128,7 @@ function LandingPage() {
                 '#desert_bg',
                 {
                     autoAlpha: 0,
-                    duration: 3,
+                    duration: 6,
                 },
                 '>',
             );

@@ -65,7 +65,7 @@ const Events = () => {
             const rmain_tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: '#alcher-video',
-                    start: 'center top',
+                    start: '10% top',
                     end: 'bottom 70%',
                     toggleActions: 'play none none reverse',
                     // markers: true,
