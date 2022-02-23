@@ -82,7 +82,7 @@ function LandingPage() {
                     top: '10%',
                     opacity: 0,
                 },
-                duration: 0.5,
+                duration: 1,
                 delay: 0.8,
             });
 
@@ -91,7 +91,7 @@ function LandingPage() {
                 {
                     css: { clipPath: 'circle(100% at 50% 50%)' },
                     ease: 'power1',
-                    duration: 2,
+                    duration: 20,
                     onStart: async () => {
                         videoOverRef.current.style.cursor = 'url(https://i.ibb.co/5YjXb7X/play.png), auto';
                         try {
@@ -106,7 +106,7 @@ function LandingPage() {
                 },
                 '>',
             );
-            tl.to('.white__rings', { scale: 4.5, duration: 2, ease: 'power0' }, '<');
+            tl.to('.white__rings', { scale: 4.5, duration: 20, ease: 'power0' }, '<');
             tl.to('.circle-container', { autoAlpha: 0, duration: 0 }, window.innerWidth < 500 ? '<' : '>');
             tl.to(
                 '.video-wrapper',
@@ -119,6 +119,7 @@ function LandingPage() {
                     onReverseComplete: () => {
                         videoRef.current.controls = true;
                     },
+                    duration: window.innerWidth < 800 ? 4 : 12,
                 },
                 window.innerWidth < 500 ? '<' : '>',
             );
@@ -127,7 +128,7 @@ function LandingPage() {
                 '#desert_bg',
                 {
                     autoAlpha: 0,
-                    duration: 0.4,
+                    duration: 3,
                 },
                 '>',
             );
@@ -153,52 +154,54 @@ function LandingPage() {
                 position: 'fixed',
                 duration: 4,
             });
-        }
-        //logo animation
-        gsap.to('.logo-container', {
-            scrollTrigger: {
-                trigger: 'body',
-                start: '2vh',
-                toggleActions: 'play reverse play reverse',
-            },
-            css: {
-                'margin-top': '-50vh',
-            },
-            duration: 0.2,
-        });
 
-        //navigation
-        const tl = gsap.timeline({ paused: true, reversed: true });
-        tl.to('.bottom-nav', {
-            css: {
-                bottom: '-20vh',
-            },
-            duration: 0.2,
-        });
-        tl.to('.top-nav', {
-            css: {
-                top: '0',
-            },
-            duration: 0.2,
-        });
-        document.addEventListener('wheel', (e) => {
-            if (e.deltaY > 0) {
-                tl.play();
-            } else {
-                tl.reverse();
-            }
-        });
-        //position of the circles
-        gsap.to('.white__rings', {
-            scrollTrigger: {
-                trigger: '#alcher-video',
-                start: 'top bottom',
-                end: '+=100%',
-                scrub: true,
-                id: 'cricles',
-            },
-            css: { 'margin-top': '0' },
-        });
+            //logo animation
+            gsap.to('.logo-container', {
+                scrollTrigger: {
+                    trigger: 'body',
+                    start: '2vh',
+                    toggleActions: 'play reverse play reverse',
+                },
+                css: {
+                    'margin-top': '-50vh',
+                },
+                duration: 0.8,
+                ease: 'power0',
+            });
+
+            //navigation
+            const ntl = gsap.timeline({ paused: true, reversed: true });
+            ntl.to('.bottom-nav', {
+                css: {
+                    bottom: '-20vh',
+                },
+                duration: 0.2,
+            });
+            ntl.to('.top-nav', {
+                css: {
+                    top: '0',
+                },
+                duration: 0.2,
+            });
+            document.addEventListener('wheel', (e) => {
+                if (e.deltaY > 0) {
+                    ntl.play();
+                } else {
+                    ntl.reverse();
+                }
+            });
+            //position of the circles
+            gsap.to('.white__rings', {
+                scrollTrigger: {
+                    trigger: '#alcher-video',
+                    start: 'top bottom',
+                    end: '+=100%',
+                    scrub: true,
+                    id: 'cricles',
+                },
+                css: { 'margin-top': '0' },
+            });
+        }
     }, [loading]);
     const imageRef = useRef(null);
 
