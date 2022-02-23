@@ -3,21 +3,17 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import useCacheBannerImages from '../../hooks/useCacheBannerImages';
 import whiteRings from '@assets/images/white_rings.svg';
-import spaceBg from '@assets/images/space_bg.png';
 import starsBg from '@assets/images/stars_bg.png';
-import greenBg from '@assets/images/green_bg.png';
-import forestBg from '@assets/images/forest_bg.jpg';
 import alcherlogo from '@assets/images/alcherlogo.png';
 import alcherLogo from '@assets/images/alcher-logo.svg';
 import './LandingPage.scss';
-import From_33sec from '../../routes/From_33sec';
 import Footer from '../../routes/Footer';
 const landingImage = 'https://bucket-s3.alcheringa.in/alcheringain/animation1frames/zoom%20ree0001.png';
 import Events from '../../components/Events';
 import mobileNavIcon from '@assets/images/mobile-nav-icon.jpg';
 import footerStarsBg from '@assets/images/stars.png';
 
-const frameCount = 35;
+const frameCount = 30;
 const totalFrames = 90;
 
 gsap.registerPlugin(ScrollTrigger);
@@ -111,7 +107,7 @@ function LandingPage() {
                 },
                 window.innerWidth < 500 ? '<' : '>',
             );
-            tl.to('#banner-img', { y: '-=100%', duration: 0 }, '<');
+            tl.to('#banner-img', { y: '-=100%', duration: 0 }, '>');
             tl.from('.video_top_text', { y: 50, autoAlpha: 0 }, '>');
             tl.to(
                 '#desert_bg',
