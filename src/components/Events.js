@@ -107,12 +107,16 @@ const Events = () => {
                 autoAlpha: 0,
                 y: '-=20%',
                 duration: 0.6,
+                zIndex: '-1',
             });
-            ntl.to(
+            ntl.fromTo(
                 '.icons-container',
                 {
-                    y: '-=100',
+                    y: 200,
                     duration: 0.8,
+                },
+                {
+                    y: -100,
                 },
                 '<',
             );
