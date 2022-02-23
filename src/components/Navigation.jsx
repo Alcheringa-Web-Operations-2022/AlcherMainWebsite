@@ -20,18 +20,18 @@ const Navigation = () => {
                     X
                 </div>
                 <div className="navs">
-                    <Link to="/events">
+                    <a href="/events">
                         <div className="">EVENTS</div>
-                    </Link>
-                    <Link to="/campaigns">
+                    </a>
+                    <a to="/campaigns">
                         <div className="">CAMPAIGNS</div>
-                    </Link>
-                    <Link to="https://iitgmun.org">
+                    </a>
+                    <a to="https://iitgmun.org">
                         <div className="">MUN</div>
-                    </Link>
-                    <Link to="/team">
+                    </a>
+                    <a to="/team">
                         <div className="">TEAM</div>
-                    </Link>
+                    </a>
 
                     {/* <div className="">CONTACT</div>
                     <div className="">SPONSORS</div> */}
@@ -40,7 +40,9 @@ const Navigation = () => {
             <div className="mobile-nav">
                 <div>
                     <div>
-                        <img src={alcherLogo} alt="" />
+                        <a href="/">
+                            <img src={alcherLogo} alt="" />
+                        </a>
                     </div>
                     <div onClick={openNav}>
                         <img src={mobileNavIcon} alt="" />
@@ -50,21 +52,23 @@ const Navigation = () => {
             <div className="navigation">
                 <div className="top-nav">
                     <div>
-                        <img src={alcherLogo} alt="" />
+                        <a href="/">
+                            <img src={alcherLogo} alt="" />
+                        </a>
                     </div>
                     <div className="nav-links">
-                        <Link to="/events">
+                        <a href="/events">
                             <div className="">EVENTS</div>
-                        </Link>
-                        <Link to="/campaigns">
+                        </a>
+                        <a href="/campaigns">
                             <div className="">CAMPAIGNS</div>
-                        </Link>
-                        <Link to="https://iitgmun.org">
+                        </a>
+                        <a href="https://iitgmun.org" target="__blank">
                             <div className="">MUN</div>
-                        </Link>
-                        <Link to="/team">
+                        </a>
+                        <a href="/team">
                             <div className="">TEAM</div>
-                        </Link>
+                        </a>
                         {/* <div className="">CONTACT</div>
                             <div className="">SPONSORS</div> */}
                     </div>
