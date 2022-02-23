@@ -7,7 +7,7 @@ import spaceBg from '@assets/images/space_bg.png';
 import starsBg from '@assets/images/stars_bg.png';
 import greenBg from '@assets/images/green_bg.png';
 import forestBg from '@assets/images/forest_bg.jpg';
-import alcherlogo from '@assets/images/alcherlogo.svg';
+import alcherlogo from '@assets/images/alcherlogo.png';
 import alcherLogo from '@assets/images/alcher-logo.svg';
 import './LandingPage.scss';
 import From_33sec from '../../routes/From_33sec';
