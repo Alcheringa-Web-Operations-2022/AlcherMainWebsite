@@ -13,6 +13,7 @@ import alcherPlanet from '@assets/images/alcher-planet.png';
 
 import { EVENTS, EventImages } from './EventData';
 import { ScrollToPlugin, TextPlugin } from 'gsap/all';
+import Navigation from '@components/Navigation';
 import useLocoScroll from '../hooks/useLocoScroll';
 
 gsap.registerPlugin(MotionPathPlugin);
@@ -176,70 +177,73 @@ function EventsPage() {
     }, []);
 
     return (
-        <div className="events-animation" id="smooth-scroll">
-            <div className="events-container-main">
-                <span className="global__center" ref={globalCenterRef}></span>
-                <div className="events-container-banner">
-                    <img src={alcherPlanet} className="alcher__planet" ref={alcherPlanetRef} />
-                    <h1 className="events__title">EVENTS</h1>
-                </div>
-                <div className="events__nav">
-                    {EVENTS.map((el, i) => {
-                        return (
-                            <div
-                                key={i}
-                                className={'event__name' + (current == i ? ' active' : '')}
-                                ref={(el) => (eventsHeadRef.current[i] = el)}
-                                onClick={async () => {
-                                    gsap.to('.car__wrapper', { autoAlpha: 0, duration: 0.2 });
-                                    await gsap.to(window, { scrollTo: spacersRef.current[i] });
-                                    setTimeout(() => {
-                                        setCurrent(i);
-                                        spacersRef.current.map((el, i) => {
-                                            gsap.to(eventsRef.current[i], { autoAlpha: 0, duration: 0 });
-                                        });
-                                        gsap.to(eventsRef.current[i], { autoAlpha: 1 });
-                                        gsap.to('.car__wrapper', { autoAlpha: 1 });
-                                        gsap.to(`.slider-${i}`, { autoAlpha: 1, y: 0 });
-                                    }, (i + 2) * 100);
-                                }}
-                            >
-                                <div></div>
-                                <p>{el.title}</p>
-                            </div>
-                        );
-                    })}
-                </div>
-            </div>
-            <section style={{ height: '100vh', backgroundColor: 'black' }} className="round__spacer"></section>
-            <div className="events__section" ref={eventSecRef}>
-                <div className="car__wrapper">
-                    {EVENTS.map((el, i) => {
-                        return (
-                            <section
-                                className="carousel__section"
-                                key={i}
-                                ref={(el) => (eventsRef.current[i] = el)}
-                                style={{
-                                    zIndex: `${EVENTS.length - i}`,
-                                }}
-                            >
-                                <div className="event__wrapper">
-                                    <h1>{el.title}</h1>
-                                    <SliderContainer images={EventImages[i]} index={i} />
-                                    <div className="event__data">
-                                        <p>{el.day}</p>
-                                        <p>{el.time}</p>
-                                    </div>
+        <div>
+            <Navigation />
+            <div className="events-animation" id="smooth-scroll">
+                <div className="events-container-main">
+                    <span className="global__center" ref={globalCenterRef}></span>
+                    <div className="events-container-banner">
+                        <img src={alcherPlanet} className="alcher__planet" ref={alcherPlanetRef} />
+                        <h1 className="events__title">EVENTS</h1>
+                    </div>
+                    <div className="events__nav">
+                        {EVENTS.map((el, i) => {
+                            return (
+                                <div
+                                    key={i}
+                                    className={'event__name' + (current == i ? ' active' : '')}
+                                    ref={(el) => (eventsHeadRef.current[i] = el)}
+                                    onClick={async () => {
+                                        gsap.to('.car__wrapper', { autoAlpha: 0, duration: 0.2 });
+                                        await gsap.to(window, { scrollTo: spacersRef.current[i] });
+                                        setTimeout(() => {
+                                            setCurrent(i);
+                                            spacersRef.current.map((el, i) => {
+                                                gsap.to(eventsRef.current[i], { autoAlpha: 0, duration: 0 });
+                                            });
+                                            gsap.to(eventsRef.current[i], { autoAlpha: 1 });
+                                            gsap.to('.car__wrapper', { autoAlpha: 1 });
+                                            gsap.to(`.slider-${i}`, { autoAlpha: 1, y: 0 });
+                                        }, (i + 2) * 100);
+                                    }}
+                                >
+                                    <div></div>
+                                    <p>{el.title}</p>
                                 </div>
-                            </section>
-                        );
+                            );
+                        })}
+                    </div>
+                </div>
+                <section style={{ height: '100vh', backgroundColor: 'black' }} className="round__spacer"></section>
+                <div className="events__section" ref={eventSecRef}>
+                    <div className="car__wrapper">
+                        {EVENTS.map((el, i) => {
+                            return (
+                                <section
+                                    className="carousel__section"
+                                    key={i}
+                                    ref={(el) => (eventsRef.current[i] = el)}
+                                    style={{
+                                        zIndex: `${EVENTS.length - i}`,
+                                    }}
+                                >
+                                    <div className="event__wrapper">
+                                        <h1>{el.title}</h1>
+                                        <SliderContainer images={EventImages[i]} index={i} />
+                                        <div className="event__data">
+                                            <p>{el.day}</p>
+                                            <p>{el.time}</p>
+                                        </div>
+                                    </div>
+                                </section>
+                            );
+                        })}
+                    </div>
+
+                    {new Array(EVENTS.length).fill(0).map((el, i) => {
+                        return <section className="event__spacer" key={i} ref={(el) => (spacersRef.current[i] = el)} />;
                     })}
                 </div>
-
-                {new Array(EVENTS.length).fill(0).map((el, i) => {
-                    return <section className="event__spacer" key={i} ref={(el) => (spacersRef.current[i] = el)} />;
-                })}
             </div>
         </div>
     );

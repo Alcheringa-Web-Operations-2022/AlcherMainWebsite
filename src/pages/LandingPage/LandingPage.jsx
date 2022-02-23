@@ -30,6 +30,7 @@ function LandingPage() {
     const videoRef = useRef(null);
     const videoOverRef = useRef(null);
     const navRef = useRef(null);
+    const bottomNavRef = useRef(null);
     const closeNav = () => {
         navRef.current.style.display = 'none';
     };
@@ -183,12 +184,12 @@ function LandingPage() {
                 },
                 duration: 0.2,
             });
+            const ht = window.innerHeight;
             document.addEventListener('wheel', (e) => {
-                if (e.deltaY > 0) {
-                    ntl.play();
-                } else {
-                    ntl.reverse();
-                }
+                e.deltaY > 0 ? ntl.play() : ntl.reverse();
+                window.pageYOffset > 2 * ht
+                    ? (bottomNavRef.current.style.display = 'none')
+                    : (bottomNavRef.current.style.display = 'flex');
             });
             //position of the circles
             gsap.to('.white__rings', {
@@ -220,8 +221,8 @@ function LandingPage() {
                     <div className="">CAMPAIGNS</div>
                     <div className="">MUN</div>
                     <div className="">TEAM</div>
-                    <div className="">CONTACT</div>
-                    <div className="">SPONSORS</div>
+                    {/* <div className="">CONTACT</div>
+                    <div className="">SPONSORS</div> */}
                 </div>
             </div>
             <div className="landing-container">
@@ -245,17 +246,17 @@ function LandingPage() {
                             <div className="">CAMPAIGNS</div>
                             <div className="">MUN</div>
                             <div className="">TEAM</div>
-                            <div className="">CONTACT</div>
-                            <div className="">SPONSORS</div>
+                            {/* <div className="">CONTACT</div>
+                            <div className="">SPONSORS</div> */}
                         </div>
                     </div>
-                    <div className="bottom-nav">
+                    <div className="bottom-nav" ref={(e) => (bottomNavRef.current = e)}>
                         <div className="">EVENTS</div>
                         <div className="">CAMPAIGNS</div>
                         <div className="">MUN</div>
                         <div className="">TEAM</div>
-                        <div className="">CONTACT</div>
-                        <div className="">SPONSORS</div>
+                        {/* <div className="">CONTACT</div>
+                        <div className="">SPONSORS</div> */}
                     </div>
                 </div>
                 <section
@@ -298,7 +299,7 @@ function LandingPage() {
                                     <div
                                         className="video-over"
                                         ref={videoOverRef}
-                                        onClick={(e) => {
+                                        onClick={() => {
                                             // videoRef.current.controls = false;
                                             if (videoRef.current.paused) {
                                                 videoRef.current.play();

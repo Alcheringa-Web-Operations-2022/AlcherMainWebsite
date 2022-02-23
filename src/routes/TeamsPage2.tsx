@@ -3,23 +3,45 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import useLocoScroll from 'hooks/useLocoScroll';
 import React, { useEffect, useRef } from 'react';
 import './TeamsPage.scss';
+import Navigation from '@components/Navigation';
 
 // ScrollTrigger.defaults({
 //     markers: true,
 // });
 gsap.registerPlugin(ScrollTrigger);
 const sectionTitles = [
-    'MARKETING',
     'PR & BRANDING',
+    'MARKETING',
     'EVENTS',
     'CREATIVES',
     'IITG MUN',
     'WEB - OPS',
     'APP - OPS',
-    'CONVENER',
     'FINANCE',
+    'CONVENER',
 ];
 const teamsImages = [
+    //PRB
+    [
+        {
+            name: 'Soumadip',
+            email: 'abcd@abcd.com',
+            dp: 'https://picsum.photos/200',
+            phone: '9432352622',
+        },
+        {
+            name: 'Soumadip',
+            email: 'abcd@abcd.com',
+            dp: 'https://picsum.photos/200',
+            phone: '9432352622',
+        },
+        {
+            name: 'Soumadip',
+            email: 'abcd@abcd.com',
+            dp: 'https://picsum.photos/200',
+            phone: '9432352622',
+        },
+    ],
     //MARKETING
     [
         {
@@ -47,27 +69,7 @@ const teamsImages = [
             phone: '9432352622',
         },
     ],
-    //PRB
-    [
-        {
-            name: 'Soumadip',
-            email: 'abcd@abcd.com',
-            dp: 'https://picsum.photos/200',
-            phone: '9432352622',
-        },
-        {
-            name: 'Soumadip',
-            email: 'abcd@abcd.com',
-            dp: 'https://picsum.photos/200',
-            phone: '9432352622',
-        },
-        {
-            name: 'Soumadip',
-            email: 'abcd@abcd.com',
-            dp: 'https://picsum.photos/200',
-            phone: '9432352622',
-        },
-    ],
+
     //EVENTS
     [
         {
@@ -143,7 +145,7 @@ const teamsImages = [
             phone: '9432352622',
         },
     ],
-    //CONVENER
+    //FINANCE
     [
         {
             name: 'Soumadip',
@@ -152,7 +154,7 @@ const teamsImages = [
             phone: '9432352622',
         },
     ],
-    //FINANCE
+    //CONVENER
     [
         {
             name: 'Soumadip',
@@ -384,47 +386,58 @@ function TeamsPage2() {
         });
     }, []);
     return (
-        <div className="teams__main">
-            <div className="teams__container">
-                {sectionTitles.map((el, i) => {
-                    return (
-                        <div className="team__head" key={i}>
-                            <h1 ref={(el) => (titlesRef.current[i] = el)}>{el}</h1>
-                        </div>
-                    );
-                })}
-            </div>
-            <div className="teams__info">
-                <div className="teams_info_data">
-                    <h1>TEAM</h1>
-                    <p>
-                        All students, from the fourth year mentors to the first-year freshers, play an active role in
-                        actualising the four days of Alcher. Alcheringa is the most significant cultural festival in the
-                        northeast and is build by the yearlong efforts of all the students involved in making their
-                        vision of Alcher come to life.
-                    </p>
+        <div>
+            <Navigation />
+            <div className="teams__main">
+                <div className="teams__container">
+                    {sectionTitles.map((el, i) => {
+                        return (
+                            <div className="team__head" key={i}>
+                                <h1 ref={(el) => (titlesRef.current[i] = el)}>{el}</h1>
+                            </div>
+                        );
+                    })}
                 </div>
-            </div>
-            {mql
-                ? new Array(sectionTitles.length).fill(0).map((el, i) => {
-                      return (
-                          <div className="teams__scroller" key={i} ref={(el) => (sectionsRef.current[i] = el)}></div>
-                      );
-                  })
-                : new Array(sectionTitles.length + 1).fill(0).map((el, i) => {
-                      return (
-                          <div className="teams__scroller" key={i} ref={(el) => (sectionsRef.current[i] = el)}></div>
-                      );
-                  })}
-            <div className="teams__images__main">
-                {teamsImages.map((el, i) => {
-                    return (
-                        <section className="teams__images" key={i} ref={(el) => (teamsImagesRef.current[i] = el)}>
-                            <h1 className="mobile__teams__title">{sectionTitles[i]}</h1>
-                            <div className="teams__images__wrapper">{renderImages(i)}</div>
-                        </section>
-                    );
-                })}
+                <div className="teams__info">
+                    <div className="teams_info_data">
+                        <h1>TEAM</h1>
+                        <p style={{ fontFamily: 'clashdisplay' }}>
+                            All students, from the fourth year mentors to the first-year freshers, play an active role
+                            in actualising the four days of Alcher. Alcheringa is the most significant cultural festival
+                            in the northeast and is build by the yearlong efforts of all the students involved in making
+                            their vision of Alcher come to life.
+                        </p>
+                    </div>
+                </div>
+                {mql
+                    ? new Array(sectionTitles.length).fill(0).map((el, i) => {
+                          return (
+                              <div
+                                  className="teams__scroller"
+                                  key={i}
+                                  ref={(el) => (sectionsRef.current[i] = el)}
+                              ></div>
+                          );
+                      })
+                    : new Array(sectionTitles.length + 1).fill(0).map((el, i) => {
+                          return (
+                              <div
+                                  className="teams__scroller"
+                                  key={i}
+                                  ref={(el) => (sectionsRef.current[i] = el)}
+                              ></div>
+                          );
+                      })}
+                <div className="teams__images__main">
+                    {teamsImages.map((el, i) => {
+                        return (
+                            <section className="teams__images" key={i} ref={(el) => (teamsImagesRef.current[i] = el)}>
+                                <h1 className="mobile__teams__title">{sectionTitles[i]}</h1>
+                                <div className="teams__images__wrapper">{renderImages(i)}</div>
+                            </section>
+                        );
+                    })}
+                </div>
             </div>
         </div>
     );
