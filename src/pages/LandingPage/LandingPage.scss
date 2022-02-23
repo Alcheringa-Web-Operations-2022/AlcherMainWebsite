@@ -35,8 +35,8 @@
     }
     .navigation{
         display:none;
-        height: 10vh;
         .top-nav{
+            height: 10vh;
             z-index:100;
             display:flex;
             width:100%;
@@ -322,8 +322,8 @@
         }
         .navigation{
             display:none;
-            height: 10vh;
             .top-nav{
+                height: 10vh;
                 z-index:100;
                 display:flex;
                 width:100%;
@@ -587,7 +587,7 @@
     }
     .logo-container{
         z-index:100 !important;
-        margin:2% auto;
+        margin:5% auto;
         position:relative;
     }
    
@@ -605,7 +605,7 @@
             }
             .logo-container{
                 z-index:100 !important;
-                margin:2% auto;
+                margin:5% auto;
                 position:relative;
             }
                 
