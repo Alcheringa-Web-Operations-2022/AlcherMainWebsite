@@ -116,7 +116,7 @@ const Events = () => {
                     duration: 0.8,
                 },
                 {
-                    y: -100,
+                    y: 0,
                 },
                 '<',
             );
@@ -191,6 +191,7 @@ const Events = () => {
                 timeline.to(imgsEventRef.current[i + 1], {
                     opacity: 1,
                     duration: 0.5,
+                    delay: 0.5,
                 });
                 timeline.to(
                     imgsEventRef.current[i],
