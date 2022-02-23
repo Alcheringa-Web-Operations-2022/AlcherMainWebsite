@@ -45,7 +45,7 @@ function LandingPage() {
                     trigger: '#hero-trigger',
                     pin: true,
                     start: 'top top',
-                    end: '+=175%',
+                    end: '+=200%',
                     scrub: true,
                     id: 'banner-trigger',
                 },
@@ -134,17 +134,17 @@ function LandingPage() {
                 '>',
             );
 
-            gsap.to('#green_bg_wrapper', {
-                backgroundPosition: `0px -1200px`,
-                scrollTrigger: {
-                    trigger: '#events-container',
-                    // markers: true,
-                    start: 'top center',
-                    end: 'bottom top',
-                    id: 'video-container',
-                    scrub: true,
-                },
-            });
+            // gsap.to('#green_bg_wrapper', {
+            //     backgroundPosition: `0 -50%`,
+            //     scrollTrigger: {
+            //         trigger: '#events-container',
+            //         // markers: true,
+            //         start: 'top center',
+            //         end: 'bottom top',
+            //         id: 'video-container',
+            //         scrub: true,
+            //     },
+            // });
             gsap.to('.img-container', {
                 scrollTrigger: {
                     trigger: '#events-container',
@@ -277,7 +277,6 @@ function LandingPage() {
                     id="green_bg_wrapper"
                     style={{
                         backgroundImage: `url(${footerStarsBg})`,
-                        backgroundRepeat: 'no-repeat',
                         backgroundSize: 'cover',
                     }}
                 >
