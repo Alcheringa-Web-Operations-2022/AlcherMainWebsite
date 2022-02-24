@@ -431,7 +431,7 @@ function TeamsPage2() {
         );
     };
     useEffect(() => {
-        gsap.delayedCall(1, () => {
+        gsap.delayedCall(0, () => {
             const st_tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: '.teams__info',
@@ -498,11 +498,11 @@ function TeamsPage2() {
                     },
                     '<',
                 );
+                gsap.set('.teams__images__main', { y: 0 });
+                gsap.set('.teams__container', { y: 0 });
             });
-            gsap.set('.teams__images__main', { y: 0 });
-            gsap.set('.teams__container', { y: 0 });
         });
-    }, [loading, windowLoading]);
+    }, []);
 
     return (
         <div>

@@ -48,7 +48,7 @@ const Campaigns = () => {
     const campaignsRef = useRef([]);
     const { loading, windowLoading } = useLoading();
     useEffect(() => {
-        gsap.delayedCall(1, () => {
+        gsap.delayedCall(0, () => {
             gsap.timeline({
                 scrollTrigger: {
                     trigger: '.campaigns-container-main',
