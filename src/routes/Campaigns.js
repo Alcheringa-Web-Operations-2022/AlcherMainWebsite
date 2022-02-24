@@ -3,6 +3,8 @@ import '../assets/styles/campaigns.css';
 
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import Loading from '@components/Loading';
+import useLoading from '../hooks/useLoading';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,6 +18,7 @@ const IMGS = Array(20)
 const Campaigns = () => {
     const campaignsHeadRef = useRef();
     const campaignsImgRef = useRef([]);
+    const { loading, windowLoading } = useLoading();
     useEffect(() => {
         gsap.delayedCall(0, () => {
             const tl = gsap.timeline({
@@ -67,6 +70,7 @@ const Campaigns = () => {
 
     return (
         <div className="campaigns-container-main">
+            <Loading loading={loading} windowLoading={windowLoading} />
             {IMGS.map((img, i) => {
                 return (
                     <img

@@ -10,6 +10,8 @@ import UnPhoto from '@assets/images/campaigns/un.png';
 import PiPhoto from '@assets/images/campaigns/pi.png';
 import MsPhoto from '@assets/images/campaigns/ms.png';
 import Navigation from '@components/Navigation';
+import Loading from '@components/Loading';
+import useLoading from '../../hooks/useLoading';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -44,6 +46,7 @@ const campaigns = [
 const Campaigns = () => {
     const campaignsHeadRef = useRef();
     const campaignsRef = useRef([]);
+    const { loading, windowLoading } = useLoading();
     useEffect(() => {
         gsap.delayedCall(1, () => {
             gsap.timeline({
@@ -51,18 +54,18 @@ const Campaigns = () => {
                     trigger: '.campaigns-container-main',
                     pin: true,
                     start: 'top top',
-                    end: '+=3000',
+                    end: '+=10000',
                     scrub: 0.5,
                 },
                 defaults: { duration: 1, ease: 'none' },
             })
                 .to('.campaigns-head', { scale: 10, autoAlpha: 0 })
-                .to('.box:nth-of-type(odd)', { autoAlpha: 1, stagger: -2 }, 1.2)
-                .to('.box:nth-of-type(even)', { autoAlpha: 1, stagger: -2 }, 1.4)
-                .to('.box:nth-of-type(odd)', { scale: 4, stagger: -4 }, 2.5)
-                .to('.box:nth-of-type(odd)', { autoAlpha: 0, stagger: -4 }, 3)
-                .to('.box:nth-of-type(even)', { scale: 4, stagger: -4 }, 4)
-                .to('.box:nth-of-type(even)', { autoAlpha: 0, stagger: -4 }, 4.5);
+                .to('.box:nth-of-type(odd)', { autoAlpha: 1, stagger: -6 }, 1)
+                .to('.box:nth-of-type(odd)', { scale: 4, stagger: -6 }, 2.5)
+                .to('.box:nth-of-type(odd)', { autoAlpha: 0, stagger: -6 }, 3.5)
+                .to('.box:nth-of-type(even)', { autoAlpha: 1, stagger: -6 }, 5)
+                .to('.box:nth-of-type(even)', { scale: 4, stagger: -6 }, 6)
+                .to('.box:nth-of-type(even)', { autoAlpha: 0, stagger: -6 }, 7);
         });
         // for (let i = 0; i < campaignsImgRef.length; i++) {
         //     campaignsImgRef.current[i].style.top = getComputedStyle(campaignsImgRef.current[i]) - `${i * 10}`;
@@ -72,6 +75,7 @@ const Campaigns = () => {
     return (
         <div>
             <Navigation />
+            <Loading loading={loading} windowLoading={windowLoading} />
             <div className="campaigns-container-main" style={{ backgroundImage: `url(${footerStarsBg})` }}>
                 {campaigns.map((h, i) => {
                     return (
@@ -79,8 +83,13 @@ const Campaigns = () => {
                             key={i}
                             className="box"
                             ref={(el) => (campaignsRef.current[i] = el)}
-                            style={{ backgroundImage: `url(${h.img})` }}
+                            style={{ backgroundColor: 'white' }}
                         >
+                            <div className="campaigns-images">
+                                <div>
+                                    <img src={h.img} />
+                                </div>
+                            </div>
                             <div className="content">
                                 <div className="head">{h.heading}</div>
                                 <div className="desc">{h.desc}</div>

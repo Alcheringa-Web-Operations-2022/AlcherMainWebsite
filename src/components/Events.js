@@ -109,27 +109,56 @@ const Events = () => {
             const tl2 = gsap.timeline({
                 scrollTrigger: {
                     trigger: '#events-container',
-                    toggleActions: 'play reverse play reverse',
+                    toggleActions: 'play none none reverse',
                     start: 'top bottom',
-                    end: '+=150%',
+                    end: '+=100%',
                 },
             });
             tl2.to(imgsAstroRef.current[0], {
                 opacity: 1,
                 translateX: window.innerWidth < 500 ? '10vw' : '-6vw',
+                duration: 0.2,
             });
-            tl2.to(eventsHeadRef.current[0], {
-                opacity: 1,
-            });
-            tl2.to(eventsDescriptionRef.current[0], {
-                opacity: 1,
-            });
-            tl2.to(imgsLeftRef.current[0], {
-                opacity: 1,
-            });
-            tl2.to(imgsAstroRef.current[0], {
-                opacity: 1,
-            });
+            tl2.to(
+                eventsHeadRef.current[0],
+                {
+                    opacity: 1,
+                    duration: 0.2,
+                },
+                '<',
+            );
+            tl2.to(
+                eventsDescriptionRef.current[0],
+                {
+                    opacity: 1,
+                    duration: 0.2,
+                },
+                '<',
+            );
+            tl2.to(
+                imgsLeftRef.current[0],
+                {
+                    opacity: 1,
+                    duration: 0.2,
+                },
+                '<',
+            );
+            tl2.to(
+                imgsEventRef.current[0],
+                {
+                    opacity: 1,
+                    duration: 0.2,
+                },
+                '<',
+            );
+            tl2.to(
+                imgsRightRef.current[0],
+                {
+                    opacity: 1,
+                    duration: 0.5,
+                },
+                '<',
+            );
             for (let i = 0; i < EVENTS_HEAD.length; i++) {
                 const timeline = gsap.timeline({
                     scrollTrigger: {
@@ -142,16 +171,12 @@ const Events = () => {
                     },
                 });
 
+                timeline.to(eventsHeadRef.current[i], {
+                    opacity: 0,
+                    duration: 0.5,
+                });
                 timeline.to(
-                    imgsAstroRef.current[i],
-                    {
-                        translateX: window.innerWidth < 500 ? '50vw' : '4vw',
-                        duration: 0.5,
-                    },
-                    '<',
-                );
-                timeline.to(
-                    eventsHeadRef.current[i],
+                    imgsLeftRef.current[i],
                     {
                         opacity: 0,
                         duration: 0.5,
@@ -159,7 +184,7 @@ const Events = () => {
                     '<',
                 );
                 timeline.to(
-                    imgsLeftRef.current[i],
+                    imgsRightRef.current[i],
                     {
                         opacity: 0,
                         duration: 0.5,
@@ -186,7 +211,15 @@ const Events = () => {
                     },
                     '<',
                 );
-
+                timeline.to(
+                    imgsAstroRef.current[i],
+                    {
+                        translateX: window.innerWidth < 500 ? '50vw' : '4vw',
+                        duration: 0.5,
+                        opacity: 0,
+                    },
+                    '<',
+                );
                 timeline.to(
                     imgsAstroRef.current[i + 1],
                     {
@@ -194,7 +227,7 @@ const Events = () => {
                         translateX: window.innerWidth < 500 ? '7vw' : '-10vw',
                         duration: 0.5,
                     },
-                    '<',
+                    '>',
                 );
 
                 timeline.to(
@@ -208,6 +241,14 @@ const Events = () => {
 
                 timeline.to(
                     imgsLeftRef.current[i + 1],
+                    {
+                        opacity: 1,
+                        duration: 0.5,
+                    },
+                    '<',
+                );
+                timeline.to(
+                    imgsRightRef.current[i + 1],
                     {
                         opacity: 1,
                         duration: 0.5,

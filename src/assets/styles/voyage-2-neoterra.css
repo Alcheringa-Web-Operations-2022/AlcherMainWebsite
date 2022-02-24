@@ -1,6 +1,6 @@
 .v2n-container-main {
     background-color: black;
-    height: 100vh;
+    height: 150vh;
     width: 100vw;
     color: aliceblue;
     z-index:4;
@@ -76,6 +76,7 @@
 .v2n-wrapper-right .img-2 {
     margin-top: 3vw;
     height: 35vw;
+    opacity: 0;
 }
 
 .v2n-wrapper-right .img-3 {

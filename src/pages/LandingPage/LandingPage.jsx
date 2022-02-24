@@ -3,24 +3,23 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import useCacheBannerImages from '../../hooks/useCacheBannerImages';
 import whiteRings from '@assets/images/white_rings.svg';
-import starsBg from '@assets/images/stars_bg.png';
+import starsBg from '@assets/images/stars.png';
 import alcherlogo from '@assets/images/alcherlogo.png';
 import alcherLogo from '@assets/images/alcher-logo.svg';
 import './LandingPage.scss';
 import Footer from '../../routes/Footer';
 const landingImage = 'https://bucket-s3.alcheringa.in/alcheringain/animation1frames/zoom%20ree0001.png';
 import Events from '../../components/Events';
-import mobileNavIcon from '@assets/images/mobile-nav-icon.jpg';
+import mobileNavIcon from '@assets/images/mobile-nav-icon.svg';
 import footerStarsBg from '@assets/images/stars.png';
-
-const frameCount = 30;
 const totalFrames = 90;
+import Loading from '@components/Loading';
 
 gsap.registerPlugin(ScrollTrigger);
-ScrollTrigger.defaults({
-    markers: true,
-});
+
 function LandingPage() {
+    const mql = window.matchMedia('(max-width: 800px)').matches;
+    const frameCount = mql ? 20 : 30;
     const { images, loading } = useCacheBannerImages(frameCount, totalFrames);
     const imageObj = { currentImage: 0 };
     const videoRef = useRef(null);
@@ -34,168 +33,163 @@ function LandingPage() {
         navRef.current.style.display = 'flex';
     };
     useEffect(() => {
-        if (!loading) {
-            gsap.to(imageObj, {
-                currentImage: images.length - 1,
-                scrollTrigger: {
-                    trigger: '#hero-trigger',
-                    pin: true,
-                    start: 'top top',
-                    end: '+=200%',
-                    scrub: true,
-                    id: 'banner-trigger',
-                },
-                onUpdate: () => {
-                    const imgSrc = images[Math.round(imageObj.currentImage)];
-                    if (imgSrc) imageRef.current.src = imgSrc;
-                },
-            });
+        gsap.to(imageObj, {
+            currentImage: images.length - 1,
+            scrollTrigger: {
+                trigger: '#hero-trigger',
+                pin: true,
+                start: 'top top',
+                end: mql ? '+=150%' : '+=200%',
+                scrub: true,
+                id: 'banner-trigger',
+            },
+            onUpdate: () => {
+                const imgSrc = images[Math.round(imageObj.currentImage)];
+                if (imgSrc) imageRef.current.src = imgSrc;
+            },
+        });
 
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: '#alcher-video',
-                    pin: true,
-                    start: 'top top',
-                    end: '+=600%',
-                    id: 'video-container',
-                    scrub: true,
-                },
-            });
-            tl.to('.section-text', {
-                css: {
-                    top: '10%',
-                    opacity: 0,
-                },
-                duration: 1,
-                delay: 0.8,
-            });
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: '#alcher-video',
+                pin: true,
+                start: 'top top',
+                end: '+=600%',
+                id: 'video-container',
+                scrub: true,
+            },
+        });
+        tl.to('.section-text', {
+            css: {
+                top: '10%',
+                opacity: 0,
+            },
+            duration: 1,
+            delay: 0.8,
+        });
 
-            tl.to(
-                '.video-container',
-                {
-                    css: { clipPath: 'circle(100% at 50% 50%)' },
-                    duration: 16,
-                    ease: 'ease-in',
-                    onStart: async () => {
-                        videoOverRef.current.style.cursor = 'url(https://i.ibb.co/5YjXb7X/play.png), auto';
-                        try {
-                            videoRef.current.muted = false;
-                            await videoRef.current.play();
-                        } catch (err) {
-                            videoRef.current.muted = true;
-                            videoRef.current.play();
-                        }
-                    },
-                    onReverseComplete: () => videoRef.current.pause(),
+        tl.to(
+            '.video-container',
+            {
+                css: { clipPath: 'circle(100% at 50% 50%)' },
+                duration: 16,
+                ease: 'ease-in',
+                onStart: async () => {
+                    videoOverRef.current.style.cursor = 'url(https://i.ibb.co/5YjXb7X/play.png), auto';
+                    try {
+                        videoRef.current.muted = false;
+                        await videoRef.current.play();
+                    } catch (err) {
+                        videoRef.current.muted = true;
+                        videoRef.current.play();
+                    }
                 },
-                '>',
-            );
-            tl.to('.white__rings', { scale: 4.5, duration: 16, ease: 'ease-in' }, '<');
-            tl.to('.circle-container', { autoAlpha: 0, duration: 0 }, window.innerWidth < 500 ? '<' : '>');
-            tl.to(
-                '.video-wrapper',
-                {
-                    left: window.innerWidth < 800 ? '8%' : '25%',
-                    right: window.innerWidth < 800 ? '8%' : '25%',
-                    bottom: window.innerWidth < 800 ? '45%' : '45%',
-                    top: window.innerWidth < 800 ? '10%' : '0',
-                    onStart: () => (videoRef.current.controls = false),
-                    onReverseComplete: () => {
-                        videoRef.current.controls = true;
-                    },
-                    duration: window.innerWidth < 800 ? 8 : 16,
+                onReverseComplete: () => videoRef.current.pause(),
+            },
+            '>',
+        );
+        tl.to('.white__rings', { scale: 4.5, duration: 16, ease: 'ease-in' }, '<');
+        tl.to('.circle-container', { autoAlpha: 0, duration: 0 }, window.innerWidth < 500 ? '<' : '>');
+        tl.to(
+            '.video-wrapper',
+            {
+                left: window.innerWidth < 800 ? '8%' : '25%',
+                right: window.innerWidth < 800 ? '8%' : '25%',
+                bottom: window.innerWidth < 800 ? '45%' : '45%',
+                top: window.innerWidth < 800 ? '10%' : '0',
+                onStart: () => (videoRef.current.controls = false),
+                onReverseComplete: () => {
+                    videoRef.current.controls = true;
                 },
-                window.innerWidth < 500 ? '<' : '>',
-            );
-            tl.to('#banner-img', { y: '-=100%', duration: 0 }, '>');
-            tl.from('.video_top_text', { y: 50, autoAlpha: 0 }, '>');
-            tl.to(
-                '#desert_bg',
-                {
-                    autoAlpha: 0,
-                    duration: 6,
-                },
-                '>',
-            );
+                duration: window.innerWidth < 800 ? 8 : 16,
+            },
+            window.innerWidth < 500 ? '<' : '>',
+        );
+        tl.fromTo('.video_top_text', { y: 100, autoAlpha: 0 }, { autoAlpha: 1, y: 0, duration: 10 }, '>');
+        tl.to('#banner-img', { y: '-=100%', duration: 0 }, '>');
+        tl.to(
+            '#desert_bg',
+            {
+                autoAlpha: 0,
+                duration: 12,
+            },
+            '>',
+        );
 
-            // gsap.to('#green_bg_wrapper', {
-            //     backgroundPosition: `0 -50%`,
-            //     scrollTrigger: {
-            //         trigger: '#events-container',
-            //         // markers: true,
-            //         start: 'top center',
-            //         end: 'bottom top',
-            //         id: 'video-container',
-            //         scrub: true,
-            //     },
-            // });
-            gsap.to('.img-container', {
-                scrollTrigger: {
-                    trigger: '#events-container',
-                    start: 'top top',
-                    end: 'bottom bottom',
-                    toggleActions: 'play reverse play reverse',
-                },
-                position: 'fixed',
-                duration: 4,
-            });
+        // gsap.to('#green_bg_wrapper', {
+        //     backgroundPosition: `0 -50%`,
+        //     scrollTrigger: {
+        //         trigger: '#events-container',
+        //         // markers: true,
+        //         start: 'top center',
+        //         end: 'bottom top',
+        //         id: 'video-container',
+        //         scrub: true,
+        //     },
+        // });
+        gsap.to('.img-container', {
+            scrollTrigger: {
+                trigger: '#events-container',
+                start: 'top top',
+                end: 'bottom bottom',
+                toggleActions: 'play reverse play reverse',
+            },
+            position: 'fixed',
+            duration: 4,
+        });
 
-            //logo animation
-            gsap.to('.logo-container', {
-                scrollTrigger: {
-                    trigger: 'body',
-                    start: '2vh',
-                    toggleActions: 'play reverse play reverse',
-                },
-                css: {
-                    'margin-top': '-50vh',
-                },
-                duration: 0.8,
-                ease: 'power0',
-            });
+        //logo animation
+        gsap.to('.logo-container', {
+            scrollTrigger: {
+                trigger: 'body',
+                start: '2vh',
+                toggleActions: 'play reverse play reverse',
+            },
+            css: {
+                'margin-top': '-50vh',
+            },
+            duration: 0.8,
+            ease: 'power0',
+        });
 
-            //navigation
-            const ntl = gsap.timeline({ paused: true, reversed: true });
-            ntl.to('.bottom-nav', {
-                css: {
-                    bottom: '-20vh',
-                },
-                duration: 0.2,
-            });
-            ntl.to('.top-nav', {
-                css: {
-                    top: '0',
-                },
-                duration: 0.2,
-            });
-            const ht = window.innerHeight;
-            document.addEventListener('wheel', (e) => {
-                e.deltaY > 0 ? ntl.play() : ntl.reverse();
-                window.pageYOffset > 2 * ht
-                    ? (bottomNavRef.current.style.display = 'none')
-                    : (bottomNavRef.current.style.display = 'flex');
-            });
-            //position of the circles
-            gsap.to('.white__rings', {
-                scrollTrigger: {
-                    trigger: '#alcher-video',
-                    start: 'top bottom',
-                    end: '+=100%',
-                    scrub: true,
-                    id: 'cricles',
-                },
-                css: { 'margin-top': '0' },
-            });
-        }
+        //navigation
+        const ntl = gsap.timeline({ paused: true, reversed: true });
+        ntl.to('.bottom-nav', {
+            css: {
+                bottom: '-20vh',
+            },
+            duration: 0.2,
+        });
+        ntl.to('.top-nav', {
+            css: {
+                top: '0',
+            },
+            duration: 0.2,
+        });
+        const ht = window.innerHeight;
+        document.addEventListener('wheel', (e) => {
+            e.deltaY > 0 ? ntl.play() : ntl.reverse();
+            window.pageYOffset > 2 * ht
+                ? (bottomNavRef.current.style.display = 'none')
+                : (bottomNavRef.current.style.display = 'flex');
+        });
+        //position of the circles
+        gsap.to('.white__rings', {
+            scrollTrigger: {
+                trigger: '#alcher-video',
+                start: 'top bottom',
+                end: '+=100%',
+                scrub: true,
+                id: 'cricles',
+            },
+            css: { 'margin-top': '0' },
+        });
     }, [loading]);
     const imageRef = useRef(null);
 
-    if (loading) {
-        return <div className="loader">Loading...</div>;
-    }
-
     return (
         <div>
+            <Loading loading={loading} windowLoading={false} />
             <div className="mobile-nav-container" ref={(e) => (navRef.current = e)}>
                 <div className="close" onClick={closeNav}>
                     X
@@ -204,13 +198,13 @@ function LandingPage() {
                     <a href="/events">
                         <div className="">EVENTS</div>
                     </a>
-                    <a to="/campaigns">
+                    <a href="/campaigns">
                         <div className="">CAMPAIGNS</div>
                     </a>
-                    <a to="https://iitgmun.org">
+                    <a href="https://iitgmun.org" target="__blank">
                         <div className="">MUN</div>
                     </a>
-                    <a to="/team">
+                    <a href="/team">
                         <div className="">TEAM</div>
                     </a>
                     {/* <div className="">CONTACT</div>
@@ -223,7 +217,7 @@ function LandingPage() {
                         <div>
                             <img src={alcherLogo} alt="" />
                         </div>
-                        <div onClick={openNav}>
+                        <div onClick={openNav} style={{ width: '60px' }}>
                             <img src={mobileNavIcon} alt="" />
                         </div>
                     </div>
@@ -237,24 +231,32 @@ function LandingPage() {
                             <a href="/events">
                                 <div className="">EVENTS</div>
                             </a>
-                            <a to="/campaigns">
+                            <a href="/campaigns">
                                 <div className="">CAMPAIGNS</div>
                             </a>
-                            <a to="https://iitgmun.org">
+                            <a href="https://iitgmun.org" target="__blank">
                                 <div className="">MUN</div>
                             </a>
-                            <a to="/team">
+                            <a href="/team">
                                 <div className="">TEAM</div>
                             </a>
-                            {/* <div className="">CONTACT</div>
+                            {/* <div hrefassName="">CONTACT</div>
                             <div className="">SPONSORS</div> */}
                         </div>
                     </div>
                     <div className="bottom-nav" ref={(e) => (bottomNavRef.current = e)}>
-                        <div className="">EVENTS</div>
-                        <div className="">CAMPAIGNS</div>
-                        <div className="">MUN</div>
-                        <div className="">TEAM</div>
+                        <a href="/events">
+                            <div className="">EVENTS</div>
+                        </a>
+                        <a href="/campaigns">
+                            <div className="">CAMPAIGNS</div>
+                        </a>
+                        <a href="https://iitgmun.org" target="__blank">
+                            <div className="">MUN</div>
+                        </a>
+                        <a href="/team">
+                            <div className="">TEAM</div>
+                        </a>
                         {/* <div className="">CONTACT</div>
                         <div className="">SPONSORS</div> */}
                     </div>
@@ -322,7 +324,7 @@ function LandingPage() {
                                         src="https://bucket-s3.alcheringa.in/alcherregistratiosstatic/videos/trailer.mp4"
                                         playsInline
                                         webkit-playsinline="true"
-                                        preload="auto"
+                                        preload="none"
                                         loop
                                         className="video"
                                         id="alcher_intro_video"

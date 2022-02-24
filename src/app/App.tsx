@@ -15,6 +15,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import useLocoScroll from '../hooks/useLocoScroll';
 import LandingPage from '@pages/LandingPage/LandingPage';
 import TeamsPage2 from '../routes/TeamsPage2';
+import ComingSoon from '@components/ComingSoon';
 
 function App() {
     //useLocoScroll();
@@ -32,7 +33,7 @@ function App() {
                 {/* <Route path="/campaignsdemo" element={<Campaigns />} /> */}
                 <Route path="/from_33sec" element={<From_33sec />} />
                 <Route path="/footer" element={<Footer />} />
-                <Route path="/events" element={<EventsPage />} />
+                <Route path="/events" element={<ComingSoon />} />
                 <Route path="/team" element={<TeamsPage2 />} />
             </Routes>
         </Router>

@@ -15,6 +15,8 @@ import { EVENTS, EventImages } from './EventData';
 import { ScrollToPlugin, TextPlugin } from 'gsap/all';
 import Navigation from '@components/Navigation';
 import useLocoScroll from '../hooks/useLocoScroll';
+import useLoading from '../hooks/useLoading';
+import Loading from '@components/Loading';
 
 gsap.registerPlugin(MotionPathPlugin);
 gsap.registerPlugin(ScrollTrigger);
@@ -66,119 +68,135 @@ function EventsPage() {
     const eventSecRef = useRef();
     const eventsRef = useRef([]);
     const spacersRef = useRef([]);
+    const { loading, windowLoading } = useLoading();
 
     const [current, setCurrent] = useState(null);
 
     useEffect(() => {
-        const cx = window.innerWidth / 2,
-            cy = window.innerHeight / 2;
-        const PI = Math.PI;
-        const radius = (alcherPlanetRef.current.width / 2) * 1.2;
+        if (!loading && !windowLoading) {
+            const cx = window.innerWidth / 2,
+                cy = window.innerHeight / 2;
+            const PI = Math.PI;
+            const radius = (alcherPlanetRef.current.width / 2) * 1.2;
 
-        gsap.delayedCall(1, () => {
-            gsap.to('.events-animation', { visibility: 'visible' });
-            const rv_tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: '.events-container-main',
-                    start: 'top top',
-                    end: 'bottom top',
-                    toggleActions: 'reverse reverse play reverse',
-                },
-            });
-            rv_tl.to('.car__wrapper', { autoAlpha: 0 });
-            const car_tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: eventSecRef.current,
-                    start: 'top bottom',
-                    end: 'bottom bottom',
-                    toggleActions: 'play none none reverse',
-                },
-            });
-            car_tl.to('.events-container-banner', {
-                y: '-=100%',
-                duration: 0.5,
-            });
-
-            spacersRef.current.map((ref, i) => {
-                const tl = gsap.timeline({
+            gsap.delayedCall(1, () => {
+                gsap.to('.events-animation', { visibility: 'visible' });
+                const rv_tl = gsap.timeline({
                     scrollTrigger: {
-                        trigger: ref,
+                        trigger: '.events-container-main',
+                        start: 'top top',
+                        end: 'bottom top',
+                        toggleActions: 'reverse reverse play reverse',
+                    },
+                });
+                rv_tl.to('.car__wrapper', { autoAlpha: 0 });
+                const car_tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: eventSecRef.current,
                         start: 'top bottom',
-                        end: '+=100%',
-                        id: `spacer-${i}`,
+                        end: 'bottom bottom',
                         toggleActions: 'play none none reverse',
                     },
                 });
-                const prev = (i - 1 + EVENTS.length) % EVENTS.length;
-                tl.to(`.slider-${prev}`, {
-                    y: `-=${window.innerHeight}`,
+                car_tl.to('.events-container-banner', {
+                    y: '-=100%',
                     duration: 0.5,
                 });
 
-                tl.to(eventsRef.current[prev], {
-                    autoAlpha: 0,
-                    duration: 0.3,
-                    delay: -0.3,
-                });
-
-                tl.to(eventsRef.current[i], {
-                    autoAlpha: 1,
-                    duration: 0.3,
-                });
-                tl.fromTo(
-                    `.slider-${i}`,
-                    {
-                        y: `+=${window.innerHeight}`,
-                        duration: 0.5,
-                    },
-                    {
-                        y: 0,
-                        autoAlpha: 1,
-                    },
-                    '<',
-                );
-            });
-
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: '.events-container-main',
-                    start: 'top top',
-                    end: '+=100%',
-                },
-            });
-
-            eventsHeadRef.current.map((el, i) => {
-                const pos = el.getBoundingClientRect();
-                tl.to(
-                    el,
-                    {
-                        xPercent: -50,
-                        yPercent: -50,
-                        motionPath: {
-                            path: [
-                                { x: radius * Math.cos((2 * PI * -4) / 6), y: radius * Math.sin((2 * PI * -4) / 6) },
-                                { x: radius * Math.cos((2 * PI * -3) / 6), y: radius * Math.sin((2 * PI * -3) / 6) },
-                                { x: radius * Math.cos((2 * PI * -2) / 6), y: radius * Math.sin((2 * PI * -2) / 6) },
-                                { x: radius * Math.cos((2 * PI * -1) / 6), y: radius * Math.sin((2 * PI * -1) / 6) },
-                                { x: radius * Math.cos((2 * PI * 0) / 6), y: radius * Math.sin((2 * PI * 0) / 6) },
-                                { x: radius * Math.cos((2 * PI * 1) / 6), y: radius * Math.sin((2 * PI * 1) / 6) },
-                                { x: pos.x - cx + el.offsetWidth / 2, y: pos.y - cy + el.offsetHeight / 2 },
-                            ],
-                            start: 0.2 + i / 10,
-                            align: globalCenterRef.current,
-                            curviness: 1,
+                spacersRef.current.map((ref, i) => {
+                    const tl = gsap.timeline({
+                        scrollTrigger: {
+                            trigger: ref,
+                            start: 'top bottom',
+                            end: '+=100%',
+                            id: `spacer-${i}`,
+                            toggleActions: 'play none none reverse',
                         },
-                        duration: 1.5 + i / 4,
+                    });
+                    const prev = (i - 1 + EVENTS.length) % EVENTS.length;
+                    tl.to(`.slider-${prev}`, {
+                        y: `-=${window.innerHeight}`,
+                        duration: 0.5,
+                    });
+
+                    tl.to(eventsRef.current[prev], {
+                        autoAlpha: 0,
+                        duration: 0.3,
+                        delay: -0.3,
+                    });
+
+                    tl.to(eventsRef.current[i], {
+                        autoAlpha: 1,
+                        duration: 0.3,
+                    });
+                    tl.fromTo(
+                        `.slider-${i}`,
+                        {
+                            y: `+=${window.innerHeight}`,
+                            duration: 0.5,
+                        },
+                        {
+                            y: 0,
+                            autoAlpha: 1,
+                        },
+                        '<',
+                    );
+                });
+
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: '.events-container-main',
+                        start: 'top top',
+                        end: '+=100%',
                     },
-                    '<',
-                );
+                });
+
+                eventsHeadRef.current.map((el, i) => {
+                    const pos = el.getBoundingClientRect();
+                    tl.to(
+                        el,
+                        {
+                            xPercent: -50,
+                            yPercent: -50,
+                            motionPath: {
+                                path: [
+                                    {
+                                        x: radius * Math.cos((2 * PI * -4) / 6),
+                                        y: radius * Math.sin((2 * PI * -4) / 6),
+                                    },
+                                    {
+                                        x: radius * Math.cos((2 * PI * -3) / 6),
+                                        y: radius * Math.sin((2 * PI * -3) / 6),
+                                    },
+                                    {
+                                        x: radius * Math.cos((2 * PI * -2) / 6),
+                                        y: radius * Math.sin((2 * PI * -2) / 6),
+                                    },
+                                    {
+                                        x: radius * Math.cos((2 * PI * -1) / 6),
+                                        y: radius * Math.sin((2 * PI * -1) / 6),
+                                    },
+                                    { x: radius * Math.cos((2 * PI * 0) / 6), y: radius * Math.sin((2 * PI * 0) / 6) },
+                                    { x: radius * Math.cos((2 * PI * 1) / 6), y: radius * Math.sin((2 * PI * 1) / 6) },
+                                    { x: pos.x - cx + el.offsetWidth / 2, y: pos.y - cy + el.offsetHeight / 2 },
+                                ],
+                                start: 0.2 + i / 10,
+                                align: globalCenterRef.current,
+                                curviness: 1,
+                            },
+                            duration: 1.5 + i / 4,
+                        },
+                        '<',
+                    );
+                });
             });
-        });
-    }, []);
+        }
+    }, [loading, windowLoading]);
 
     return (
         <div>
             <Navigation />
+            <Loading loading={loading} windowLoading={windowLoading} />
             <div className="events-animation" id="smooth-scroll">
                 <div className="events-container-main">
                     <span className="global__center" ref={globalCenterRef}></span>

@@ -7,9 +7,9 @@ import colleges from '../assets/footer/colleges.svg';
 import phoneLeft from '../assets/footer/phoneLeft.png';
 import phoneRight from '../assets/footer/phoneRight.png';
 import alcherLadyImg from '../assets/alcher-lady.png';
-import footerBg from '@assets/images/space_bg.png';
-import phone from '@assets/images/phone.svg';
-import footerFort from '@assets/images/footer-fort.svg';
+import footerBg from '@assets/images/stars.png';
+import phone from '@assets/images/phone.png';
+import footerFort from '@assets/images/footer-fort.png';
 import alcherLogoFooter from '@assets/images/alcher-logo-footer.png';
 import instagramIcon from '@assets/images/instagram.png';
 import facebookIcon from '@assets/images/facebook.png';
@@ -110,19 +110,33 @@ const Footer = () => {
                         Download the Alcheringa app today for live updates. Explore our impressive event line-up and
                         merchandise as we begin our Voyage to Neoterra.
                     </div>
-                    <div>
-                        <img src={appButton} />
-                    </div>
+                    <a
+                        href="https://play.google.com/store/apps/details?id=com.alcheringa.alcheringa2022"
+                        target="__blank"
+                    >
+                        <div>
+                            <img src={appButton} />
+                        </div>
+                    </a>
                 </div>
             </div>
 
             <div className="footer-links" style={{ backgroundImage: `url(${footerFort})` }}>
                 <div>
                     <div className="links-left">
-                        <div>EVENTS</div>
-                        <div>CAMPAIGNS</div>
-                        <div>MUN</div>
-                        <div>TEAM</div>
+                        <a href="/events">
+                            <div>EVENTS</div>
+                        </a>
+                        <a href="/campaigns">
+                            <div>CAMPAIGNS</div>
+                        </a>
+                        <a href="https://iitgmun.org" target="__blank">
+                            <div>MUN</div>
+                        </a>
+                        <a href="/team">
+                            <div>TEAM</div>
+                        </a>
+
                         {/* <div>CONTACT</div>
                         <div>SPONSORS</div> */}
                     </div>
@@ -163,19 +177,26 @@ const Footer = () => {
                         <img src={alcherLogoFooter} />
                     </div>
                     <div className="social-links">
-                        <div>
-                            <img src={instagramIcon} />
-                        </div>
-                        <div>
-                            <img src={facebookIcon} />
-                        </div>
-                        <div>
-                            <img src={twitterIcon} />
-                        </div>
-
-                        <div>
-                            <img src={youtubeIcon} />
-                        </div>
+                        <a href="https://www.instagram.com/alcheringaiitg" target="__blank">
+                            <div>
+                                <img src={instagramIcon} />
+                            </div>
+                        </a>
+                        <a href="https://www.facebook.com/alcheringaiitg/" target="__blank">
+                            <div>
+                                <img src={facebookIcon} />
+                            </div>
+                        </a>
+                        <a href="https://twitter.com/alcheringaiitg" target="__blank">
+                            <div>
+                                <img src={twitterIcon} />
+                            </div>
+                        </a>
+                        <a href="https://www.youtube.com/channel/UCQfsLKaY4a1Mx75hnaZDoxw" target="__blank">
+                            <div>
+                                <img src={youtubeIcon} />
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>

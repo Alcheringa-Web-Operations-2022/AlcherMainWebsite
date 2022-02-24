@@ -1,7 +1,7 @@
 import { useRef } from 'react';
-import alcherlogo from '@assets/images/alcherlogo.svg';
+import alcherlogo from '@assets/images/alcherlogo.png';
 import alcherLogo from '@assets/images/alcher-logo.svg';
-import mobileNavIcon from '@assets/images/mobile-nav-icon.jpg';
+import mobileNavIcon from '@assets/images/mobile-nav-icon.svg';
 import { Link } from 'react-router-dom';
 import './Navigation.scss';
 
@@ -23,13 +23,13 @@ const Navigation = () => {
                     <a href="/events">
                         <div className="">EVENTS</div>
                     </a>
-                    <a to="/campaigns">
+                    <a href="/campaigns">
                         <div className="">CAMPAIGNS</div>
                     </a>
-                    <a to="https://iitgmun.org">
+                    <a href="https://iitgmun.org">
                         <div className="">MUN</div>
                     </a>
-                    <a to="/team">
+                    <a href="/team">
                         <div className="">TEAM</div>
                     </a>
 
@@ -44,7 +44,7 @@ const Navigation = () => {
                             <img src={alcherLogo} alt="" />
                         </a>
                     </div>
-                    <div onClick={openNav}>
+                    <div onClick={openNav} style={{ width: '60px' }}>
                         <img src={mobileNavIcon} alt="" />
                     </div>
                 </div>
