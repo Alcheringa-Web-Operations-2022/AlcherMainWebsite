@@ -321,7 +321,7 @@ function LandingPage() {
                                         }}
                                     ></div>
                                     <video
-                                        src="https://bucket-s3.alcheringa.in/alcherregistratiosstatic/videos/trailer.mp4"
+                                        src="https://bucket-s3.alcheringa.in/alcheringain/theme.mp4"
                                         playsInline
                                         webkit-playsinline="true"
                                         preload="none"
