@@ -24,68 +24,68 @@ const teamsImages = [
     //PRB
     [
         {
-            name: 'Soumadip',
-            email: 'abcd@abcd.com',
+            name: 'Vishal Ch',
+            email: 'vishal@alcheringa.in',
             dp: 'https://picsum.photos/200',
-            phone: '9432352622',
+            phone: '7331104679',
         },
         {
-            name: 'Soumadip',
-            email: 'abcd@abcd.com',
+            name: 'Venkat Vikas Ch',
+            email: 'vikas@alcheringa.in',
             dp: 'https://picsum.photos/200',
-            phone: '9432352622',
+            phone: '8919054239',
         },
         {
-            name: 'Soumadip',
-            email: 'abcd@abcd.com',
+            name: 'Ankit Agarwal',
+            email: 'ankit.a@alcheringa.in',
             dp: 'https://picsum.photos/200',
-            phone: '9432352622',
+            phone: '9983072631',
         },
     ],
     //MARKETING
     [
         {
-            name: 'Soumadip',
-            email: 'abcd@abcd.com',
+            name: 'Puneeth G',
+            email: 'puneeth@alcheringa.in',
             dp: 'https://picsum.photos/200',
-            phone: '9432352622',
+            phone: '9573431496',
         },
         {
-            name: 'Soumadip',
-            email: 'abcd@abcd.com',
+            name: 'Satyam Dandotiya',
+            email: 'samdandotiya@alcheringa.in',
             dp: 'https://picsum.photos/200',
-            phone: '9432352622',
+            phone: '6265279148',
         },
         {
-            name: 'Soumadip',
-            email: 'abcd@abcd.com',
+            name: 'Yogendra Choudhary',
+            email: 'yogendrachoudhary@alcheringa.in',
             dp: 'https://picsum.photos/200',
-            phone: '9432352622',
+            phone: '8761933771',
         },
         {
-            name: 'Soumadip',
-            email: 'abcd@abcd.com',
+            name: 'Pushkar Choudhary',
+            email: 'pushkar.c@alcheringa.in',
             dp: 'https://picsum.photos/200',
-            phone: '9432352622',
+            phone: '9760588055',
         },
     ],
 
     //EVENTS
     [
         {
-            name: 'Soumadip',
+            name: 'Abcd',
             email: 'abcd@abcd.com',
             dp: 'https://picsum.photos/200',
             phone: '9432352622',
         },
         {
-            name: 'Soumadip',
+            name: 'Abcd',
             email: 'abcd@abcd.com',
             dp: 'https://picsum.photos/200',
             phone: '9432352622',
         },
         {
-            name: 'Soumadip',
+            name: 'Abcd',
             email: 'abcd@abcd.com',
             dp: 'https://picsum.photos/200',
             phone: '9432352622',
@@ -94,19 +94,19 @@ const teamsImages = [
     //CREATIVES
     [
         {
-            name: 'Soumadip',
+            name: 'Abcd',
             email: 'abcd@abcd.com',
             dp: 'https://picsum.photos/200',
             phone: '9432352622',
         },
         {
-            name: 'Soumadip',
+            name: 'Abcd',
             email: 'abcd@abcd.com',
             dp: 'https://picsum.photos/200',
             phone: '9432352622',
         },
         {
-            name: 'Soumadip',
+            name: 'Abcd',
             email: 'abcd@abcd.com',
             dp: 'https://picsum.photos/200',
             phone: '9432352622',
@@ -115,13 +115,13 @@ const teamsImages = [
     //IITG MUN
     [
         {
-            name: 'Soumadip',
+            name: 'Abcd',
             email: 'abcd@abcd.com',
             dp: 'https://picsum.photos/200',
             phone: '9432352622',
         },
         {
-            name: 'Soumadip',
+            name: 'Abcd',
             email: 'abcd@abcd.com',
             dp: 'https://picsum.photos/200',
             phone: '9432352622',
@@ -130,7 +130,7 @@ const teamsImages = [
     //WEBOPS
     [
         {
-            name: 'Soumadip',
+            name: 'Abcd',
             email: 'abcd@abcd.com',
             dp: 'https://picsum.photos/200',
             phone: '9432352622',
@@ -139,7 +139,7 @@ const teamsImages = [
     //APPOPS
     [
         {
-            name: 'Soumadip',
+            name: 'Abcd',
             email: 'abcd@abcd.com',
             dp: 'https://picsum.photos/200',
             phone: '9432352622',
@@ -148,7 +148,7 @@ const teamsImages = [
     //FINANCE
     [
         {
-            name: 'Soumadip',
+            name: 'Abcd',
             email: 'abcd@abcd.com',
             dp: 'https://picsum.photos/200',
             phone: '9432352622',
@@ -157,7 +157,7 @@ const teamsImages = [
     //CONVENER
     [
         {
-            name: 'Soumadip',
+            name: 'Abcd',
             email: 'abcd@abcd.com',
             dp: 'https://picsum.photos/200',
             phone: '9432352622',

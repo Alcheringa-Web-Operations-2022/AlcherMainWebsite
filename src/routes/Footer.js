@@ -16,6 +16,7 @@ import facebookIcon from '@assets/images/facebook.png';
 import twitterIcon from '@assets/images/twitter.png';
 import youtubeIcon from '@assets/images/youtube.png';
 import footerStarsBg from '@assets/images/stars.png';
+import appButton from '@assets/images/app-button.png';
 import { useEffect, useRef } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -105,8 +106,13 @@ const Footer = () => {
                     <img src={phone} alt="phone-left" />
                 </div>
                 <div className="phones-text-wrapper">
-                    Maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam
-                    at lectus urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt
+                    <div>
+                        Download the Alcheringa app today for live updates. Explore our impressive event line-up and
+                        merchandise as we begin our Voyage to Neoterra.
+                    </div>
+                    <div>
+                        <img src={appButton} />
+                    </div>
                 </div>
             </div>
 
@@ -117,10 +123,40 @@ const Footer = () => {
                         <div>CAMPAIGNS</div>
                         <div>MUN</div>
                         <div>TEAM</div>
-                        <div>CONTACT</div>
-                        <div>SPONSORS</div>
+                        {/* <div>CONTACT</div>
+                        <div>SPONSORS</div> */}
                     </div>
-                    <div className="contacts">+91sbfskf</div>
+                    <div
+                        className="contacts"
+                        style={{
+                            fontFamily: 'clashdisplay',
+                            flexDirection: 'column',
+                            textAlign: 'right',
+                            fontSize: '1rem',
+                        }}
+                    >
+                        <p>
+                            Venkat Vikas Ch <br />
+                            PR Head
+                            <br />
+                            +91 891054239
+                        </p>
+                        <br />
+                        <p>
+                            Ankit Agarwal <br />
+                            PR Head
+                            <br />
+                            +91 9983072631
+                        </p>
+                        <br />
+
+                        <p>
+                            For business
+                            <br />
+                            related queries <br />
+                            alcheringa@iitg.ac.in
+                        </p>
+                    </div>
                 </div>
                 <div>
                     <div className="logo-footer">

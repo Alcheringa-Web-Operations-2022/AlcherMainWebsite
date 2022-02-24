@@ -217,10 +217,18 @@ function LandingPage() {
                     X
                 </div>
                 <div className="navs">
-                    <div className="">EVENTS</div>
-                    <div className="">CAMPAIGNS</div>
-                    <div className="">MUN</div>
-                    <div className="">TEAM</div>
+                    <a href="/events">
+                        <div className="">EVENTS</div>
+                    </a>
+                    <a to="/campaigns">
+                        <div className="">CAMPAIGNS</div>
+                    </a>
+                    <a to="https://iitgmun.org">
+                        <div className="">MUN</div>
+                    </a>
+                    <a to="/team">
+                        <div className="">TEAM</div>
+                    </a>
                     {/* <div className="">CONTACT</div>
                     <div className="">SPONSORS</div> */}
                 </div>
@@ -242,10 +250,18 @@ function LandingPage() {
                             <img src={alcherLogo} alt="" />
                         </div>
                         <div className="nav-links">
-                            <div className="">EVENTS</div>
-                            <div className="">CAMPAIGNS</div>
-                            <div className="">MUN</div>
-                            <div className="">TEAM</div>
+                            <a href="/events">
+                                <div className="">EVENTS</div>
+                            </a>
+                            <a to="/campaigns">
+                                <div className="">CAMPAIGNS</div>
+                            </a>
+                            <a to="https://iitgmun.org">
+                                <div className="">MUN</div>
+                            </a>
+                            <a to="/team">
+                                <div className="">TEAM</div>
+                            </a>
                             {/* <div className="">CONTACT</div>
                             <div className="">SPONSORS</div> */}
                         </div>
