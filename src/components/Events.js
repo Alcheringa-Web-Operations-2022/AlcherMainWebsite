@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
-import '../assets/styles/voyage-2-neoterra.css';
+import '../assets/styles/voyage-2-neoterra.scss';
 
 import pronites_left from '@assets/v2g-asserts/pronites_left.png';
 import cc_left from '@assets/v2g-asserts/cc_left.png';
@@ -50,224 +50,252 @@ const Events = () => {
     const imgsLeftRef = useRef([]);
     const imgsRightRef = useRef([]);
     useEffect(() => {
-        gsap.delayedCall(0.1, () => {
-            // gsap.to('.events-container', {
-            //     scrollTrigger: {
-            //         trigger: '#event-trigger-3',
-            //         start: 'bottom top',
-            //         markers: true,
-            //         id: 'check',
-            //         end: '+=100%',
-            //     },
-            //     css: {
-            //         opacity: 0,
-            //     },
-            // });
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: '#events-container',
-                    start: 'top top',
-                    end: 'bottom bottom',
-                    toggleActions: 'play none none reverse',
-                    // markers: true,
-                    id: 'events-container',
-                },
-            });
-            tl.to('.v2n-wrapper-main', {
-                css: {
-                    position: 'fixed',
-                    top: 0,
-                    left: 0,
-                },
-            });
-
-            const ntl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: '#events-container',
-                    start: 'bottom bottom',
-                    end: 'bottom bottom',
-                    toggleActions: 'play none none reverse',
-                    // markers: true,
-                    id: 'events-container',
-                },
-            });
-            ntl.to('.v2n-wrapper-main', {
-                autoAlpha: 0,
-                y: '-=20%',
-                duration: 0.6,
-                zIndex: '-1',
-            });
-            ntl.fromTo(
-                '.icons-container',
-                {
-                    y: 200,
-                    duration: 0.8,
-                },
-                {
-                    y: 0,
-                },
-                '<',
-            );
-            const tl2 = gsap.timeline({
-                scrollTrigger: {
-                    trigger: '#events-container',
-                    toggleActions: 'play none none reverse',
-                    start: 'top bottom',
-                    end: '+=100%',
-                },
-            });
-            tl2.to(imgsAstroRef.current[0], {
-                opacity: 1,
-                translateX: window.innerWidth < 500 ? '10vw' : '-6vw',
-                duration: 0.2,
-            });
-            tl2.to(
-                eventsHeadRef.current[0],
-                {
-                    opacity: 1,
-                    duration: 0.2,
-                },
-                '<',
-            );
-            tl2.to(
-                eventsDescriptionRef.current[0],
-                {
-                    opacity: 1,
-                    duration: 0.2,
-                },
-                '<',
-            );
-            tl2.to(
-                imgsLeftRef.current[0],
-                {
-                    opacity: 1,
-                    duration: 0.2,
-                },
-                '<',
-            );
-            tl2.to(
-                imgsEventRef.current[0],
-                {
-                    opacity: 1,
-                    duration: 0.2,
-                },
-                '<',
-            );
-            tl2.to(
-                imgsRightRef.current[0],
-                {
-                    opacity: 1,
-                    duration: 0.5,
-                },
-                '<',
-            );
-            for (let i = 0; i < EVENTS_HEAD.length; i++) {
-                const timeline = gsap.timeline({
+        if (!window.matchMedia('(max-width: 800px)').matches) {
+            gsap.delayedCall(0.1, () => {
+                // gsap.to('.events-container', {
+                //     scrollTrigger: {
+                //         trigger: '#event-trigger-3',
+                //         start: 'bottom top',
+                //         markers: true,
+                //         id: 'check',
+                //         end: '+=100%',
+                //     },
+                //     css: {
+                //         opacity: 0,
+                //     },
+                // });
+                const tl = gsap.timeline({
                     scrollTrigger: {
-                        trigger: `#event-trigger-${i}`,
-                        id: 'event-trigger-1',
-                        // markers: true,
+                        trigger: '#events-container',
                         start: 'top top',
+                        end: 'bottom bottom',
                         toggleActions: 'play none none reverse',
-                        end: '+=400%',
+                        // markers: true,
+                        id: 'events-container',
+                    },
+                });
+                tl.to('.v2n-wrapper-main', {
+                    css: {
+                        position: 'fixed',
+                        top: 0,
+                        left: 0,
                     },
                 });
 
-                timeline.to(eventsHeadRef.current[i], {
-                    opacity: 0,
-                    duration: 0.5,
+                const ntl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: '#events-container',
+                        start: 'bottom bottom',
+                        end: 'bottom bottom',
+                        toggleActions: 'play none none reverse',
+                        // markers: true,
+                        id: 'events-container',
+                    },
                 });
-                timeline.to(
-                    imgsLeftRef.current[i],
+                ntl.to('.v2n-wrapper-main', {
+                    autoAlpha: 0,
+                    y: '-=20%',
+                    duration: 0.6,
+                    zIndex: '-1',
+                });
+                ntl.fromTo(
+                    '.icons-container',
                     {
-                        opacity: 0,
-                        duration: 0.5,
+                        y: 200,
+                        duration: 0.8,
+                    },
+                    {
+                        y: 0,
                     },
                     '<',
                 );
-                timeline.to(
-                    imgsRightRef.current[i],
-                    {
-                        opacity: 0,
-                        duration: 0.5,
+                const tl2 = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: '#events-container',
+                        toggleActions: 'play none none reverse',
+                        start: 'top bottom',
+                        end: '+=100%',
                     },
-                    '<',
-                );
-                timeline.to(
-                    eventsDescriptionRef.current[i],
-                    {
-                        opacity: 0,
-                        duration: 0.5,
-                    },
-                    '<',
-                );
-                timeline.to(imgsEventRef.current[i + 1], {
+                });
+                tl2.to(imgsAstroRef.current[0], {
                     opacity: 1,
-                    duration: 0.5,
+                    translateX: window.innerWidth < 500 ? '10vw' : '-6vw',
+                    duration: 0.2,
                 });
-                timeline.to(
-                    imgsEventRef.current[i],
+                tl2.to(
+                    eventsHeadRef.current[0],
                     {
+                        opacity: 1,
+                        duration: 0.2,
+                    },
+                    '<',
+                );
+                tl2.to(
+                    eventsDescriptionRef.current[0],
+                    {
+                        opacity: 1,
+                        duration: 0.2,
+                    },
+                    '<',
+                );
+                tl2.to(
+                    imgsLeftRef.current[0],
+                    {
+                        opacity: 1,
+                        duration: 0.2,
+                    },
+                    '<',
+                );
+                tl2.to(
+                    imgsEventRef.current[0],
+                    {
+                        opacity: 1,
+                        duration: 0.2,
+                    },
+                    '<',
+                );
+                tl2.to(
+                    imgsRightRef.current[0],
+                    {
+                        opacity: 1,
+                        duration: 0.5,
+                    },
+                    '<',
+                );
+                for (let i = 0; i < EVENTS_HEAD.length; i++) {
+                    const timeline = gsap.timeline({
+                        scrollTrigger: {
+                            trigger: `#event-trigger-${i}`,
+                            id: 'event-trigger-1',
+                            // markers: true,
+                            start: 'top top',
+                            toggleActions: 'play none none reverse',
+                            end: '+=400%',
+                        },
+                    });
+
+                    timeline.to(eventsHeadRef.current[i], {
                         opacity: 0,
                         duration: 0.5,
-                    },
-                    '<',
-                );
-                timeline.to(
-                    imgsAstroRef.current[i],
-                    {
-                        translateX: window.innerWidth < 500 ? '50vw' : '4vw',
-                        duration: 0.5,
-                        opacity: 0,
-                    },
-                    '<',
-                );
-                timeline.to(
-                    imgsAstroRef.current[i + 1],
-                    {
+                    });
+                    timeline.to(
+                        imgsLeftRef.current[i],
+                        {
+                            opacity: 0,
+                            duration: 0.5,
+                        },
+                        '<',
+                    );
+                    timeline.to(
+                        imgsRightRef.current[i],
+                        {
+                            opacity: 0,
+                            duration: 0.5,
+                        },
+                        '<',
+                    );
+                    timeline.to(
+                        eventsDescriptionRef.current[i],
+                        {
+                            opacity: 0,
+                            duration: 0.5,
+                        },
+                        '<',
+                    );
+                    timeline.to(imgsEventRef.current[i + 1], {
                         opacity: 1,
-                        translateX: window.innerWidth < 500 ? '7vw' : '-10vw',
                         duration: 0.5,
-                    },
-                    '>',
-                );
+                    });
+                    timeline.to(
+                        imgsEventRef.current[i],
+                        {
+                            opacity: 0,
+                            duration: 0.5,
+                        },
+                        '<',
+                    );
+                    timeline.to(
+                        imgsAstroRef.current[i],
+                        {
+                            translateX: window.innerWidth < 500 ? '50vw' : '4vw',
+                            duration: 0.5,
+                            opacity: 0,
+                        },
+                        '<',
+                    );
+                    timeline.to(
+                        imgsAstroRef.current[i + 1],
+                        {
+                            opacity: 1,
+                            translateX: window.innerWidth < 500 ? '7vw' : '-10vw',
+                            duration: 0.5,
+                        },
+                        '>',
+                    );
 
-                timeline.to(
-                    eventsHeadRef.current[i + 1],
-                    {
-                        opacity: 1,
-                        duration: 0.5,
-                    },
-                    '<',
-                );
+                    timeline.to(
+                        eventsHeadRef.current[i + 1],
+                        {
+                            opacity: 1,
+                            duration: 0.5,
+                        },
+                        '<',
+                    );
 
-                timeline.to(
-                    imgsLeftRef.current[i + 1],
-                    {
-                        opacity: 1,
-                        duration: 0.5,
-                    },
-                    '<',
-                );
-                timeline.to(
-                    imgsRightRef.current[i + 1],
-                    {
-                        opacity: 1,
-                        duration: 0.5,
-                    },
-                    '<',
-                );
+                    timeline.to(
+                        imgsLeftRef.current[i + 1],
+                        {
+                            opacity: 1,
+                            duration: 0.5,
+                        },
+                        '<',
+                    );
+                    timeline.to(
+                        imgsRightRef.current[i + 1],
+                        {
+                            opacity: 1,
+                            duration: 0.5,
+                        },
+                        '<',
+                    );
 
-                timeline.to(
-                    eventsDescriptionRef.current[i + 1],
-                    {
+                    timeline.to(
+                        eventsDescriptionRef.current[i + 1],
+                        {
+                            opacity: 1,
+                            duration: 0.5,
+                        },
+                        '<',
+                    );
+                }
+            });
+        } else {
+            gsap.delayedCall(0, () => {
+                for (let i = 0; i < EVENTS_HEAD.length; i++) {
+                    const tl = gsap.timeline({
+                        scrollTrigger: {
+                            trigger: `#v2n-wrapper-main-${i}`,
+                            start: 'top 80%',
+                            end: 'bottom top',
+                            toggleActions: 'play none none reverse',
+                            id: `#v2n-wrapper-main-${i}`,
+                        },
+                    });
+                    tl.to(`#v2n-wrapper-main-${i} .v2n-wrapper-left`, {
                         opacity: 1,
-                        duration: 0.5,
-                    },
-                    '<',
-                );
-            }
-        });
+                        duration: 1.2,
+                    });
+                    tl.to(
+                        `#v2n-wrapper-main-${i} .v2n-wrapper-right`,
+                        {
+                            opacity: 1,
+                            duration: 1.2,
+                        },
+                        '<',
+                    );
+                }
+            });
+        }
     }, []);
     return (
         <div
@@ -276,7 +304,7 @@ const Events = () => {
         >
             {EVENTS_HEAD.map((e, i) => {
                 return (
-                    <div className="v2n-wrapper-main" key={i}>
+                    <div className="v2n-wrapper-main" key={i} id={`v2n-wrapper-main-${i}`}>
                         <div className="v2n-wrapper-left">
                             <img
                                 src={IMGS_LEFT[i]}

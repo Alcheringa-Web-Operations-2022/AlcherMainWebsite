@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
-import '../assets/styles/voyage-2-neoterra.css';
+import '../assets/styles/voyage-2-neoterra.scss';
 
 import pronites_left from '@assets/v2g-asserts/pronites_left.png';
 import cc_left from '@assets/v2g-asserts/cc_left.png';

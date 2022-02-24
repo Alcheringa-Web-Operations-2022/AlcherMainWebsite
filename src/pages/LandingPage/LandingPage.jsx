@@ -184,6 +184,27 @@ function LandingPage() {
             },
             css: { 'margin-top': '0' },
         });
+        const dobj = { x: 0 };
+        gsap.to(dobj, {
+            x: 100,
+            scrollTrigger: {
+                trigger: '#events-container',
+                start: 'top bottom',
+                end: '+=100%',
+            },
+            onStart: () => {
+                videoRef.current.pause();
+            },
+            onReverseComplete: async () => {
+                try {
+                    videoRef.current.muted = false;
+                    await videoRef.current.play();
+                } catch (err) {
+                    videoRef.current.muted = true;
+                    videoRef.current.play();
+                }
+            },
+        });
     }, [loading]);
     const imageRef = useRef(null);
 

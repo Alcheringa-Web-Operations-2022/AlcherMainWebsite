@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.b95d0cc4.chunk.css",
-    "main.js": "/static/js/main.496cdd44.chunk.js",
-    "main.js.map": "/static/js/main.496cdd44.chunk.js.map",
+    "main.css": "/static/css/main.02b1d33b.chunk.css",
+    "main.js": "/static/js/main.50f5e891.chunk.js",
+    "main.js.map": "/static/js/main.50f5e891.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.d1625745.js",
     "runtime-main.js.map": "/static/js/runtime-main.d1625745.js.map",
-    "static/js/2.8e7e95c8.chunk.js": "/static/js/2.8e7e95c8.chunk.js",
-    "static/js/2.8e7e95c8.chunk.js.map": "/static/js/2.8e7e95c8.chunk.js.map",
+    "static/js/2.30b8a1db.chunk.js": "/static/js/2.30b8a1db.chunk.js",
+    "static/js/2.30b8a1db.chunk.js.map": "/static/js/2.30b8a1db.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.b95d0cc4.chunk.css.map": "/static/css/main.b95d0cc4.chunk.css.map",
-    "static/js/2.8e7e95c8.chunk.js.LICENSE.txt": "/static/js/2.8e7e95c8.chunk.js.LICENSE.txt",
+    "static/css/main.02b1d33b.chunk.css.map": "/static/css/main.02b1d33b.chunk.css.map",
+    "static/js/2.30b8a1db.chunk.js.LICENSE.txt": "/static/js/2.30b8a1db.chunk.js.LICENSE.txt",
     "static/media/alcher-lady.a5226585.png": "/static/media/alcher-lady.a5226585.png",
     "static/media/alcher-logo-footer.249cba4f.png": "/static/media/alcher-logo-footer.249cba4f.png",
     "static/media/alcher-logo.95a726ca.svg": "/static/media/alcher-logo.95a726ca.svg",
@@ -68,8 +68,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.d1625745.js",
-    "static/js/2.8e7e95c8.chunk.js",
-    "static/css/main.b95d0cc4.chunk.css",
-    "static/js/main.496cdd44.chunk.js"
+    "static/js/2.30b8a1db.chunk.js",
+    "static/css/main.02b1d33b.chunk.css",
+    "static/js/main.50f5e891.chunk.js"
   ]
 }
