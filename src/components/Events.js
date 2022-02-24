@@ -29,9 +29,11 @@ import footerStarsBg from '@assets/images/stars.png';
 const EVENTS_HEAD = ['PRONITES', "CREATOR'S CAMP", 'HUMOUR FEST', 'PROSHOWS'];
 const EVENTS_DESRIPTION = [
     'Star-studded performances that excite and awaken, Pronites is the ultimate party experience for every rave-craving soul at Alcheringa',
-    "From wacky jugaads to amusing college incidents, renowned comedians narrate anecdotes dripping with hilarity at Alcheringa's Humor Fest",
-    'Returning each year with the biggest talents in the industry, Proshows celebrates the essence of Alcheringa with international artists and stunning performances',
+
     'An eye-opener for creators and curators alike , Creators’ Camp at Alchering presents a truly inspired discourse among gifted pioneers of creativity.',
+    "From wacky jugaads to amusing college incidents, renowned comedians narrate anecdotes dripping with hilarity at Alcheringa's Humor Fest",
+
+    'Returning each year with the biggest talents in the industry, Proshows celebrates the essence of Alcheringa with international artists and stunning performances',
 ];
 const IMGS_LEFT = [pronites_left, cc_left, humour_left, proshows_left];
 const IMGS_RIGHT = [pronites_right, cc_right, humour_right, proshows_right];
