@@ -3,21 +3,17 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import useCacheBannerImages from '../../hooks/useCacheBannerImages';
 import whiteRings from '@assets/images/white_rings.svg';
-import spaceBg from '@assets/images/space_bg.png';
 import starsBg from '@assets/images/stars_bg.png';
-import greenBg from '@assets/images/green_bg.png';
-import forestBg from '@assets/images/forest_bg.jpg';
 import alcherlogo from '@assets/images/alcherlogo.png';
 import alcherLogo from '@assets/images/alcher-logo.svg';
 import './LandingPage.scss';
-import From_33sec from '../../routes/From_33sec';
 import Footer from '../../routes/Footer';
 const landingImage = 'https://bucket-s3.alcheringa.in/alcheringain/animation1frames/zoom%20ree0001.png';
 import Events from '../../components/Events';
 import mobileNavIcon from '@assets/images/mobile-nav-icon.jpg';
 import footerStarsBg from '@assets/images/stars.png';
 
-const frameCount = 35;
+const frameCount = 30;
 const totalFrames = 90;
 
 gsap.registerPlugin(ScrollTrigger);
@@ -60,24 +56,11 @@ function LandingPage() {
                     trigger: '#alcher-video',
                     pin: true,
                     start: 'top top',
-                    end: '+=300%',
+                    end: '+=600%',
                     id: 'video-container',
                     scrub: true,
                 },
             });
-            // gsap.to('.section-text', {
-            //     scrollTrigger: {
-            //         trigger: '#alcher-video',
-            //         start: 'top top',
-            //         end: '+=300%',
-            //         scrub: true,
-            //     },
-            //     css: {
-            //         top: '10%',
-            //         opacity: 0,
-            //     },
-            //     duration: 0.1,
-            // });
             tl.to('.section-text', {
                 css: {
                     top: '10%',
@@ -91,8 +74,8 @@ function LandingPage() {
                 '.video-container',
                 {
                     css: { clipPath: 'circle(100% at 50% 50%)' },
-                    ease: 'power1',
-                    duration: 24,
+                    duration: 16,
+                    ease: 'ease-in',
                     onStart: async () => {
                         videoOverRef.current.style.cursor = 'url(https://i.ibb.co/5YjXb7X/play.png), auto';
                         try {
@@ -107,7 +90,7 @@ function LandingPage() {
                 },
                 '>',
             );
-            tl.to('.white__rings', { scale: 4.5, duration: 24, ease: 'power0' }, '<');
+            tl.to('.white__rings', { scale: 4.5, duration: 16, ease: 'ease-in' }, '<');
             tl.to('.circle-container', { autoAlpha: 0, duration: 0 }, window.innerWidth < 500 ? '<' : '>');
             tl.to(
                 '.video-wrapper',
@@ -124,6 +107,7 @@ function LandingPage() {
                 },
                 window.innerWidth < 500 ? '<' : '>',
             );
+            tl.to('#banner-img', { y: '-=100%', duration: 0 }, '>');
             tl.from('.video_top_text', { y: 50, autoAlpha: 0 }, '>');
             tl.to(
                 '#desert_bg',
@@ -315,12 +299,18 @@ function LandingPage() {
                                     <div
                                         className="video-over"
                                         ref={videoOverRef}
-                                        onClick={() => {
+                                        onClick={async () => {
                                             // videoRef.current.controls = false;
                                             if (videoRef.current.paused) {
-                                                videoRef.current.play();
                                                 videoOverRef.current.style.cursor =
                                                     'url(https://i.ibb.co/5YjXb7X/play.png), auto';
+                                                try {
+                                                    videoRef.current.muted = false;
+                                                    await videoRef.current.play();
+                                                } catch (err) {
+                                                    videoRef.current.muted = true;
+                                                    videoRef.current.play();
+                                                }
                                             } else {
                                                 videoRef.current.pause();
                                                 videoOverRef.current.style.cursor =

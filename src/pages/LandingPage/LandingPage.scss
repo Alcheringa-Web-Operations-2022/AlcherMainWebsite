@@ -36,6 +36,7 @@
     .navigation{
         display:none;
         .top-nav{
+            height: 10vh;
             z-index:100;
             display:flex;
             width:100%;
@@ -55,7 +56,7 @@
             }
             .nav-links{
                 display:flex;
-                justify-content: space-around;
+                justify-content: space-between;
                 width:80%;
                 align-items: center;
                 div{
@@ -148,7 +149,8 @@
             height: 100%;
             background: url('https://i.ibb.co/M9TvS2G/desert-bg.jpg');
             background-size:contain;
-            background-position: 60% 20%;
+            background-position: 100% 200%;
+            background-size: cover;
         }
 
         #alcher-video {
@@ -322,6 +324,7 @@
         .navigation{
             display:none;
             .top-nav{
+                height: 10vh;
                 z-index:100;
                 display:flex;
                 width:100%;
@@ -341,7 +344,7 @@
                 }
                 .nav-links{
                     display:flex;
-                    justify-content: space-around;
+                    justify-content: space-between;
                     width:80%;
                     align-items: center;
                     div{
@@ -585,7 +588,7 @@
     }
     .logo-container{
         z-index:100 !important;
-        margin:2% auto;
+        margin:5% auto;
         position:relative;
     }
    
@@ -603,7 +606,7 @@
             }
             .logo-container{
                 z-index:100 !important;
-                margin:2% auto;
+                margin:5% auto;
                 position:relative;
             }
                 
