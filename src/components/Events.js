@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
 import '../assets/styles/voyage-2-neoterra.scss';
@@ -118,11 +119,15 @@ const Events = () => {
                         end: '+=100%',
                     },
                 });
-                tl2.to(imgsAstroRef.current[0], {
-                    opacity: 1,
-                    translateX: window.innerWidth < 500 ? '10vw' : '-6vw',
-                    duration: 0.2,
-                });
+                tl2.to(
+                    imgsAstroRef.current[0],
+                    {
+                        opacity: 1,
+                        translateX: window.innerWidth < 500 ? '10vw' : '-6vw',
+                        duration: 0.2,
+                    },
+                    '<',
+                );
                 tl2.to(
                     eventsHeadRef.current[0],
                     {
@@ -312,12 +317,9 @@ const Events = () => {
                 return (
                     <div className="v2n-wrapper-main" key={i} id={`v2n-wrapper-main-${i}`}>
                         <div className="v2n-wrapper-left">
-                            <img
-                                src={IMGS_LEFT[i]}
-                                alt="img-left"
-                                className="img-l"
-                                ref={(el) => (imgsLeftRef.current[i] = el)}
-                            />
+                            <div ref={(el) => (imgsLeftRef.current[i] = el)} className="img-l-w">
+                                <LazyLoadImage src={IMGS_LEFT[i]} alt="img-left" className="img-l" />
+                            </div>
                             <h1 ref={(el) => (eventsHeadRef.current[i] = el)}>{e}</h1>
                             <p className="font-family-hk" ref={(el) => (eventsDescriptionRef.current[i] = el)}>
                                 {EVENTS_DESRIPTION[i]}
@@ -325,25 +327,21 @@ const Events = () => {
                         </div>
                         <div className="v2n-wrapper-right">
                             <div>
-                                <img
-                                    src={IMGS_ASTRO[i]}
-                                    alt="img-1"
-                                    className="img-1"
-                                    ref={(el) => (imgsAstroRef.current[i] = el)}
-                                />
-                                <img
-                                    src={IMGS_EVENT[i]}
-                                    alt="img-2"
-                                    className="img-2"
-                                    ref={(el) => (imgsEventRef.current[i] = el)}
-                                />
+                                <div ref={(el) => (imgsAstroRef.current[i] = el)} className="img-1-w">
+                                    <LazyLoadImage
+                                        src={IMGS_ASTRO[i]}
+                                        alt="img-1"
+                                        className="img-1"
+                                        id={`img-1-astro-${i}`}
+                                    />
+                                </div>
+                                <div className="img-2-w" ref={(el) => (imgsEventRef.current[i] = el)}>
+                                    <LazyLoadImage src={IMGS_EVENT[i]} alt="img-2" className="img-2" />
+                                </div>
                             </div>
-                            <img
-                                src={IMGS_RIGHT[i]}
-                                alt="img-3"
-                                className="img-3"
-                                ref={(el) => (imgsRightRef.current[i] = el)}
-                            />
+                            <div ref={(el) => (imgsRightRef.current[i] = el)} className="img-3-w">
+                                <LazyLoadImage src={IMGS_RIGHT[i]} alt="img-3" className="img-3" />
+                            </div>
                         </div>
                     </div>
                 );

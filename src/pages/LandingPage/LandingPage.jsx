@@ -57,7 +57,7 @@ function LandingPage() {
                 pin: true,
                 anticipatePin: true,
                 start: 'top top',
-                end: window.innerWidth < 800 ? '+=300%' : '+=600%',
+                end: window.innerWidth < 800 ? '+=400%' : '+=600%',
                 id: 'video-container',
                 scrub: true,
             },
@@ -279,13 +279,7 @@ function LandingPage() {
                         <div className="">SPONSORS</div> */}
                     </div>
                 </div>
-                <section
-                    id="banner-image-wrapper"
-                    style={{
-                        background: `url(${starsBg})`,
-                        backgroundPosition: '100% 0%',
-                    }}
-                >
+                <section id="banner-image-wrapper">
                     <div className="logo-container">
                         <img src={alcherlogo} alt="" />
                         <button>JOIN NOW</button>

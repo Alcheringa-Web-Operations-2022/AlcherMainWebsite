@@ -42,14 +42,8 @@
 }
 
 .v2n-wrapper-left .img-l {
-    position: absolute;
-    bottom: 0;
-    opacity: 0;
-    height: 36vw;
-    @media (max-width:800px){
-        opacity:1;
-        display: none;
-            }
+    width: 100%;
+    height: 100%;           
 }
 
 .v2n-wrapper-left h1 {
@@ -82,7 +76,7 @@
     height: 100vh;
 }
 
-.v2n-wrapper-right div {
+.v2n-wrapper-right > div {
     top: 50%;
     right: 0;
     margin-right: 7vw;
@@ -91,33 +85,62 @@
     transform: translate(0, -50%);
 }
 
-.v2n-wrapper-right .img-1 {
+.v2n-wrapper-right .img-1-w {
     height: 40vw;
-    opacity: 0;
-    @media (max-width:800px){
-        opacity:1
-            }
     margin-right: -20vw;
-}
-.v2n-wrapper-right .img-2 {
-    margin-top: 3vw;
-    height: 35vw;
-    opacity: 0;
-    @media (max-width:800px){
-        opacity:1
-            }
+     opacity: 0;
+   @media(max-width: 800px){
+       opacity: 1;
+   }
 }
 
-.v2n-wrapper-right .img-3 {
-    top: 50%;
+.v2n-wrapper-right .img-1 {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.v2n-wrapper-right .img-2-w {
+   opacity: 0;
+   margin-top: 3vw;
+    height: 35vw;
+   @media(max-width: 800px){
+       opacity: 1;
+   }
+}
+.v2n-wrapper-right .img-3-w {
+   opacity: 0;
+   top: 50%;
     right: 0;
     position: absolute;
     width: 15vw;
-    opacity: 0;
-    @media (max-width:800px){
-        opacity:1
-            }
     transform: translate(0, 70%);
+   @media(max-width: 800px){
+       opacity: 1;
+   }
+}
+.v2n-wrapper-left .img-l-w {
+   opacity: 0;
+   position: absolute;
+    bottom: 0;
+    
+    height: 36vw;
+            @media (max-width:800px){
+                display: none;
+            }
+   @media(max-width: 800px){
+       opacity: 1;
+   }
+}
+
+.v2n-wrapper-right .img-2 {
+    width: 100%;
+    height: 100%;
+}
+
+.v2n-wrapper-right .img-3 {
+    width: 100%;
+    height: 100%;
 }
 
 /* mobile */
@@ -125,7 +148,7 @@
     .v2n-wrapper-main{
         margin-top: 15vh;
     }
-    .v2n-wrapper-left .img-l {
+    .v2n-wrapper-left .img-l-w {
       
         height: 70vw;
     }
@@ -154,22 +177,22 @@
         display: flex;
         flex-direction: column-reverse;
     }
-    .v2n-wrapper-right div {
+    .v2n-wrapper-right > div {
         width: 100%;
         margin-top: 5vw;
         margin-right: 0;
     }
-    .v2n-wrapper-right .img-1 {
+    .v2n-wrapper-right .img-1-w {
         height: 50vw;
         position: absolute;
         bottom: -3vw;
         left: -3vw;
     }
-    .v2n-wrapper-right .img-2 {
+    .v2n-wrapper-right .img-2-w {
         height: 80vw;
         margin: auto;
     }
-    .v2n-wrapper-right .img-3 {
+    .v2n-wrapper-right .img-3-w {
         top: 65%;
         right: 10%;
         position: absolute;

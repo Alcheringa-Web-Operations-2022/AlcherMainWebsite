@@ -19,6 +19,7 @@ import footerStarsBg from '@assets/images/stars.png';
 import appButton from '@assets/images/app-button.png';
 import { useEffect, useRef } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -103,7 +104,7 @@ const Footer = () => {
             </div>
             <div className="phones-container">
                 <div className="phones-wrapper">
-                    <img src={phone} alt="phone-left" />
+                    <LazyLoadImage src={phone} alt="phone-left" />
                 </div>
                 <div className="phones-text-wrapper">
                     <div>
