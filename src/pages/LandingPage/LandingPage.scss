@@ -452,6 +452,9 @@
                 position: relative;
                 z-index: 2;
                 margin-top: -30vh;
+                @media(max-width:800px){
+                    margin-top: 0;
+                }
                 .circle-container {
                     position: absolute;
                     top: 0%;
