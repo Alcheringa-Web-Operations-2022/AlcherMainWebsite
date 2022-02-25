@@ -1,4 +1,4 @@
-import gsap from 'gsap/all';
+import gsap, { ScrollToPlugin } from 'gsap/all';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import useLocoScroll from 'hooks/useLocoScroll';
 import React, { useEffect, useRef, useState } from 'react';
@@ -30,6 +30,7 @@ import Aryan from '@assets/images/team/aryan.jpg';
 //     markers: true,
 // });
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollToPlugin);
 const sectionTitles = [
     'PR & BRANDING',
     'MARKETING',
@@ -452,6 +453,7 @@ function TeamsPage2() {
                 },
                 '<',
             );
+
             sectionTitles.map((el, i) => {
                 const tl = gsap.timeline({
                     scrollTrigger: {

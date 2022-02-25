@@ -25,6 +25,7 @@ import humour_astro from '@assets/v2g-asserts/humour_astro.png';
 import proshows_astro from '@assets/v2g-asserts/proshows_astro.png';
 
 import footerStarsBg from '@assets/images/stars.png';
+import { disableScrolling, enableScrolling } from './Loading';
 
 const EVENTS_HEAD = ['PRONITES', "CREATOR'S CAMP", 'HUMOUR FEST', 'PROSHOWS'];
 const EVENTS_DESRIPTION = [
@@ -162,12 +163,11 @@ const Events = () => {
                     },
                     '<',
                 );
-                for (let i = 0; i < EVENTS_HEAD.length; i++) {
+
+                for (let i = 0; i < EVENTS_HEAD.length - 1; i++) {
                     const timeline = gsap.timeline({
                         scrollTrigger: {
                             trigger: `#event-trigger-${i}`,
-                            id: 'event-trigger-1',
-                            // markers: true,
                             start: 'top top',
                             toggleActions: 'play none none reverse',
                             end: '+=400%',
@@ -175,6 +175,10 @@ const Events = () => {
                     });
 
                     timeline.to(eventsHeadRef.current[i], {
+                        onStart: () => {
+                            disableScrolling();
+                        },
+                        onReverseComplete: () => enableScrolling(),
                         opacity: 0,
                         duration: 0.5,
                     });
@@ -264,6 +268,8 @@ const Events = () => {
                         {
                             opacity: 1,
                             duration: 0.5,
+                            onComplete: () => enableScrolling(),
+                            onReverseComplete: () => disableScrolling(),
                         },
                         '<',
                     );

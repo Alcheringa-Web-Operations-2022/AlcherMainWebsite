@@ -33,28 +33,31 @@ function LandingPage() {
         navRef.current.style.display = 'flex';
     };
     useEffect(() => {
-        gsap.to(imageObj, {
-            currentImage: images.length - 1,
-            scrollTrigger: {
-                trigger: '#hero-trigger',
-                pin: true,
-                start: 'top top',
-                end: mql ? '+=150%' : '+=200%',
-                scrub: true,
-                id: 'banner-trigger',
-            },
-            onUpdate: () => {
-                const imgSrc = images[Math.round(imageObj.currentImage)];
-                if (imgSrc) imageRef.current.src = imgSrc;
-            },
-        });
+        if (!mql) {
+            gsap.to(imageObj, {
+                currentImage: images.length - 1,
+                scrollTrigger: {
+                    trigger: '#hero-trigger',
+                    pin: true,
+                    start: 'top top',
+                    end: mql ? '+=150%' : '+=200%',
+                    scrub: true,
+                    id: 'banner-trigger',
+                },
+                onUpdate: () => {
+                    const imgSrc = images[Math.round(imageObj.currentImage)];
+                    if (imgSrc) imageRef.current.src = imgSrc;
+                },
+            });
+        }
 
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: '#alcher-video',
                 pin: true,
+                anticipatePin: true,
                 start: 'top top',
-                end: '+=600%',
+                end: window.innerWidth < 800 ? '+=300%' : '+=600%',
                 id: 'video-container',
                 scrub: true,
             },
@@ -64,15 +67,15 @@ function LandingPage() {
                 top: '10%',
                 opacity: 0,
             },
-            duration: 1,
-            delay: 0.8,
+            duration: 2,
+            delay: window.innerWidth < 800 ? 6 : 3,
         });
 
         tl.to(
             '.video-container',
             {
                 css: { clipPath: 'circle(100% at 50% 50%)' },
-                duration: 16,
+                duration: window.innerWidth < 800 ? 10 : 20,
                 ease: 'ease-in',
                 onStart: async () => {
                     videoOverRef.current.style.cursor = 'url(https://i.ibb.co/5YjXb7X/play.png), auto';
@@ -88,8 +91,8 @@ function LandingPage() {
             },
             '>',
         );
-        tl.to('.white__rings', { scale: 4.5, duration: 16, ease: 'ease-in' }, '<');
-        tl.to('.circle-container', { autoAlpha: 0, duration: 0 }, window.innerWidth < 500 ? '<' : '>');
+        tl.to('.white__rings', { scale: 4.5, duration: window.innerWidth < 800 ? 10 : 20, ease: 'ease-in' }, '<');
+        tl.to('.circle-container', { autoAlpha: 0, duration: 0 }, window.innerWidth < 800 ? '<' : '>');
         tl.to(
             '.video-wrapper',
             {
@@ -101,32 +104,26 @@ function LandingPage() {
                 onReverseComplete: () => {
                     videoRef.current.controls = true;
                 },
-                duration: window.innerWidth < 800 ? 8 : 16,
+                duration: window.innerWidth < 800 ? 6 : 12,
             },
             window.innerWidth < 500 ? '<' : '>',
         );
-        tl.fromTo('.video_top_text', { y: 100, autoAlpha: 0 }, { autoAlpha: 1, y: 0, duration: 10 }, '>');
+        tl.fromTo(
+            '.video_top_text',
+            { y: 100, autoAlpha: 0 },
+            { autoAlpha: 1, y: 0, duration: window.innerWidth < 800 ? 4 : 8 },
+            window.innerWidth < 800 ? '<+4' : '<+8',
+        );
         tl.to('#banner-img', { y: '-=100%', duration: 0 }, '>');
         tl.to(
             '#desert_bg',
             {
                 autoAlpha: 0,
-                duration: 12,
+                duration: window.innerWidth < 800 ? 4 : 8,
             },
             '>',
         );
 
-        // gsap.to('#green_bg_wrapper', {
-        //     backgroundPosition: `0 -50%`,
-        //     scrollTrigger: {
-        //         trigger: '#events-container',
-        //         // markers: true,
-        //         start: 'top center',
-        //         end: 'bottom top',
-        //         id: 'video-container',
-        //         scrub: true,
-        //     },
-        // });
         gsap.to('.img-container', {
             scrollTrigger: {
                 trigger: '#events-container',

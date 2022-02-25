@@ -122,6 +122,9 @@
 
 /* mobile */
 @media only screen and (max-width: 500px) {
+    .v2n-wrapper-main{
+        margin-top: 15vh;
+    }
     .v2n-wrapper-left .img-l {
       
         height: 70vw;
@@ -145,6 +148,7 @@
         margin: auto;
         text-align: center;
         font-size: 4.5vw;
+        padding:1rem;
     }
     .v2n-wrapper-main {
         display: flex;

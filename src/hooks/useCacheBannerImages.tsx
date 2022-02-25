@@ -22,21 +22,29 @@ const preloadImage = async (index: number, setImages) => {
 const useCacheBannerImages = (frameCount: number, totalFrames: number) => {
     const [images, setImages] = useState([]);
     const [loading, setLoading] = useState(true);
+    const mql = window.matchMedia('(max-width: 800px)').matches;
 
     const multiplier = totalFrames / frameCount;
     useEffect(() => {
-        const cacheImages = async () => {
-            const array = new Array(frameCount).fill(undefined);
-            const promises = array.map((_, i) => {
-                return preloadImage(Math.round(i * multiplier + 1), setImages);
-            });
+        if (!mql) {
+            const cacheImages = async () => {
+                const array = new Array(frameCount).fill(undefined);
+                const promises = array.map((_, i) => {
+                    return preloadImage(Math.round(i * multiplier + 1), setImages);
+                });
 
-            promises.push(preloadImage(totalFrames, setImages));
+                promises.push(preloadImage(totalFrames, setImages));
 
-            await Promise.all(promises);
-            setLoading(false);
-        };
-        cacheImages();
+                await Promise.all(promises);
+                setLoading(false);
+            };
+            cacheImages();
+        }
+        {
+            setTimeout(() => {
+                setLoading(false);
+            }, 1000);
+        }
     }, []);
     return { images, loading };
 };

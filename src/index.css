@@ -39,3 +39,9 @@ code {
 .font-family-hk{
   font-family : "clashdisplay";
 }
+
+@media (max-width:800px){
+  .font-clash-display{
+    font-size: 2.5rem;
+  }
+}

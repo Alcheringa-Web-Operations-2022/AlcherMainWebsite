@@ -2,8 +2,7 @@ import gsap from 'gsap/all';
 import { useEffect } from 'react';
 import './Loading.scss';
 
-function disableScrolling() {
-    gsap.to('.loader-container', { autoAlpha: 1 });
+export function disableScrolling() {
     var x = window.scrollX;
     var y = window.scrollY;
     window.onscroll = function () {
@@ -11,19 +10,20 @@ function disableScrolling() {
     };
 }
 
-function enableScrolling() {
+export function enableScrolling() {
     window.onscroll = function () {
         console.log('Welcome to Alcheriga,2022');
     };
-    gsap.to('.loader-container', { autoAlpha: 0 });
 }
 const Loading = ({ loading, windowLoading }) => {
     useEffect(() => {
+        gsap.to('.loader-container', { autoAlpha: 1 });
         disableScrolling();
     }, []);
     useEffect(() => {
         if (!loading && !windowLoading) {
             enableScrolling();
+            gsap.to('.loader-container', { autoAlpha: 0 });
         }
     }, [loading, windowLoading]);
     return (

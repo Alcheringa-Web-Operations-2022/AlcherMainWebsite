@@ -272,6 +272,9 @@
         #events-container {
             position: relative;
             background: transparent;
+            @media(max-width: 800px){
+              margin-top: 30vh;
+            }
             // height: 100%;
         }
     }
