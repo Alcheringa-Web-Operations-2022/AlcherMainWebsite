@@ -57,10 +57,7 @@
     
   }
   .desc{
-    font-size:0.8rem;
-    @media (max-width:800px){
-      font-size:1.2rem;
-    }
+    font-size:1rem;
     font-family:clashdisplay;
     margin-top:10px;
   }
@@ -74,7 +71,9 @@
     width:20%;
     min-width: 150px;
     @media (max-width:800px){
-      min-width:300px;
+      width:200px;
+      max-height: 150px;
+      object-fit: contain;
     }
     object-fit: contain;
     img{

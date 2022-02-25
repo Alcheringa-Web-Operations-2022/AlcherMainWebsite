@@ -60,12 +60,12 @@ const Campaigns = () => {
                 defaults: { duration: 1, ease: 'none' },
             })
                 .to('.campaigns-head', { scale: 10, autoAlpha: 0 })
-                .to('.box:nth-of-type(odd)', { autoAlpha: 1, stagger: -6 }, 1)
-                .to('.box:nth-of-type(odd)', { scale: 4, stagger: -6 }, 2.5)
-                .to('.box:nth-of-type(odd)', { autoAlpha: 0, stagger: -6 }, 3.5)
-                .to('.box:nth-of-type(even)', { autoAlpha: 1, stagger: -6 }, 5)
-                .to('.box:nth-of-type(even)', { scale: 4, stagger: -6 }, 6)
-                .to('.box:nth-of-type(even)', { autoAlpha: 0, stagger: -6 }, 7);
+                .to('.box:nth-of-type(odd)', { autoAlpha: 1, stagger: -8 }, 1)
+                .to('.box:nth-of-type(odd)', { scale: 4, stagger: -8 }, 2.5)
+                .to('.box:nth-of-type(odd)', { autoAlpha: 0, stagger: -8 }, 3.5)
+                .to('.box:nth-of-type(even)', { autoAlpha: 1, stagger: -8 }, 5)
+                .to('.box:nth-of-type(even)', { scale: 4, stagger: -8 }, 6)
+                .to('.box:nth-of-type(even)', { autoAlpha: 0, stagger: -8 }, 7);
         });
         // for (let i = 0; i < campaignsImgRef.length; i++) {
         //     campaignsImgRef.current[i].style.top = getComputedStyle(campaignsImgRef.current[i]) - `${i * 10}`;
