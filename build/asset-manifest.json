@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.e614a91a.chunk.css",
-    "main.js": "/static/js/main.200c186d.chunk.js",
-    "main.js.map": "/static/js/main.200c186d.chunk.js.map",
+    "main.js": "/static/js/main.5664acda.chunk.js",
+    "main.js.map": "/static/js/main.5664acda.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.d1625745.js",
     "runtime-main.js.map": "/static/js/runtime-main.d1625745.js.map",
     "static/js/2.1ad199df.chunk.js": "/static/js/2.1ad199df.chunk.js",
@@ -44,7 +44,7 @@
     "static/media/ms.38073bb4.png": "/static/media/ms.38073bb4.png",
     "static/media/ne.0bf823d1.png": "/static/media/ne.0bf823d1.png",
     "static/media/palak.4d9b6ba2.jpg": "/static/media/palak.4d9b6ba2.jpg",
-    "static/media/phone.11dcda7b.webp": "/static/media/phone.11dcda7b.webp",
+    "static/media/phone.6aa766ee.webp": "/static/media/phone.6aa766ee.webp",
     "static/media/phoneLeft.d8c0af78.png": "/static/media/phoneLeft.d8c0af78.png",
     "static/media/phoneRight.a8f9756f.png": "/static/media/phoneRight.a8f9756f.png",
     "static/media/pi.857c8062.png": "/static/media/pi.857c8062.png",
@@ -76,6 +76,6 @@
     "static/js/runtime-main.d1625745.js",
     "static/js/2.1ad199df.chunk.js",
     "static/css/main.e614a91a.chunk.css",
-    "static/js/main.200c186d.chunk.js"
+    "static/js/main.5664acda.chunk.js"
   ]
 }
