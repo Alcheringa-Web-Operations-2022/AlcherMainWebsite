@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.1b6cf719.chunk.css",
-    "main.js": "/static/js/main.a8a3fb90.chunk.js",
-    "main.js.map": "/static/js/main.a8a3fb90.chunk.js.map",
+    "main.css": "/static/css/main.e614a91a.chunk.css",
+    "main.js": "/static/js/main.200c186d.chunk.js",
+    "main.js.map": "/static/js/main.200c186d.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.d1625745.js",
     "runtime-main.js.map": "/static/js/runtime-main.d1625745.js.map",
     "static/js/2.1ad199df.chunk.js": "/static/js/2.1ad199df.chunk.js",
     "static/js/2.1ad199df.chunk.js.map": "/static/js/2.1ad199df.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.1b6cf719.chunk.css.map": "/static/css/main.1b6cf719.chunk.css.map",
+    "static/css/main.e614a91a.chunk.css.map": "/static/css/main.e614a91a.chunk.css.map",
     "static/js/2.1ad199df.chunk.js.LICENSE.txt": "/static/js/2.1ad199df.chunk.js.LICENSE.txt",
     "static/media/alcher-lady.a5226585.png": "/static/media/alcher-lady.a5226585.png",
     "static/media/alcher-logo-footer.51f6a9c8.png": "/static/media/alcher-logo-footer.51f6a9c8.png",
@@ -75,7 +75,7 @@
   "entrypoints": [
     "static/js/runtime-main.d1625745.js",
     "static/js/2.1ad199df.chunk.js",
-    "static/css/main.1b6cf719.chunk.css",
-    "static/js/main.a8a3fb90.chunk.js"
+    "static/css/main.e614a91a.chunk.css",
+    "static/js/main.200c186d.chunk.js"
   ]
 }
