@@ -62,7 +62,7 @@ const Campaigns = () => {
                 .to('.campaigns-head', { scale: 10, autoAlpha: 0 })
                 .to('.box:nth-of-type(odd)', { autoAlpha: 1, stagger: -8 }, 1)
                 .to('.box:nth-of-type(odd)', { scale: 4, stagger: -8 }, 2.5)
-                .to('.box:nth-of-type(odd)', { autoAlpha: 0, stagger: -8 }, 3.5)
+                .to('.box:nth-of-type(odd)', { autoAlpha: 0, stagger: -8 }, 4)
                 .to('.box:nth-of-type(even)', { autoAlpha: 1, stagger: -8 }, 5)
                 .to('.box:nth-of-type(even)', { scale: 4, stagger: -8 }, 6)
                 .to('.box:nth-of-type(even)', { autoAlpha: 0, stagger: -8 }, 7);

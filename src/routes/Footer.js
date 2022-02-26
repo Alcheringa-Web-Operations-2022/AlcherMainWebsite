@@ -8,7 +8,7 @@ import phoneLeft from '../assets/footer/phoneLeft.png';
 import phoneRight from '../assets/footer/phoneRight.png';
 import alcherLadyImg from '../assets/alcher-lady.png';
 import footerBg from '@assets/images/stars.png';
-import phone from '@assets/images/phone.png';
+import phone from '@assets/images/phone.webp';
 import footerFort from '@assets/images/footer-fort.png';
 import alcherLogoFooter from '@assets/images/alcher-logo-footer.png';
 import instagramIcon from '@assets/images/instagram.png';
@@ -108,6 +108,9 @@ const Footer = () => {
                 </div>
                 <div className="phones-text-wrapper">
                     <div>
+                        <h1 style={{ margin: '5% 0', fontFamily: 'CustomFont', letterSpacing: '2px' }}>
+                            DOWNLOAD THE APP
+                        </h1>
                         Download the Alcheringa app today for live updates. Explore our impressive event line-up and
                         merchandise as we begin our Voyage to Neoterra.
                     </div>
