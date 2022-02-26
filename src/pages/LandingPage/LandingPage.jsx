@@ -283,7 +283,7 @@ function LandingPage() {
                 <section id="banner-image-wrapper">
                     <div className="logo-container">
                         <img src={alcherlogo} alt="" />
-                        <button>JOIN NOW</button>
+                        <button style={{ display: 'none' }}>JOIN NOW</button>
                     </div>
                     <img id="banner-img" alt="Alcheringa 2022" src={landingImage} ref={imageRef} />
                 </section>

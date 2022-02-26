@@ -123,6 +123,7 @@ const Events = () => {
                     imgsAstroRef.current[0],
                     {
                         opacity: 1,
+
                         translateX: window.innerWidth < 500 ? '10vw' : '-6vw',
                         duration: 0.2,
                     },
