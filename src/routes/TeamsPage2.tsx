@@ -504,6 +504,7 @@ function TeamsPage2() {
                 gsap.set('.teams__container', { y: 0 });
             });
         });
+        document.title = 'Alcheringa 2022 | Teams';
     }, []);
 
     return (

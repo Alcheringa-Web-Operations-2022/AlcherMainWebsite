@@ -202,6 +202,7 @@ function LandingPage() {
                 }
             },
         });
+        document.title = 'Alcheringa 2022 | Home';
     }, [loading]);
     const imageRef = useRef(null);
 

@@ -67,6 +67,7 @@ const Campaigns = () => {
                 .to('.box:nth-of-type(even)', { scale: 4, stagger: -8 }, 6)
                 .to('.box:nth-of-type(even)', { autoAlpha: 0, stagger: -8 }, 7);
         });
+        document.title = 'Alcheringa 2022 | Campaigns';
         // for (let i = 0; i < campaignsImgRef.length; i++) {
         //     campaignsImgRef.current[i].style.top = getComputedStyle(campaignsImgRef.current[i]) - `${i * 10}`;
         // }
