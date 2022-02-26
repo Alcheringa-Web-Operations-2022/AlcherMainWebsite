@@ -15,17 +15,22 @@ import cc_right from '@assets/v2g-asserts/cc_right.png';
 import humour_right from '@assets/v2g-asserts/humour_right.png';
 import proshows_right from '@assets/v2g-asserts/proshows_right.png';
 
-import pronites_event from '@assets/v2g-asserts/pronites_event.png';
-import cc_event from '@assets/v2g-asserts/cc_event.png';
-import humour_event from '@assets/v2g-asserts/humour_event.png';
-import proshows_event from '@assets/v2g-asserts/proshows_event.png';
+// import pronites_event from '@assets/v2g-asserts/pronites_event.png';
+// import cc_event from '@assets/v2g-asserts/cc_event.png';
+// import humour_event from '@assets/v2g-asserts/humour_event.png';
+// import proshows_event from '@assets/v2g-asserts/proshows_event.png';
+
+import pronites_event from '@assets/images/pronites.webp';
+import cc_event from '@assets/images/cc.webp';
+import humour_event from '@assets/images/humour.webp';
+import proshows_event from '@assets/images/proshows.webp';
 
 import pronites_astro from '@assets/v2g-asserts/pronites_astro.png';
 import cc_astro from '@assets/v2g-asserts/cc_astro.png';
 import humour_astro from '@assets/v2g-asserts/humour_astro.png';
 import proshows_astro from '@assets/v2g-asserts/proshows_astro.png';
 
-import footerStarsBg from '@assets/images/stars.png';
+import footerStarsBg from '@assets/images/stars.webp';
 import { disableScrolling, enableScrolling } from './Loading';
 
 const EVENTS_HEAD = ['PRONITES', "CREATOR'S CAMP", 'HUMOUR FEST', 'PROSHOWS'];

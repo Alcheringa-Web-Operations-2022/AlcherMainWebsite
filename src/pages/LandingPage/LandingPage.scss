@@ -165,10 +165,12 @@
             left:0;
             width:100vw;
             height: 100%;
-            background: url('https://i.ibb.co/M9TvS2G/desert-bg.jpg');
-            background-size:contain;
-            background-position: 100% 200%;
-            background-size: cover;
+            // background: url('https://i.ibb.co/M9TvS2G/desert-bg.jpg');
+            background-size:cover;
+            // background-position: 100% 200%;
+            // background-size: cover;
+            // background-position:center;
+            // background-repeat: no-repeat;
         }
 
         #alcher-video {

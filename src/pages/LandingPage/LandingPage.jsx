@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import useCacheBannerImages from '../../hooks/useCacheBannerImages';
 import whiteRings from '@assets/images/white_rings.svg';
-import starsBg from '@assets/images/stars.png';
+import starsBg from '@assets/images/stars.webp';
 import alcherlogo from '@assets/images/alcherlogo.png';
 import alcherLogo from '@assets/images/alcher-logo.svg';
 import './LandingPage.scss';
@@ -11,10 +11,11 @@ import Footer from '../../routes/Footer';
 const landingImage = 'https://bucket-s3.alcheringa.in/alcheringain/animation1frames/zoom%20ree0001.png';
 import Events from '../../components/Events';
 import mobileNavIcon from '@assets/images/mobile-nav-icon.svg';
-import footerStarsBg from '@assets/images/stars.png';
+import footerStarsBg from '@assets/images/stars.webp';
 const totalFrames = 90;
 import Loading from '@components/Loading';
 import mountainImage from '@assets/images/mountain.webp';
+import skyBg from '@assets/images/sky.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -312,7 +313,7 @@ function LandingPage() {
                         backgroundSize: 'cover',
                     }}
                 >
-                    <div id="desert_bg" />
+                    <div id="desert_bg" style={{ backgroundImage: `url(${skyBg})` }} />
 
                     <div id="alcher-video">
                         <div className="circle-container">

@@ -3,7 +3,7 @@ import './Campaigns.scss';
 
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import footerStarsBg from '@assets/images/stars.png';
+import footerStarsBg from '@assets/images/stars.webp';
 import NePhoto from '@assets/images/campaigns/ne.png';
 import ShPhoto from '@assets/images/campaigns/sh.png';
 import UnPhoto from '@assets/images/campaigns/un.png';

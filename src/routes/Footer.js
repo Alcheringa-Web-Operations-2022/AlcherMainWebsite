@@ -7,7 +7,7 @@ import colleges from '../assets/footer/colleges.svg';
 import phoneLeft from '../assets/footer/phoneLeft.png';
 import phoneRight from '../assets/footer/phoneRight.png';
 import alcherLadyImg from '../assets/alcher-lady.png';
-import footerBg from '@assets/images/stars.png';
+import footerBg from '@assets/images/stars.webp';
 import phone from '@assets/images/phone.webp';
 import footerFort from '@assets/images/footer-fort.png';
 import alcherLogoFooter from '@assets/images/alcher-logo-footer.png';
@@ -15,7 +15,7 @@ import instagramIcon from '@assets/images/instagram.png';
 import facebookIcon from '@assets/images/facebook.png';
 import twitterIcon from '@assets/images/twitter.png';
 import youtubeIcon from '@assets/images/youtube.png';
-import footerStarsBg from '@assets/images/stars.png';
+import footerStarsBg from '@assets/images/stars.webp';
 import appButton from '@assets/images/app-button.png';
 import { useEffect, useRef } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -108,7 +108,9 @@ const Footer = () => {
                 </div>
                 <div className="phones-text-wrapper">
                     <div>
-                        <h1 style={{ margin: '5% 0', fontFamily: 'CustomFont', letterSpacing: '2px' }}>
+                        <h1
+                            style={{ margin: '5% 0', fontFamily: 'CustomFont', letterSpacing: '2px', fontSize: '4rem' }}
+                        >
                             DOWNLOAD THE APP
                         </h1>
                         Download the Alcheringa app today for live updates. Explore our impressive event line-up and
