@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.70d54ad8.chunk.css",
-    "main.js": "/static/js/main.74492f87.chunk.js",
-    "main.js.map": "/static/js/main.74492f87.chunk.js.map",
+    "main.css": "/static/css/main.d47cfc86.chunk.css",
+    "main.js": "/static/js/main.d08fd770.chunk.js",
+    "main.js.map": "/static/js/main.d08fd770.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.d1625745.js",
     "runtime-main.js.map": "/static/js/runtime-main.d1625745.js.map",
     "static/js/2.1ad199df.chunk.js": "/static/js/2.1ad199df.chunk.js",
     "static/js/2.1ad199df.chunk.js.map": "/static/js/2.1ad199df.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.70d54ad8.chunk.css.map": "/static/css/main.70d54ad8.chunk.css.map",
+    "static/css/main.d47cfc86.chunk.css.map": "/static/css/main.d47cfc86.chunk.css.map",
     "static/js/2.1ad199df.chunk.js.LICENSE.txt": "/static/js/2.1ad199df.chunk.js.LICENSE.txt",
     "static/media/alcher-lady.a5226585.png": "/static/media/alcher-lady.a5226585.png",
-    "static/media/alcher-logo-footer.249cba4f.png": "/static/media/alcher-logo-footer.249cba4f.png",
+    "static/media/alcher-logo-footer.51f6a9c8.png": "/static/media/alcher-logo-footer.51f6a9c8.png",
     "static/media/alcher-logo.95a726ca.svg": "/static/media/alcher-logo.95a726ca.svg",
     "static/media/alcherlogo.324873b2.png": "/static/media/alcherlogo.324873b2.png",
     "static/media/ankit.f61c28dd.jpg": "/static/media/ankit.f61c28dd.jpg",
@@ -38,10 +38,11 @@
     "static/media/humour_left.c33b5e5e.png": "/static/media/humour_left.c33b5e5e.png",
     "static/media/humour_right.d5a8d1f6.png": "/static/media/humour_right.d5a8d1f6.png",
     "static/media/mobile-nav-icon.b338e954.svg": "/static/media/mobile-nav-icon.b338e954.svg",
+    "static/media/mountain.e5a96aa0.webp": "/static/media/mountain.e5a96aa0.webp",
     "static/media/ms.38073bb4.png": "/static/media/ms.38073bb4.png",
     "static/media/ne.0bf823d1.png": "/static/media/ne.0bf823d1.png",
     "static/media/palak.4d9b6ba2.jpg": "/static/media/palak.4d9b6ba2.jpg",
-    "static/media/phone.adb39884.png": "/static/media/phone.adb39884.png",
+    "static/media/phone.597e36cc.png": "/static/media/phone.597e36cc.png",
     "static/media/phoneLeft.d8c0af78.png": "/static/media/phoneLeft.d8c0af78.png",
     "static/media/phoneRight.a8f9756f.png": "/static/media/phoneRight.a8f9756f.png",
     "static/media/pi.857c8062.png": "/static/media/pi.857c8062.png",
@@ -69,7 +70,7 @@
   "entrypoints": [
     "static/js/runtime-main.d1625745.js",
     "static/js/2.1ad199df.chunk.js",
-    "static/css/main.70d54ad8.chunk.css",
-    "static/js/main.74492f87.chunk.js"
+    "static/css/main.d47cfc86.chunk.css",
+    "static/js/main.d08fd770.chunk.js"
   ]
 }
