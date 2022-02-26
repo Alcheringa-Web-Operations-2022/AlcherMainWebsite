@@ -336,11 +336,15 @@ const Events = () => {
                                         id={`img-1-astro-${i}`}
                                     />
                                 </div>
-                                <div className="img-2-w" ref={(el) => (imgsEventRef.current[i] = el)}>
+                                <div
+                                    className="img-2-w"
+                                    ref={(el) => (imgsEventRef.current[i] = el)}
+                                    id={`img-2-w-${i}`}
+                                >
                                     <LazyLoadImage src={IMGS_EVENT[i]} alt="img-2" className="img-2" />
                                 </div>
                             </div>
-                            <div ref={(el) => (imgsRightRef.current[i] = el)} className="img-3-w">
+                            <div ref={(el) => (imgsRightRef.current[i] = el)} className="img-3-w" id={`img-3-w-${i}`}>
                                 <LazyLoadImage src={IMGS_RIGHT[i]} alt="img-3" className="img-3" />
                             </div>
                         </div>

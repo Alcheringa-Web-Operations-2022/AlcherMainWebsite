@@ -1,6 +1,7 @@
 import gsap from 'gsap/all';
 import { useEffect } from 'react';
 import './Loading.scss';
+import loaderImage from '@assets/images/loader.png';
 
 export function disableScrolling() {
     var x = window.scrollX;
@@ -28,7 +29,7 @@ const Loading = ({ loading, windowLoading }) => {
     }, [loading, windowLoading]);
     return (
         <div className="loader-container">
-            <div id="loading"></div>
+            <div id="loading" style={{ backgroundImage: `url(${loaderImage})` }}></div>
             <div className="loading-text">Loading...</div>
         </div>
     );

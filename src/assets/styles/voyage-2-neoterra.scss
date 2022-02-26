@@ -1,3 +1,17 @@
+#img-2-w-0{
+    position:relative;
+    z-index:5;
+}
+#img-1-astro-0{
+    // transform:translateX(0.04vw)
+}
+#img-3-w-1{
+    transform:translate(50%,40%);
+    width:50%;
+    @media(max-width: 500px){
+        transform: translate(20%, 18%);
+    }
+}
 .v2n-container-main {
     background-color: black;
     height: 150vh;
@@ -65,7 +79,7 @@
     top: 52%;
     left: 38%;
     opacity: 0;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     max-width: 45ch;
     @media (max-width:800px){
         opacity:1
@@ -114,7 +128,10 @@
     right: 0;
     position: absolute;
     width: 15vw;
-    transform: translate(0, 70%);
+    transform: translate(50%, 85%);
+    @media(max-width: 500px){
+        transform: translate(0%, 85%);
+    }
    @media(max-width: 800px){
        opacity: 1;
    }
@@ -176,6 +193,7 @@
     .v2n-wrapper-main {
         display: flex;
         flex-direction: column-reverse;
+        gap:50px;
     }
     .v2n-wrapper-right > div {
         width: 100%;
@@ -186,12 +204,14 @@
         height: 50vw;
         position: absolute;
         bottom: -3vw;
-        left: -3vw;
+        left:8vw;
     }
     .v2n-wrapper-right .img-2-w {
         height: 80vw;
         margin: auto;
+        
     }
+    
     .v2n-wrapper-right .img-3-w {
         top: 65%;
         right: 10%;

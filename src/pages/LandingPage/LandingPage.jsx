@@ -14,6 +14,7 @@ import mobileNavIcon from '@assets/images/mobile-nav-icon.svg';
 import footerStarsBg from '@assets/images/stars.png';
 const totalFrames = 90;
 import Loading from '@components/Loading';
+import mountainImage from '@assets/images/mountain.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -108,6 +109,14 @@ function LandingPage() {
             },
             window.innerWidth < 500 ? '<' : '>',
         );
+        tl.to(
+            '.mountain',
+            {
+                autoAlpha: 1,
+                duration: 10,
+            },
+            '<',
+        );
         tl.fromTo(
             '.video_top_text',
             { y: 100, autoAlpha: 0 },
@@ -122,6 +131,14 @@ function LandingPage() {
                 duration: window.innerWidth < 800 ? 4 : 8,
             },
             '>',
+        );
+        tl.to(
+            '.mountain',
+            {
+                autoAlpha: 0,
+                duration: 4,
+            },
+            '<+2',
         );
 
         gsap.to('.img-container', {
@@ -296,6 +313,7 @@ function LandingPage() {
                     }}
                 >
                     <div id="desert_bg" />
+
                     <div id="alcher-video">
                         <div className="circle-container">
                             <div className="circles-inner-container">
@@ -309,6 +327,9 @@ function LandingPage() {
                             </div>
                         </div>
                         <div className="video-container">
+                            <div className="mountain">
+                                <img src={mountainImage} />
+                            </div>
                             <div className="video-wrapper">
                                 <div className="video-div">
                                     <div
@@ -350,7 +371,7 @@ function LandingPage() {
                             </div>
                             <div className="video_top_text">
                                 <p className="title">VOYAGE TO NEOTERRA</p>
-                                <p className="subtitle font-family-hk">
+                                <p className="subtitle">
                                     This year, we celebrate the naissance of a new era at Alcheringa. The Voyage to
                                     Neoterra presents an otherworldly nirvana of views and possibilities - ranging from
                                     vast red deserts and entrancing tropical forests to breathtaking canyons and

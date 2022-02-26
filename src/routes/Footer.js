@@ -88,18 +88,18 @@ const Footer = () => {
         >
             <div className="icons-container" ref={iconsContainerRef}>
                 <div className="icon-wrapper">
-                    <span className="font-clash-display">26</span> <br /> EDITIONS
+                    <span className="font-clash-display">26</span> <span className="footer-features">EDITIONS</span>
                 </div>
                 <div className="icon-wrapper">
                     <span className="font-clash-display">140k </span>
-                    <br /> FOOTBALL
+                    <span className="footer-features">FOOTBALL</span>
                 </div>
                 <div className="icon-wrapper">
                     <span className="font-clash-display">100+ </span>
-                    <br /> EVENTS
+                    <span className="footer-features">EVENTS</span>
                 </div>
                 <div className="icon-wrapper">
-                    <span className="font-clash-display"> 500+</span> <br /> COLLEGES
+                    <span className="font-clash-display"> 500+</span> <span className="footer-features">COLLEGES</span>
                 </div>
             </div>
             <div className="phones-container">

@@ -6,7 +6,11 @@
     overflow: hidden;
     font-size:1.5rem;
 }
-
+.footer-features{
+    font-family:'clashdisplay';
+    font-weight:500;
+    font-size:1.2rem;
+}
 .icons-container {
     display: grid;
     grid:auto/auto auto auto auto;
@@ -31,10 +35,13 @@
 
 .phones-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     height: 100vh;
     padding: 5vh 0;
-    gap:3rem;
+    gap:10rem;
+    @media (max-width:768px){
+        gap:3rem;
+    }
     opacity: 0.3;
     width:70%;
     margin:auto;
@@ -59,15 +66,17 @@
     margin-left: 45px;
    
     margin: auto;
-    font-size:1.3rem;
-    
+    font-size:1.3rem;    
     line-height: 38px;
-    font-family:'clashdisplay';
+    font-family:'hk';
     div{
         img{
             object-fit: contain;
             margin-top:20px;
             width:30%;
+            @media(max-width:768px){
+                  width:50%;      
+            }
             
 
         }
@@ -152,6 +161,7 @@
               
                 
                 img{
+                  
                     width:100%;
                     object-fit:contain;
                     
