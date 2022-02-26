@@ -1,5 +1,11 @@
 
 
+.download-app{
+    @media(max-width:768px){
+        font-size:2rem;
+    }
+    font-size:4rem;
+}
 .loader {
     height: 100vh;
     display: grid;

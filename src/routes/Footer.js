@@ -109,7 +109,8 @@ const Footer = () => {
                 <div className="phones-text-wrapper">
                     <div>
                         <h1
-                            style={{ margin: '5% 0', fontFamily: 'CustomFont', letterSpacing: '2px', fontSize: '4rem' }}
+                            style={{ margin: '5% 0', fontFamily: 'CustomFont', letterSpacing: '2px' }}
+                            className="download-app"
                         >
                             DOWNLOAD THE APP
                         </h1>
