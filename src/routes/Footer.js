@@ -92,7 +92,7 @@ const Footer = () => {
                 </div>
                 <div className="icon-wrapper">
                     <span className="font-clash-display">140k </span>
-                    <span className="footer-features">FOOTBALL</span>
+                    <span className="footer-features">FOOTFALL</span>
                 </div>
                 <div className="icon-wrapper">
                     <span className="font-clash-display">100+ </span>
