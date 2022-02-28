@@ -376,7 +376,7 @@ function LandingPage() {
                                     This year, we celebrate the naissance of a new era at Alcheringa. The Voyage to
                                     Neoterra presents an otherworldly nirvana of views and possibilities - ranging from
                                     vast red deserts and entrancing tropical forests to breathtaking canyons and
-                                    mesmerising glows/crevices.
+                                    mesmerising crevices.
                                 </p>
                             </div>
                         </div>

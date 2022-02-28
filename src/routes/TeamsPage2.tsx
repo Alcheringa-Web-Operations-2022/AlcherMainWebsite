@@ -25,6 +25,7 @@ import HrishikeshB from '@assets/images/team/hrishikeshb.jpg';
 import Vipin from '@assets/images/team/vipin.jpeg';
 import Deiwik from '@assets/images/team/deiwik.jpeg';
 import Aryan from '@assets/images/team/aryan.jpg';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 // ScrollTrigger.defaults({
 //     markers: true,
@@ -293,7 +294,7 @@ function TeamsPage2() {
                         return (
                             <figure className="snip1527" key={i}>
                                 <div className="snip1527image">
-                                    <img src={el.dp} alt="pr-sample23" />
+                                     <LazyLoadImage src={el.dp} alt="pr-sample23" />
                                 </div>
                                 <figcaption>
                                     <div>
@@ -363,7 +364,7 @@ function TeamsPage2() {
                             return (
                                 <figure className="snip1527" key={i}>
                                     <div className="snip1527image">
-                                        <img src={el.dp} alt="pr-sample23" />
+                                         <LazyLoadImage src={el.dp} alt="pr-sample23" />
                                     </div>
                                     <figcaption>
                                         <div>
@@ -527,7 +528,7 @@ function TeamsPage2() {
                         <p style={{ fontFamily: 'clashdisplay' }}>
                             All students, from the fourth year mentors to the first-year freshers, play an active role
                             in actualising the four days of Alcher. Alcheringa is the most significant cultural festival
-                            in the northeast and is build by the yearlong efforts of all the students involved in making
+                            in the northeast and is built by the yearlong efforts of all the students involved in making
                             their vision of Alcher come to life.
                         </p>
                     </div>

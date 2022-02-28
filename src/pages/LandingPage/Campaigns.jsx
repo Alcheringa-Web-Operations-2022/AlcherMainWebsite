@@ -19,7 +19,7 @@ const campaigns = [
     {
         heading: 'Manshakti',
         img: MsPhoto,
-        desc: 'Manshakti is one small step in the long journey towards mental wellness. It is a mental health awareness and wellness campaign, launched by Alcheringa, which aims to empathize and understand the people who suffer mentally. The only solace the COVID front liners have, during this pandemic, is our love and support motivating them to keep working. Through Manshakti, we collected some motivating messages and greetings from the public, which were then sent to the Covid-19 warriors, to let them know that we are proudly rooting for them.',
+        desc: 'Manshakti is one small step in the long journey towards mental wellness. It is a mental health awareness and wellness campaign, launched by Alcheringa, which aims to empathize and understand the people who suffer mentally. The only solace the COVID front line workers have, during this pandemic, is our love and support motivating them to keep working. Through Manshakti, we collected some motivating messages and greetings from the public, which were then sent to the Covid-19 warriors, to let them know that we are proudly rooting for them.',
     },
     {
         heading: 'Prithvi',
