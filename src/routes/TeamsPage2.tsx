@@ -11,7 +11,7 @@ import Vikas from '@assets/images/team/vikas.jpg';
 import Ankit from '@assets/images/team/ankit.jpg';
 import Puneeth from '@assets/images/team/puneeth.jpg';
 import Yogi from '@assets/images/team/yogendra.jpg';
-import Satyam from '@assets/images/team/satyam.jpg';
+import Satyam from '@assets/images/team/satyam.webp';
 import Pushkar from '@assets/images/team/pushkar.jpg';
 import Shubham from '@assets/images/team/shubam.jpg';
 import Himanshu from '@assets/images/team/himanshu.jpg';
@@ -22,7 +22,7 @@ import Diya from '@assets/images/team/diya.png';
 import Harry from '@assets/images/team/harry.jpg';
 import HrishikeshP from '@assets/images/team/hrishikeshp.jpg';
 import HrishikeshB from '@assets/images/team/hrishikeshb.jpg';
-import Vipin from '@assets/images/team/vipin.jpeg';
+import Vipin from '@assets/images/team/vipin.webp';
 import Deiwik from '@assets/images/team/deiwik.jpeg';
 import Aryan from '@assets/images/team/aryan.jpg';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
@@ -294,7 +294,7 @@ function TeamsPage2() {
                         return (
                             <figure className="snip1527" key={i}>
                                 <div className="snip1527image">
-                                     <LazyLoadImage src={el.dp} alt="pr-sample23" />
+                                    <LazyLoadImage src={el.dp} alt="pr-sample23" />
                                 </div>
                                 <figcaption>
                                     <div>
@@ -364,7 +364,7 @@ function TeamsPage2() {
                             return (
                                 <figure className="snip1527" key={i}>
                                     <div className="snip1527image">
-                                         <LazyLoadImage src={el.dp} alt="pr-sample23" />
+                                        <LazyLoadImage src={el.dp} alt="pr-sample23" />
                                     </div>
                                     <figcaption>
                                         <div>

@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/static/css/main.111aba1f.chunk.css",
-    "main.js": "/static/js/main.887e2644.chunk.js",
-    "main.js.map": "/static/js/main.887e2644.chunk.js.map",
+    "main.js": "/static/js/main.6baf0bc1.chunk.js",
+    "main.js.map": "/static/js/main.6baf0bc1.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.d1625745.js",
     "runtime-main.js.map": "/static/js/runtime-main.d1625745.js.map",
-    "static/js/2.1ad199df.chunk.js": "/static/js/2.1ad199df.chunk.js",
-    "static/js/2.1ad199df.chunk.js.map": "/static/js/2.1ad199df.chunk.js.map",
+    "static/js/2.efd83cf9.chunk.js": "/static/js/2.efd83cf9.chunk.js",
+    "static/js/2.efd83cf9.chunk.js.map": "/static/js/2.efd83cf9.chunk.js.map",
     "index.html": "/index.html",
     "static/css/main.111aba1f.chunk.css.map": "/static/css/main.111aba1f.chunk.css.map",
-    "static/js/2.1ad199df.chunk.js.LICENSE.txt": "/static/js/2.1ad199df.chunk.js.LICENSE.txt",
+    "static/js/2.efd83cf9.chunk.js.LICENSE.txt": "/static/js/2.efd83cf9.chunk.js.LICENSE.txt",
     "static/media/alcher-lady.a5226585.png": "/static/media/alcher-lady.a5226585.png",
     "static/media/alcher-logo-footer.51f6a9c8.png": "/static/media/alcher-logo-footer.51f6a9c8.png",
     "static/media/alcher-logo.95a726ca.svg": "/static/media/alcher-logo.95a726ca.svg",
@@ -59,7 +59,7 @@
     "static/media/proshows_right.0ae34448.png": "/static/media/proshows_right.0ae34448.png",
     "static/media/puneeth.98fdb5fd.jpg": "/static/media/puneeth.98fdb5fd.jpg",
     "static/media/pushkar.1837a4e2.jpg": "/static/media/pushkar.1837a4e2.jpg",
-    "static/media/satyam.df000ddb.jpg": "/static/media/satyam.df000ddb.jpg",
+    "static/media/satyam.49b6b2d8.webp": "/static/media/satyam.49b6b2d8.webp",
     "static/media/sh.56a81c00.png": "/static/media/sh.56a81c00.png",
     "static/media/shubam.53e20316.jpg": "/static/media/shubam.53e20316.jpg",
     "static/media/sky.519286e2.jpg": "/static/media/sky.519286e2.jpg",
@@ -67,15 +67,15 @@
     "static/media/un.1d594a4a.png": "/static/media/un.1d594a4a.png",
     "static/media/vedant.5e99674d.jpeg": "/static/media/vedant.5e99674d.jpeg",
     "static/media/vikas.33060c52.jpg": "/static/media/vikas.33060c52.jpg",
-    "static/media/vipin.d5e9df54.jpeg": "/static/media/vipin.d5e9df54.jpeg",
+    "static/media/vipin.73daba93.webp": "/static/media/vipin.73daba93.webp",
     "static/media/vishal.705bb654.jpg": "/static/media/vishal.705bb654.jpg",
     "static/media/white_rings.3b5a1529.svg": "/static/media/white_rings.3b5a1529.svg",
     "static/media/yogendra.4be48bf4.jpg": "/static/media/yogendra.4be48bf4.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.d1625745.js",
-    "static/js/2.1ad199df.chunk.js",
+    "static/js/2.efd83cf9.chunk.js",
     "static/css/main.111aba1f.chunk.css",
-    "static/js/main.887e2644.chunk.js"
+    "static/js/main.6baf0bc1.chunk.js"
   ]
 }
