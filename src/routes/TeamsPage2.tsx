@@ -96,7 +96,7 @@ const teamsImages = [
             phone: '6265279148',
             insta_link: 'https://www.instagram.com/_sam__xd/',
             fb_link: 'https://www.facebook.com/profile.php?id=100008426119019',
-            twitter_link: 'https://twitter.com/SatyamDandoti10',
+            twitter_link: 'https://twitter.com/samdandotiya?t=8K24pRkgFvzEHl4SoiMEXQ&s=08',
             position: 'CRM Head',
         },
         {
