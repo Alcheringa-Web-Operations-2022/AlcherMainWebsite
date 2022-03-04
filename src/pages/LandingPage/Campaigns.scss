@@ -4,6 +4,7 @@
     height: 100vh;
     width: 100%;
     color:white;
+    background-size:cover;
 }
 
 .campaigns-head {
@@ -57,11 +58,11 @@
     
   }
   .desc{
-    font-size:0.8rem;
-    @media (max-width:800px){
-      font-size:1.2rem;
+    font-size:1rem;
+    @media (min-width:768px){
+      font-size:1.4rem;
     }
-    font-family:clashdisplay;
+    font-family:'hk';
     margin-top:10px;
   }
 }
@@ -74,7 +75,9 @@
     width:20%;
     min-width: 150px;
     @media (max-width:800px){
-      min-width:300px;
+      width:200px;
+      max-height: 150px;
+      object-fit: contain;
     }
     object-fit: contain;
     img{

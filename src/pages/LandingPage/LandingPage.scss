@@ -1,9 +1,31 @@
 
 
+.download-app{
+    @media(max-width:768px){
+        font-size:2rem;
+    }
+    font-size:4rem;
+}
 .loader {
     height: 100vh;
     display: grid;
     place-items: center;
+}
+.mountain{
+    z-index:1;
+    position:absolute;
+    bottom:0;
+    width:100vw;
+    font-size:0;
+    opacity:0;
+    @media (max-width:800px){
+        display:none;
+    }
+    img{
+        width:100%;
+        height:100%;
+        object-fit: contain;
+    }
 }
 
 .landing-container {
@@ -35,6 +57,8 @@
     }
     .navigation{
         display:none;
+        font-family:'clashdisplay';
+        font-size:1.2rem;
         .top-nav{
             height: 10vh;
             z-index:100;
@@ -102,8 +126,8 @@
             left:0;
         }
         .logo-container{
-            width:90%;
-            max-width:800px;
+            width:700px;
+            max-width:90%;
             display:flex;
             flex-direction:column;
             justify-content: center;
@@ -147,10 +171,12 @@
             left:0;
             width:100vw;
             height: 100%;
-            background: url('https://i.ibb.co/M9TvS2G/desert-bg.jpg');
-            background-size:contain;
-            background-position: 100% 200%;
-            background-size: cover;
+            // background: url('https://i.ibb.co/M9TvS2G/desert-bg.jpg');
+            background-size:cover;
+            // background-position: 100% 200%;
+            // background-size: cover;
+            // background-position:center;
+            // background-repeat: no-repeat;
         }
 
         #alcher-video {
@@ -190,7 +216,7 @@
                         top: 50%;
                         left: 50%;
                         transform: translate(-50%, -50%);
-                        font-family: 'Roboto', sans-serif;
+                        font-family: 'hk', sans-serif;
                         font-size: 1.5rem;
                         max-width: 90vw;
                         width: 800px;
@@ -256,7 +282,8 @@
                     .title {
                         width: 900px;
                         max-width: 90vw;
-                        font-size: 4.3rem;
+                        font-size: 7rem;
+                        letter-spacing:5px;
                         font-weight: 900;
                         font-style: normal;
                     }
@@ -265,6 +292,7 @@
                         width: 700px;
                         max-width: 90vw;
                         font-size: 1.3rem;
+                        font-family: 'hk';
                     }
                 }
             }
@@ -272,6 +300,9 @@
         #events-container {
             position: relative;
             background: transparent;
+            @media(max-width: 800px){
+              margin-top: 30vh;
+            }
             // height: 100%;
         }
     }
@@ -293,10 +324,13 @@
         width:80%;
         height:100vh;
         background-color:rgb(29, 28, 28);
+        
+       
         .close{
             position:absolute;
             top:5%;
             right:5%;
+            font-family:'clashdisplay'
         }
         .navs{
             display:flex;
@@ -319,10 +353,12 @@
             left:0;
             width:100%;
             z-index:100;
+            font-family:'clashdisplay';
            
         }
         .navigation{
             display:none;
+            
             .top-nav{
                 height: 10vh;
                 z-index:100;
@@ -391,9 +427,8 @@
                
             }
             .logo-container{
-                margin:50% auto;
-                width:90%;
-                max-width:800px;
+                margin:55% auto;
+               
                 display:flex;
                 flex-direction:column;
                 justify-content: center;
@@ -449,6 +484,9 @@
                 position: relative;
                 z-index: 2;
                 margin-top: -30vh;
+                @media(max-width:800px){
+                    margin-top: 0;
+                }
                 .circle-container {
                     position: absolute;
                     top: 0%;
@@ -549,7 +587,7 @@
                         .title {
                             width: 900px;
                             max-width: 90vw;
-                            font-size: 2.3rem;
+                            font-size: 2.8rem;
                             font-weight: 900;
                             font-style: normal;
                         }
@@ -588,7 +626,7 @@
     }
     .logo-container{
         z-index:100 !important;
-        margin:3% auto;
+        margin:6% auto;
         position:relative;
     }
    
@@ -606,7 +644,7 @@
             }
             .logo-container{
                 z-index:100 !important;
-                margin:3% auto;
+                margin:6% auto;
                 position:relative;
             }
                 

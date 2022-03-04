@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import useCacheBannerImages from '../../hooks/useCacheBannerImages';
 import whiteRings from '@assets/images/white_rings.svg';
-import starsBg from '@assets/images/stars.png';
+import starsBg from '@assets/images/stars.webp';
 import alcherlogo from '@assets/images/alcherlogo.png';
 import alcherLogo from '@assets/images/alcher-logo.svg';
 import './LandingPage.scss';
@@ -11,9 +11,11 @@ import Footer from '../../routes/Footer';
 const landingImage = 'https://bucket-s3.alcheringa.in/alcheringain/animation1frames/zoom%20ree0001.png';
 import Events from '../../components/Events';
 import mobileNavIcon from '@assets/images/mobile-nav-icon.svg';
-import footerStarsBg from '@assets/images/stars.png';
+import footerStarsBg from '@assets/images/stars.webp';
 const totalFrames = 90;
 import Loading from '@components/Loading';
+import mountainImage from '@assets/images/mountain.webp';
+import skyBg from '@assets/images/sky.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -33,28 +35,31 @@ function LandingPage() {
         navRef.current.style.display = 'flex';
     };
     useEffect(() => {
-        gsap.to(imageObj, {
-            currentImage: images.length - 1,
-            scrollTrigger: {
-                trigger: '#hero-trigger',
-                pin: true,
-                start: 'top top',
-                end: mql ? '+=150%' : '+=200%',
-                scrub: true,
-                id: 'banner-trigger',
-            },
-            onUpdate: () => {
-                const imgSrc = images[Math.round(imageObj.currentImage)];
-                if (imgSrc) imageRef.current.src = imgSrc;
-            },
-        });
+        if (!mql) {
+            gsap.to(imageObj, {
+                currentImage: images.length - 1,
+                scrollTrigger: {
+                    trigger: '#hero-trigger',
+                    pin: true,
+                    start: 'top top',
+                    end: mql ? '+=150%' : '+=200%',
+                    scrub: true,
+                    id: 'banner-trigger',
+                },
+                onUpdate: () => {
+                    const imgSrc = images[Math.round(imageObj.currentImage)];
+                    if (imgSrc) imageRef.current.src = imgSrc;
+                },
+            });
+        }
 
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: '#alcher-video',
                 pin: true,
+                anticipatePin: true,
                 start: 'top top',
-                end: '+=600%',
+                end: window.innerWidth < 800 ? '+=400%' : '+=600%',
                 id: 'video-container',
                 scrub: true,
             },
@@ -64,15 +69,15 @@ function LandingPage() {
                 top: '10%',
                 opacity: 0,
             },
-            duration: 1,
-            delay: 0.8,
+            duration: 2,
+            delay: window.innerWidth < 800 ? 6 : 3,
         });
 
         tl.to(
             '.video-container',
             {
                 css: { clipPath: 'circle(100% at 50% 50%)' },
-                duration: 16,
+                duration: window.innerWidth < 800 ? 10 : 20,
                 ease: 'ease-in',
                 onStart: async () => {
                     videoOverRef.current.style.cursor = 'url(https://i.ibb.co/5YjXb7X/play.png), auto';
@@ -88,8 +93,8 @@ function LandingPage() {
             },
             '>',
         );
-        tl.to('.white__rings', { scale: 4.5, duration: 16, ease: 'ease-in' }, '<');
-        tl.to('.circle-container', { autoAlpha: 0, duration: 0 }, window.innerWidth < 500 ? '<' : '>');
+        tl.to('.white__rings', { scale: 4.5, duration: window.innerWidth < 800 ? 10 : 20, ease: 'ease-in' }, '<');
+        tl.to('.circle-container', { autoAlpha: 0, duration: 0 }, window.innerWidth < 800 ? '<' : '>');
         tl.to(
             '.video-wrapper',
             {
@@ -101,32 +106,42 @@ function LandingPage() {
                 onReverseComplete: () => {
                     videoRef.current.controls = true;
                 },
-                duration: window.innerWidth < 800 ? 8 : 16,
+                duration: window.innerWidth < 800 ? 6 : 12,
             },
             window.innerWidth < 500 ? '<' : '>',
         );
-        tl.fromTo('.video_top_text', { y: 100, autoAlpha: 0 }, { autoAlpha: 1, y: 0, duration: 10 }, '>');
+        tl.to(
+            '.mountain',
+            {
+                autoAlpha: 1,
+                duration: 10,
+            },
+            '<',
+        );
+        tl.fromTo(
+            '.video_top_text',
+            { y: 100, autoAlpha: 0 },
+            { autoAlpha: 1, y: 0, duration: window.innerWidth < 800 ? 4 : 8 },
+            window.innerWidth < 800 ? '<+4' : '<+8',
+        );
         tl.to('#banner-img', { y: '-=100%', duration: 0 }, '>');
         tl.to(
             '#desert_bg',
             {
                 autoAlpha: 0,
-                duration: 12,
+                duration: window.innerWidth < 800 ? 4 : 8,
             },
             '>',
         );
+        tl.to(
+            '.mountain',
+            {
+                autoAlpha: 0,
+                duration: 4,
+            },
+            '<+2',
+        );
 
-        // gsap.to('#green_bg_wrapper', {
-        //     backgroundPosition: `0 -50%`,
-        //     scrollTrigger: {
-        //         trigger: '#events-container',
-        //         // markers: true,
-        //         start: 'top center',
-        //         end: 'bottom top',
-        //         id: 'video-container',
-        //         scrub: true,
-        //     },
-        // });
         gsap.to('.img-container', {
             scrollTrigger: {
                 trigger: '#events-container',
@@ -205,6 +220,7 @@ function LandingPage() {
                 }
             },
         });
+        document.title = 'Alcheringa 2022 | Home';
     }, [loading]);
     const imageRef = useRef(null);
 
@@ -282,16 +298,10 @@ function LandingPage() {
                         <div className="">SPONSORS</div> */}
                     </div>
                 </div>
-                <section
-                    id="banner-image-wrapper"
-                    style={{
-                        background: `url(${starsBg})`,
-                        backgroundPosition: '100% 0%',
-                    }}
-                >
+                <section id="banner-image-wrapper">
                     <div className="logo-container">
                         <img src={alcherlogo} alt="" />
-                        <button>JOIN NOW</button>
+                        <button style={{ display: 'none' }}>JOIN NOW</button>
                     </div>
                     <img id="banner-img" alt="Alcheringa 2022" src={landingImage} ref={imageRef} />
                 </section>
@@ -303,7 +313,8 @@ function LandingPage() {
                         backgroundSize: 'cover',
                     }}
                 >
-                    <div id="desert_bg" />
+                    <div id="desert_bg" style={{ backgroundImage: `url(${skyBg})` }} />
+
                     <div id="alcher-video">
                         <div className="circle-container">
                             <div className="circles-inner-container">
@@ -317,6 +328,9 @@ function LandingPage() {
                             </div>
                         </div>
                         <div className="video-container">
+                            <div className="mountain">
+                                <img src={mountainImage} />
+                            </div>
                             <div className="video-wrapper">
                                 <div className="video-div">
                                     <div
@@ -358,11 +372,11 @@ function LandingPage() {
                             </div>
                             <div className="video_top_text">
                                 <p className="title">VOYAGE TO NEOTERRA</p>
-                                <p className="subtitle font-family-hk">
+                                <p className="subtitle">
                                     This year, we celebrate the naissance of a new era at Alcheringa. The Voyage to
                                     Neoterra presents an otherworldly nirvana of views and possibilities - ranging from
                                     vast red deserts and entrancing tropical forests to breathtaking canyons and
-                                    mesmerising glows/crevices.
+                                    mesmerising crevices.
                                 </p>
                             </div>
                         </div>

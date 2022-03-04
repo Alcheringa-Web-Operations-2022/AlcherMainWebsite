@@ -1,4 +1,4 @@
-import gsap from 'gsap/all';
+import gsap, { ScrollToPlugin } from 'gsap/all';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import useLocoScroll from 'hooks/useLocoScroll';
 import React, { useEffect, useRef, useState } from 'react';
@@ -11,7 +11,7 @@ import Vikas from '@assets/images/team/vikas.jpg';
 import Ankit from '@assets/images/team/ankit.jpg';
 import Puneeth from '@assets/images/team/puneeth.jpg';
 import Yogi from '@assets/images/team/yogendra.jpg';
-import Satyam from '@assets/images/team/satyam.jpg';
+import Satyam from '@assets/images/team/satyam.webp';
 import Pushkar from '@assets/images/team/pushkar.jpg';
 import Shubham from '@assets/images/team/shubam.jpg';
 import Himanshu from '@assets/images/team/himanshu.jpg';
@@ -22,14 +22,16 @@ import Diya from '@assets/images/team/diya.png';
 import Harry from '@assets/images/team/harry.jpg';
 import HrishikeshP from '@assets/images/team/hrishikeshp.jpg';
 import HrishikeshB from '@assets/images/team/hrishikeshb.jpg';
-import Vipin from '@assets/images/team/vipin.jpeg';
+import Vipin from '@assets/images/team/vipin.webp';
 import Deiwik from '@assets/images/team/deiwik.jpeg';
 import Aryan from '@assets/images/team/aryan.jpg';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 // ScrollTrigger.defaults({
 //     markers: true,
 // });
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollToPlugin);
 const sectionTitles = [
     'PR & BRANDING',
     'MARKETING',
@@ -94,7 +96,7 @@ const teamsImages = [
             phone: '6265279148',
             insta_link: 'https://www.instagram.com/_sam__xd/',
             fb_link: 'https://www.facebook.com/profile.php?id=100008426119019',
-            twitter_link: 'https://twitter.com/SatyamDandoti10',
+            twitter_link: 'https://twitter.com/samdandotiya?t=8K24pRkgFvzEHl4SoiMEXQ&s=08',
             position: 'CRM Head',
         },
         {
@@ -292,7 +294,7 @@ function TeamsPage2() {
                         return (
                             <figure className="snip1527" key={i}>
                                 <div className="snip1527image">
-                                    <img src={el.dp} alt="pr-sample23" />
+                                    <LazyLoadImage src={el.dp} alt="pr-sample23" />
                                 </div>
                                 <figcaption>
                                     <div>
@@ -362,7 +364,7 @@ function TeamsPage2() {
                             return (
                                 <figure className="snip1527" key={i}>
                                     <div className="snip1527image">
-                                        <img src={el.dp} alt="pr-sample23" />
+                                        <LazyLoadImage src={el.dp} alt="pr-sample23" />
                                     </div>
                                     <figcaption>
                                         <div>
@@ -452,6 +454,7 @@ function TeamsPage2() {
                 },
                 '<',
             );
+
             sectionTitles.map((el, i) => {
                 const tl = gsap.timeline({
                     scrollTrigger: {
@@ -502,6 +505,7 @@ function TeamsPage2() {
                 gsap.set('.teams__container', { y: 0 });
             });
         });
+        document.title = 'Alcheringa 2022 | Teams';
     }, []);
 
     return (
@@ -524,7 +528,7 @@ function TeamsPage2() {
                         <p style={{ fontFamily: 'clashdisplay' }}>
                             All students, from the fourth year mentors to the first-year freshers, play an active role
                             in actualising the four days of Alcher. Alcheringa is the most significant cultural festival
-                            in the northeast and is build by the yearlong efforts of all the students involved in making
+                            in the northeast and is built by the yearlong efforts of all the students involved in making
                             their vision of Alcher come to life.
                         </p>
                     </div>

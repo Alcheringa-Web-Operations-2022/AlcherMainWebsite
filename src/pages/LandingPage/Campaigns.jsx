@@ -3,7 +3,7 @@ import './Campaigns.scss';
 
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import footerStarsBg from '@assets/images/stars.png';
+import footerStarsBg from '@assets/images/stars.webp';
 import NePhoto from '@assets/images/campaigns/ne.png';
 import ShPhoto from '@assets/images/campaigns/sh.png';
 import UnPhoto from '@assets/images/campaigns/un.png';
@@ -19,7 +19,7 @@ const campaigns = [
     {
         heading: 'Manshakti',
         img: MsPhoto,
-        desc: 'Manshakti is one small step in the long journey towards mental wellness. It is a mental health awareness and wellness campaign, launched by Alcheringa, which aims to empathize and understand the people who suffer mentally. The only solace the COVID front liners have, during this pandemic, is our love and support motivating them to keep working. Through Manshakti, we collected some motivating messages and greetings from the public, which were then sent to the Covid-19 warriors, to let them know that we are proudly rooting for them.',
+        desc: 'Manshakti is one small step in the long journey towards mental wellness. It is a mental health awareness and wellness campaign, launched by Alcheringa, which aims to empathize and understand the people who suffer mentally. The only solace the COVID front line workers have, during this pandemic, is our love and support motivating them to keep working. Through Manshakti, we collected some motivating messages and greetings from the public, which were then sent to the Covid-19 warriors, to let them know that we are proudly rooting for them.',
     },
     {
         heading: 'Prithvi',
@@ -60,13 +60,14 @@ const Campaigns = () => {
                 defaults: { duration: 1, ease: 'none' },
             })
                 .to('.campaigns-head', { scale: 10, autoAlpha: 0 })
-                .to('.box:nth-of-type(odd)', { autoAlpha: 1, stagger: -6 }, 1)
-                .to('.box:nth-of-type(odd)', { scale: 4, stagger: -6 }, 2.5)
-                .to('.box:nth-of-type(odd)', { autoAlpha: 0, stagger: -6 }, 3.5)
-                .to('.box:nth-of-type(even)', { autoAlpha: 1, stagger: -6 }, 5)
-                .to('.box:nth-of-type(even)', { scale: 4, stagger: -6 }, 6)
-                .to('.box:nth-of-type(even)', { autoAlpha: 0, stagger: -6 }, 7);
+                .to('.box:nth-of-type(odd)', { autoAlpha: 1, stagger: -8 }, 1)
+                .to('.box:nth-of-type(odd)', { scale: 4, stagger: -8 }, 2.5)
+                .to('.box:nth-of-type(odd)', { autoAlpha: 0, stagger: -8 }, 4)
+                .to('.box:nth-of-type(even)', { autoAlpha: 1, stagger: -8 }, 5)
+                .to('.box:nth-of-type(even)', { scale: 4, stagger: -8 }, 6)
+                .to('.box:nth-of-type(even)', { autoAlpha: 0, stagger: -8 }, 7);
         });
+        document.title = 'Alcheringa 2022 | Campaigns';
         // for (let i = 0; i < campaignsImgRef.length; i++) {
         //     campaignsImgRef.current[i].style.top = getComputedStyle(campaignsImgRef.current[i]) - `${i * 10}`;
         // }

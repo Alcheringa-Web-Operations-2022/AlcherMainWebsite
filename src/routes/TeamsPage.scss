@@ -74,7 +74,10 @@
         top:100vh;
         left:0;
         width: 100%;
-
+        padding:1rem 0rem;
+        @media(max-width:800px){
+          padding:0rem;
+        }
         .teams__images{
             height: 100vh;
             padding:3rem;
@@ -181,9 +184,10 @@
     vertical-align: top;
     position: relative;
     border-radius: 5px;
-    border: 3px solid white;
+   
     @media (max-width:800px){
       height: 45vh;
+      border:none;
     }
   }
   .snip1527 figcaption div {

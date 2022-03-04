@@ -191,6 +191,7 @@ function EventsPage() {
                 });
             });
         }
+        document.title = 'Alcheringa 2022 | Events';
     }, [loading, windowLoading]);
 
     return (

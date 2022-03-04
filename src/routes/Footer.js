@@ -7,18 +7,19 @@ import colleges from '../assets/footer/colleges.svg';
 import phoneLeft from '../assets/footer/phoneLeft.png';
 import phoneRight from '../assets/footer/phoneRight.png';
 import alcherLadyImg from '../assets/alcher-lady.png';
-import footerBg from '@assets/images/stars.png';
-import phone from '@assets/images/phone.png';
+import footerBg from '@assets/images/stars.webp';
+import phone from '@assets/images/phone.webp';
 import footerFort from '@assets/images/footer-fort.png';
 import alcherLogoFooter from '@assets/images/alcher-logo-footer.png';
 import instagramIcon from '@assets/images/instagram.png';
 import facebookIcon from '@assets/images/facebook.png';
 import twitterIcon from '@assets/images/twitter.png';
 import youtubeIcon from '@assets/images/youtube.png';
-import footerStarsBg from '@assets/images/stars.png';
+import footerStarsBg from '@assets/images/stars.webp';
 import appButton from '@assets/images/app-button.png';
 import { useEffect, useRef } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -28,7 +29,7 @@ const Footer = () => {
         gsap.delayedCall(1, () => {
             gsap.fromTo(
                 '.phones-container',
-                { y: 300 },
+                { y: 200 },
                 {
                     scrollTrigger: {
                         trigger: '.phones-container',
@@ -87,26 +88,32 @@ const Footer = () => {
         >
             <div className="icons-container" ref={iconsContainerRef}>
                 <div className="icon-wrapper">
-                    <span className="font-clash-display">26</span> <br /> EDITIONS
+                    <span className="font-clash-display">26</span> <span className="footer-features">EDITIONS</span>
                 </div>
                 <div className="icon-wrapper">
                     <span className="font-clash-display">140k </span>
-                    <br /> FOOTBALL
+                    <span className="footer-features">FOOTFALL</span>
                 </div>
                 <div className="icon-wrapper">
                     <span className="font-clash-display">100+ </span>
-                    <br /> EVENTS
+                    <span className="footer-features">EVENTS</span>
                 </div>
                 <div className="icon-wrapper">
-                    <span className="font-clash-display"> 500+</span> <br /> COLLEGES
+                    <span className="font-clash-display"> 500+</span> <span className="footer-features">COLLEGES</span>
                 </div>
             </div>
             <div className="phones-container">
                 <div className="phones-wrapper">
-                    <img src={phone} alt="phone-left" />
+                    <LazyLoadImage src={phone} alt="phone-left" />
                 </div>
                 <div className="phones-text-wrapper">
                     <div>
+                        <h1
+                            style={{ margin: '5% 0', fontFamily: 'CustomFont', letterSpacing: '2px' }}
+                            className="download-app"
+                        >
+                            DOWNLOAD THE APP
+                        </h1>
                         Download the Alcheringa app today for live updates. Explore our impressive event line-up and
                         merchandise as we begin our Voyage to Neoterra.
                     </div>

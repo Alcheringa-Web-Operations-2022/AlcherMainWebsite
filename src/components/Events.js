@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
 import '../assets/styles/voyage-2-neoterra.scss';
@@ -14,23 +15,29 @@ import cc_right from '@assets/v2g-asserts/cc_right.png';
 import humour_right from '@assets/v2g-asserts/humour_right.png';
 import proshows_right from '@assets/v2g-asserts/proshows_right.png';
 
-import pronites_event from '@assets/v2g-asserts/pronites_event.png';
-import cc_event from '@assets/v2g-asserts/cc_event.png';
-import humour_event from '@assets/v2g-asserts/humour_event.png';
-import proshows_event from '@assets/v2g-asserts/proshows_event.png';
+// import pronites_event from '@assets/v2g-asserts/pronites_event.png';
+// import cc_event from '@assets/v2g-asserts/cc_event.png';
+// import humour_event from '@assets/v2g-asserts/humour_event.png';
+// import proshows_event from '@assets/v2g-asserts/proshows_event.png';
+
+import pronites_event from '@assets/images/pronites.webp';
+import cc_event from '@assets/images/cc.webp';
+import humour_event from '@assets/images/humour.webp';
+import proshows_event from '@assets/images/proshows.webp';
 
 import pronites_astro from '@assets/v2g-asserts/pronites_astro.png';
 import cc_astro from '@assets/v2g-asserts/cc_astro.png';
 import humour_astro from '@assets/v2g-asserts/humour_astro.png';
 import proshows_astro from '@assets/v2g-asserts/proshows_astro.png';
 
-import footerStarsBg from '@assets/images/stars.png';
+import footerStarsBg from '@assets/images/stars.webp';
+import { disableScrolling, enableScrolling } from './Loading';
 
 const EVENTS_HEAD = ['PRONITES', "CREATOR'S CAMP", 'HUMOUR FEST', 'PROSHOWS'];
 const EVENTS_DESRIPTION = [
     'Star-studded performances that excite and awaken, Pronites is the ultimate party experience for every rave-craving soul at Alcheringa',
 
-    'An eye-opener for creators and curators alike , Creators’ Camp at Alchering presents a truly inspired discourse among gifted pioneers of creativity.',
+    'An eye-opener for creators and curators alike , Creators’ Camp at Alcheringa presents a truly inspired discourse among gifted pioneers of creativity.',
     "From wacky jugaads to amusing college incidents, renowned comedians narrate anecdotes dripping with hilarity at Alcheringa's Humor Fest",
 
     'Returning each year with the biggest talents in the industry, Proshows celebrates the essence of Alcheringa with international artists and stunning performances',
@@ -117,11 +124,16 @@ const Events = () => {
                         end: '+=100%',
                     },
                 });
-                tl2.to(imgsAstroRef.current[0], {
-                    opacity: 1,
-                    translateX: window.innerWidth < 500 ? '10vw' : '-6vw',
-                    duration: 0.2,
-                });
+                tl2.to(
+                    imgsAstroRef.current[0],
+                    {
+                        opacity: 1,
+
+                        translateX: window.innerWidth < 500 ? '10vw' : '-6vw',
+                        duration: 0.2,
+                    },
+                    '<',
+                );
                 tl2.to(
                     eventsHeadRef.current[0],
                     {
@@ -162,12 +174,11 @@ const Events = () => {
                     },
                     '<',
                 );
-                for (let i = 0; i < EVENTS_HEAD.length; i++) {
+
+                for (let i = 0; i < EVENTS_HEAD.length - 1; i++) {
                     const timeline = gsap.timeline({
                         scrollTrigger: {
                             trigger: `#event-trigger-${i}`,
-                            id: 'event-trigger-1',
-                            // markers: true,
                             start: 'top top',
                             toggleActions: 'play none none reverse',
                             end: '+=400%',
@@ -175,6 +186,10 @@ const Events = () => {
                     });
 
                     timeline.to(eventsHeadRef.current[i], {
+                        onStart: () => {
+                            disableScrolling();
+                        },
+                        onReverseComplete: () => enableScrolling(),
                         opacity: 0,
                         duration: 0.5,
                     });
@@ -264,6 +279,8 @@ const Events = () => {
                         {
                             opacity: 1,
                             duration: 0.5,
+                            onComplete: () => enableScrolling(),
+                            onReverseComplete: () => disableScrolling(),
                         },
                         '<',
                     );
@@ -306,12 +323,9 @@ const Events = () => {
                 return (
                     <div className="v2n-wrapper-main" key={i} id={`v2n-wrapper-main-${i}`}>
                         <div className="v2n-wrapper-left">
-                            <img
-                                src={IMGS_LEFT[i]}
-                                alt="img-left"
-                                className="img-l"
-                                ref={(el) => (imgsLeftRef.current[i] = el)}
-                            />
+                            <div ref={(el) => (imgsLeftRef.current[i] = el)} className="img-l-w">
+                                <LazyLoadImage src={IMGS_LEFT[i]} alt="img-left" className="img-l" />
+                            </div>
                             <h1 ref={(el) => (eventsHeadRef.current[i] = el)}>{e}</h1>
                             <p className="font-family-hk" ref={(el) => (eventsDescriptionRef.current[i] = el)}>
                                 {EVENTS_DESRIPTION[i]}
@@ -319,25 +333,25 @@ const Events = () => {
                         </div>
                         <div className="v2n-wrapper-right">
                             <div>
-                                <img
-                                    src={IMGS_ASTRO[i]}
-                                    alt="img-1"
-                                    className="img-1"
-                                    ref={(el) => (imgsAstroRef.current[i] = el)}
-                                />
-                                <img
-                                    src={IMGS_EVENT[i]}
-                                    alt="img-2"
-                                    className="img-2"
+                                <div ref={(el) => (imgsAstroRef.current[i] = el)} className="img-1-w">
+                                    <LazyLoadImage
+                                        src={IMGS_ASTRO[i]}
+                                        alt="img-1"
+                                        className="img-1"
+                                        id={`img-1-astro-${i}`}
+                                    />
+                                </div>
+                                <div
+                                    className="img-2-w"
                                     ref={(el) => (imgsEventRef.current[i] = el)}
-                                />
+                                    id={`img-2-w-${i}`}
+                                >
+                                    <LazyLoadImage src={IMGS_EVENT[i]} alt="img-2" className="img-2" />
+                                </div>
                             </div>
-                            <img
-                                src={IMGS_RIGHT[i]}
-                                alt="img-3"
-                                className="img-3"
-                                ref={(el) => (imgsRightRef.current[i] = el)}
-                            />
+                            <div ref={(el) => (imgsRightRef.current[i] = el)} className="img-3-w" id={`img-3-w-${i}`}>
+                                <LazyLoadImage src={IMGS_RIGHT[i]} alt="img-3" className="img-3" />
+                            </div>
                         </div>
                     </div>
                 );
