@@ -47,16 +47,22 @@ const SliderContainer = ({ images, index }) => {
         afterChange: (index) => setCurrent(index),
     };
     return (
-        <div className={`slider slider-${index}`}>
-            <div className="slider-wrapper">
-                <Slider {...slider_settings}>
-                    {images.map((el, i) => {
-                        return <SlideItem key={i} imgSrc={el.src} />;
-                    })}
-                </Slider>
+        <>
+            <div className={`slider slider-${index}`}>
+                <div className="slider-wrapper">
+                    <Slider {...slider_settings}>
+                        {images.map((el, i) => {
+                            return <SlideItem key={i} imgSrc={el.src} />;
+                        })}
+                    </Slider>
+                </div>
+                <h1 className="current__image">{images[current].title}</h1>
             </div>
-            <h1 className="current__image">{images[current].title}</h1>
-        </div>
+            <div className="event__data">
+                <p>{'day: ' + String(images[current].day && images[current].day - 1)}</p>
+                <p>{'time: ' + images[current].time}</p>
+            </div>
+        </>
     );
 };
 
@@ -249,10 +255,6 @@ function EventsPage() {
                                     <div className="event__wrapper">
                                         <h1>{el.title}</h1>
                                         <SliderContainer images={EventImages[i]} index={i} />
-                                        <div className="event__data">
-                                            <p>{el.day}</p>
-                                            <p>{el.time}</p>
-                                        </div>
                                     </div>
                                 </section>
                             );

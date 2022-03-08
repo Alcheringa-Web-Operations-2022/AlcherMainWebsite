@@ -28,14 +28,14 @@ function App() {
         <Router>
             <Routes>
                 <Route path="/" element={<LandingPage />} />
-                <Route path="/voyage2neoterra" element={<Voyage2Neoterra />} />
+                {/* <Route path="/voyage2neoterra" element={<Voyage2Neoterra />} /> */}
                 <Route path="/campaigns" element={<Campaigns />} />
                 {/* <Route path="/campaigns2" element={<Campaigns2 />} /> */}
-                <Route path="/eventsPage" element={<EventsPage />} />
+                {/* <Route path="/eventsPage" element={<EventsPage />} /> */}
                 {/* <Route path="/campaignsdemo" element={<Campaigns />} /> */}
-                <Route path="/from_33sec" element={<From_33sec />} />
+                {/* <Route path="/from_33sec" element={<From_33sec />} /> */}
                 <Route path="/footer" element={<Footer />} />
-                <Route path="/events" element={<ComingSoon />} />
+                <Route path="/events" element={<EventsPage />} />
                 <Route path="/team" element={<TeamsPage2 />} />
             </Routes>
         </Router>
