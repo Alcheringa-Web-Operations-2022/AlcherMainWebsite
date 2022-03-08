@@ -27,19 +27,55 @@ export const sliderImages = [
 
 export const PronitesImages = [
     {
-        src: 'https://github.com/Alcheringa-Web-Operations-2022/AlcherMainWebsite/blob/main/src/assets/images/pronites/pronites1.png',
+        src: 'https://i.postimg.cc/8J6vQbFB/pronites1.png',
         title: 'VIKKU VINAYAKRAM & 3 GENERATIONS',
         day: 1,
         time: 'Mar 11, 7:30 PM',
     },
     {
-        src: 'https://github.com/Alcheringa-Web-Operations-2022/AlcherMainWebsite/blob/main/src/assets/images/pronites/pronites2.png',
+        src: 'https://i.postimg.cc/MvxQNVzV/pronites2.png',
         title: 'UNDERGROUND AUTHORITY',
         day: 2,
         time: 'Mar 12, 7:30 PM',
     },
     {
-        src: 'https://github.com/Alcheringa-Web-Operations-2022/AlcherMainWebsite/blob/main/src/assets/images/pronites/pronites3.png',
+        src: 'https://i.postimg.cc/s15WTwC3/pronites3.png',
+        title: 'AMAAL MALLIK',
+        day: 3,
+        time: 'Mar 13, 7:30 PM',
+    },
+    {
+        src: 'https://i.postimg.cc/8J6vQbFB/pronites1.png',
+        title: 'VIKKU VINAYAKRAM & 3 GENERATIONS',
+        day: 1,
+        time: 'Mar 11, 7:30 PM',
+    },
+    {
+        src: 'https://i.postimg.cc/MvxQNVzV/pronites2.png',
+        title: 'UNDERGROUND AUTHORITY',
+        day: 2,
+        time: 'Mar 12, 7:30 PM',
+    },
+    {
+        src: 'https://i.postimg.cc/s15WTwC3/pronites3.png',
+        title: 'AMAAL MALLIK',
+        day: 3,
+        time: 'Mar 13, 7:30 PM',
+    },
+    {
+        src: 'https://i.postimg.cc/8J6vQbFB/pronites1.png',
+        title: 'VIKKU VINAYAKRAM & 3 GENERATIONS',
+        day: 1,
+        time: 'Mar 11, 7:30 PM',
+    },
+    {
+        src: 'https://i.postimg.cc/MvxQNVzV/pronites2.png',
+        title: 'UNDERGROUND AUTHORITY',
+        day: 2,
+        time: 'Mar 12, 7:30 PM',
+    },
+    {
+        src: 'https://i.postimg.cc/s15WTwC3/pronites3.png',
         title: 'AMAAL MALLIK',
         day: 3,
         time: 'Mar 13, 7:30 PM',
