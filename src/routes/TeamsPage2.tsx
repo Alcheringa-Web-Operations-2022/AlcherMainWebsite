@@ -147,7 +147,7 @@ const teamsImages = [
             name: 'Palak Kothari',
             email: 'palak@alcheringa.in',
             dp: Palak,
-            phone: '9432352622',
+            phone: '8619410044',
             insta_link: 'https://www.instagram.com/palakothari_/',
             fb_link: 'https://www.facebook.com/88888palak',
             twitter_link: 'https://www.facebook.com/88888palak',
