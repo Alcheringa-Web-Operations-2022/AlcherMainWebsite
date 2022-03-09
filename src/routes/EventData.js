@@ -41,14 +41,14 @@ export const PronitesImages = [
         src: 'https://firebasestorage.googleapis.com/v0/b/alcheringa2022.appspot.com/o/eventsImage%2Famaal-03.jpg?alt=media&token=25af39fb-b50d-4769-a78f-9862a4c242d5',
         title: 'AMAAL MALLIK',
         day: 2,
-        time: 'Mar 13, 7:30 PM',
+        time: 'Mar 12, 7:30 PM',
         desc: 'Crescendo',
     },
     {
         src: 'https://firebasestorage.googleapis.com/v0/b/alcheringa2022.appspot.com/o/Competition%2FJuggernaut.png?alt=media&token=22d9c319-f500-4ddb-927d-e3ad7df81894',
         title: 'UNDERGROUND AUTHORITY',
         day: 3,
-        time: 'Mar 12, 7:30 PM',
+        time: 'Mar 13, 7:30 PM',
         desc: 'Juggernaut',
     },
     {
@@ -62,14 +62,14 @@ export const PronitesImages = [
         src: 'https://firebasestorage.googleapis.com/v0/b/alcheringa2022.appspot.com/o/eventsImage%2Famaal-03.jpg?alt=media&token=25af39fb-b50d-4769-a78f-9862a4c242d5',
         title: 'AMAAL MALLIK',
         day: 2,
-        time: 'Mar 13, 7:30 PM',
+        time: 'Mar 12, 7:30 PM',
         desc: 'Crescendo',
     },
     {
         src: 'https://firebasestorage.googleapis.com/v0/b/alcheringa2022.appspot.com/o/Competition%2FJuggernaut.png?alt=media&token=22d9c319-f500-4ddb-927d-e3ad7df81894',
         title: 'UNDERGROUND AUTHORITY',
         day: 3,
-        time: 'Mar 12, 7:30 PM',
+        time: 'Mar 13, 7:30 PM',
         desc: 'Juggernaut',
     },
 ];
