@@ -57,10 +57,11 @@ const SliderContainer = ({ images, index }) => {
                     </Slider>
                 </div>
                 <h1 className="current__image">{images[current].title}</h1>
+                <p className="current__description">{images[current].desc}</p>
             </div>
             <div className="event__data">
-                <p>{'day: ' + String(images[current].day && images[current].day - 1)}</p>
-                <p>{'time: ' + images[current].time}</p>
+                <p>{'Day: ' + String(images[current].day && images[current].day - 1)}</p>
+                <p>{images[current].time}</p>
             </div>
         </>
     );

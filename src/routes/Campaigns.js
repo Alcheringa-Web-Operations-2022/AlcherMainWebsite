@@ -20,7 +20,7 @@ const IMGS = [campaings_1, campaings_2, campaings_3, campaings_4, campaings_5, c
 const Campaigns = () => {
     const campaignsHeadRef = useRef();
     const campaignsImgRef = useRef([]);
-    const isMobile = window.matchMedia('(max-width: 380px)').matches;
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
     const { loading, windowLoading } = useLoading();
     useEffect(() => {
         console.log(isMobile);
