@@ -220,7 +220,7 @@ export const ProshowsImages = [
 
     {
         src: 'https://firebasestorage.googleapis.com/v0/b/alcheringa2022.appspot.com/o/eventsImage%2F%D0%9F%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82_%D0%84%D0%B2%D0%B3%D0%B5%D0%BD%D0%B0_%D0%A5%D0%BC%D0%B0%D1%80%D0%B8.jpg?alt=media&token=74be24dc-e7e0-4a2d-870c-2e229ed111dc',
-        title: 'Ekaterina Ermilkina',
+        title: 'Evgeny Khmara',
         desc: 'Painter',
         day: 2,
         time: 'Mar 12, 5:00 PM',
@@ -234,7 +234,7 @@ export const ProshowsImages = [
     },
     {
         src: 'https://firebasestorage.googleapis.com/v0/b/alcheringa2022.appspot.com/o/eventsImage%2FEkaterina_Ermilkina%20(1).jpg?alt=media&token=04876151-d297-4133-a403-1990b3f0f423',
-        title: 'Evgeny Khmara',
+        title: 'Ekaterina Ermilkina',
         day: 2,
         time: 'Mar 12, 5:25 PM',
         desc: 'Instrumentalist',
