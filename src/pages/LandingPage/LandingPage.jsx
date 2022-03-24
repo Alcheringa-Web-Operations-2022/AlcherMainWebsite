@@ -244,6 +244,9 @@ function LandingPage() {
                     <a href="/team">
                         <div className="">TEAM</div>
                     </a>
+                    <a href="/sponsors">
+                        <div className="">SPONSORS</div>
+                    </a>
                     {/* <div className="">CONTACT</div>
                     <div className="">SPONSORS</div> */}
                 </div>
@@ -277,6 +280,9 @@ function LandingPage() {
                             <a href="/team">
                                 <div className="">TEAM</div>
                             </a>
+                            <a href="/sponsors">
+                                <div className="">SPONSORS</div>
+                            </a>
                             {/* <div hrefassName="">CONTACT</div>
                             <div className="">SPONSORS</div> */}
                         </div>
@@ -293,6 +299,9 @@ function LandingPage() {
                         </a>
                         <a href="/team">
                             <div className="">TEAM</div>
+                        </a>
+                        <a href="/sponsors">
+                            <div className="">SPONSORS</div>
                         </a>
                         {/* <div className="">CONTACT</div>
                         <div className="">SPONSORS</div> */}

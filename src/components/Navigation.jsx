@@ -33,8 +33,10 @@ const Navigation = () => {
                         <div className="">TEAM</div>
                     </a>
 
-                    {/* <div className="">CONTACT</div>
-                    <div className="">SPONSORS</div> */}
+                    {/* <div className="">CONTACT</div>*/}
+                    <a href="/sponsors">
+                        <div className="">SPONSORS</div>
+                    </a>
                 </div>
             </div>
             <div className="mobile-nav">
@@ -68,6 +70,9 @@ const Navigation = () => {
                         </a>
                         <a href="/team">
                             <div className="">TEAM</div>
+                        </a>
+                        <a href="/sponsors">
+                            <div className="">SPONSORS</div>
                         </a>
                         {/* <div className="">CONTACT</div>
                             <div className="">SPONSORS</div> */}
