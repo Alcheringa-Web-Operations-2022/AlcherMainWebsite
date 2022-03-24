@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
   font-family: "CustomFont";
   src: local("CustomFont"),url('./vanguard-cf.otf') format("truetype");
@@ -39,6 +43,7 @@ code {
 .font-family-hk{
   font-family : "hk";
 }
+
 
 @media (max-width:800px){
   .font-clash-display{

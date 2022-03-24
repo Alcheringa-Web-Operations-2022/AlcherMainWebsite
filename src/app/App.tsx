@@ -16,6 +16,7 @@ import useLocoScroll from '../hooks/useLocoScroll';
 import LandingPage from '@pages/LandingPage/LandingPage';
 import TeamsPage2 from '../routes/TeamsPage2';
 import ComingSoon from '@components/ComingSoon';
+import Sponsor from '../routes/Sponsors';
 
 function App() {
     //useLocoScroll();
@@ -37,6 +38,7 @@ function App() {
                 <Route path="/footer" element={<Footer />} />
                 <Route path="/events" element={<EventsPage />} />
                 <Route path="/team" element={<TeamsPage2 />} />
+                <Route path="/sponsors" element={<Sponsor />} />
             </Routes>
         </Router>
     );
