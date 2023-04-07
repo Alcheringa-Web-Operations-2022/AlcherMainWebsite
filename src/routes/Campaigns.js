@@ -15,7 +15,7 @@ import campaings_5 from '@assets/images/campaigns/campaings_5.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const IMGS = [campaings_1, campaings_2, campaings_3, campaings_4, campaings_5, campaings_1];
+const IMGS = [campaings_1, campaings_2, campaings_3, campaings_4, campaings_5, campaings_1, campaings_2, campaings_3];
 
 const Campaigns = () => {
     const campaignsHeadRef = useRef();
@@ -24,7 +24,7 @@ const Campaigns = () => {
     const { loading, windowLoading } = useLoading();
     useEffect(() => {
         console.log(isMobile);
-        gsap.delayedCall(0, () => {
+        gsap.delayedCall(0.1, () => {
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: '.campaigns-container-main',
@@ -56,9 +56,9 @@ const Campaigns = () => {
                     ref,
                     {
                         opacity: 1,
-                        duration: 4,
+                        duration: 6,
                     },
-                    '-=13',
+                    '-=14',
                 );
                 tl.to(
                     ref,
@@ -66,8 +66,8 @@ const Campaigns = () => {
                         duration: 20,
                         ease: 'power4.in',
                         css: isMobile
-                            ? { top: `${index % 2 ? '48%' : '52%'}`, width: ref.width * 10 }
-                            : { left: `${index % 2 ? '45%' : '55%'}`, width: ref.width * 10 },
+                            ? { top: `${index % 2 ? '48%' : '52%'}`, width: ref.width * 10, minWidth: ref.width * 10 }
+                            : { left: `${index % 2 ? '45%' : '55%'}`, width: ref.width * 10, minWidth: ref.width * 10 },
                     },
                     '<',
                 );
