@@ -10,6 +10,7 @@ import './LandingPage.scss';
 import Footer from '../../routes/Footer';
 const landingImage = 'https://bucket-s3.alcheringa.in/alcheringain/animation1frames/zoom%20ree0001.png';
 import Events from '../../components/Events';
+import ThemeMain1080 from '@assets/ALCHERINGA 2022 OFFICIAL THEME VIDEO-(1080p).mp4';
 import mobileNavIcon from '@assets/images/mobile-nav-icon.svg';
 import footerStarsBg from '@assets/images/stars.webp';
 const totalFrames = 90;
@@ -118,11 +119,11 @@ function LandingPage() {
             },
             '<',
         );
-        tl.fromTo(
+        +tl.fromTo(
             '.video_top_text',
-            { y: 100, autoAlpha: 0 },
-            { autoAlpha: 1, y: 0, duration: window.innerWidth < 800 ? 4 : 8 },
-            window.innerWidth < 800 ? '<+4' : '<+8',
+            { y: 300, autoAlpha: 0 },
+            { autoAlpha: 1, y: -45, duration: window.innerWidth < 800 ? 4 : 8 },
+            window.innerWidth < 800 ? '<+0.5' : '<+1',
         );
         tl.to('#banner-img', { y: '-=100%', duration: 0 }, '>');
         tl.to(
@@ -133,15 +134,6 @@ function LandingPage() {
             },
             '>',
         );
-        tl.to(
-            '.mountain',
-            {
-                autoAlpha: 0,
-                duration: 4,
-            },
-            '<+2',
-        );
-
         gsap.to('.img-container', {
             scrollTrigger: {
                 trigger: '#events-container',
@@ -365,7 +357,7 @@ function LandingPage() {
                                         }}
                                     ></div>
                                     <video
-                                        src="https://bucket-s3.alcheringa.in/alcheringain/theme.mp4"
+                                        src={ThemeMain1080}
                                         playsInline
                                         webkit-playsinline="true"
                                         preload="none"
