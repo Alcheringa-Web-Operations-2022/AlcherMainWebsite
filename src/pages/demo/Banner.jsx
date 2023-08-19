@@ -1,4 +1,6 @@
 import * as React from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 //R3F
 import { Canvas, extend, ReactThreeFiber, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
@@ -10,6 +12,7 @@ import { useSpring, animated } from '@react-spring/three';
 // Styles
 import '@pages/demo/Banner.scss';
 import Header from '@components/Header/Header';
+import alcherlogo from '@assets/images/alcherlogo.png';
 import earthmap from '@assets/images/globe.png';
 import ringmap from '@assets/images/rings.png';
 import spacemap from '@assets/images/space_bg.png';
@@ -98,12 +101,12 @@ extend({ CloudShaderMaterial });
 // soft Shadows
 softShadows();
 
-const Globe = () => {
+const Globe = React.forwardRef(function Globe(props, ref) {
     const earthTexture = React.useMemo(() => new THREE.TextureLoader().load(earthmap), [earthmap]);
     const ringsTexture = React.useMemo(() => new THREE.TextureLoader().load(ringmap), [ringmap]);
     const cloudsTexture = React.useMemo(() => new THREE.TextureLoader().load(cloudsmap), [cloudsmap]);
 
-    const gpref = React.useRef(null);
+    const gpref = ref;
     const gpEarthref = React.useRef(null);
     const gpCloudsref = React.useRef(null);
     const gpRingsref = React.useRef(null);
@@ -120,13 +123,13 @@ const Globe = () => {
         gpRingsref.current.rotation.z += 0.01;
     });
     return (
-        <animated.group position={[0, -3.2, 2]} rotation={[0, 0, 0]} ref={gpref}>
+        <animated.group position={[0, -3.4, 2]} rotation={[0, 0, 0]} ref={gpref}>
             <mesh ref={gpEarthref}>
-                <sphereGeometry attach="geometry" args={[3.5, 16, 16]} />
+                <sphereGeometry attach="geometry" args={[3.8, 20, 20]} />
                 <globeShaderMaterial uniforms={{ uTexture: { value: earthTexture } }} />
             </mesh>
             <mesh ref={gpCloudsref}>
-                <sphereGeometry attach="geometry" args={[3.56, 16, 16]} />
+                <sphereGeometry attach="geometry" args={[3.86, 20, 20]} />
                 <cloudShaderMaterial
                     uniforms={{ uTexture: { value: cloudsTexture } }}
                     blending={THREE.AdditiveBlending}
@@ -143,23 +146,77 @@ const Globe = () => {
             </mesh>
         </animated.group>
     );
-};
+});
 
-const Demo = () => {
+const Banner = () => {
+    const gpref = React.useRef(null);
+    const mql = window.matchMedia('(max-width: 800px)').matches;
+
+    React.useEffect(() => {
+        if (!mql && gpref.current) {
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '#hero-trigger',
+                    pin: true,
+                    start: 'top top',
+                    end: mql ? '+=100%' : '+=150%',
+                    scrub: true,
+                    id: 'banner-trigger',
+                },
+            });
+            tl.to(gpref.current.rotation, {
+                duration: 0.5,
+            });
+            tl.to(gpref.current.rotation, {
+                x: -0.45,
+                duration: 10,
+            });
+            tl.to(
+                gpref.current.position,
+                {
+                    y: -0.5,
+                    duration: 10,
+                },
+                '<',
+            );
+            tl.to(
+                gpref.current.scale,
+                {
+                    x: 0.45,
+                    y: 0.45,
+                    z: 0.45,
+                    duration: 10,
+                },
+                '<',
+            );
+            // tl.to(gpref.current.position, {
+            //     y: -0.5,
+            //     duration: 3,
+            // });
+        }
+    }, [gpref.current]);
+
     return (
-        <div id="canvas-container">
-            <Header />
-            {/* Our Scene & Camera is already built into our canvas */}
-            <Canvas shadows camera={{ position: [0, 0, 10], fov: 55 }}>
-                {/* This light makes things look pretty */}
-                <ambientLight intensity={0.8} />
-                {/* Our main source of light, also casting our shadow */}
-                <pointLight position={[0, 100, 0]} intensity={0.2} />
-                <Globe />
-                {/* <OrbitControls /> */}
-            </Canvas>
-        </div>
+        <section id="banner-image-wrapper">
+            <div className="logo-container">
+                <img src={alcherlogo} alt="" />
+                <button style={{ display: 'none' }}>JOIN NOW</button>
+            </div>
+            {/* <img id="banner-img" alt="Alcheringa 2022" src={landingImage} ref={imageRef} /> */}
+            <div id="canvas-container">
+                {/* <Header /> */}
+                {/* Our Scene & Camera is already built into our canvas */}
+                <Canvas shadows camera={{ position: [0, 0, 10], fov: 55 }}>
+                    {/* This light makes things look pretty */}
+                    <ambientLight intensity={0.8} />
+                    {/* Our main source of light, also casting our shadow */}
+                    <pointLight position={[0, 100, 0]} intensity={0.2} />
+                    <Globe ref={gpref} />
+                    {/* <OrbitControls /> */}
+                </Canvas>
+            </div>
+        </section>
     );
 };
 
-export default Demo;
+export default Banner;
