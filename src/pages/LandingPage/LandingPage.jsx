@@ -6,6 +6,8 @@ import whiteRings from '@assets/images/white_rings.svg';
 import starsBg from '@assets/images/stars.webp';
 import alcherlogo from '@assets/images/alcherlogo.png';
 import alcherLogo from '@assets/images/alcher-logo.svg';
+import playCursor from '@assets/cursor/play.png';
+import pauseCursor from '@assets/cursor/pause.png';
 import './LandingPage.scss';
 import Footer from '../../routes/Footer';
 const landingImage = 'https://bucket-s3.alcheringa.in/alcheringain/animation1frames/zoom%20ree0001.png';
@@ -84,7 +86,7 @@ function LandingPage() {
                 duration: window.innerWidth < 800 ? 10 : 20,
                 ease: 'ease-in',
                 onStart: async () => {
-                    videoOverRef.current.style.cursor = 'url(https://i.ibb.co/5YjXb7X/play.png), auto';
+                    videoOverRef.current.style.cursor = `url(${pauseCursor}), auto`;
                     try {
                         videoRef.current.muted = false;
                         await videoRef.current.play();
@@ -343,8 +345,7 @@ function LandingPage() {
                                         onClick={async () => {
                                             // videoRef.current.controls = false;
                                             if (videoRef.current.paused) {
-                                                videoOverRef.current.style.cursor =
-                                                    'url(https://i.ibb.co/5YjXb7X/play.png), auto';
+                                                videoOverRef.current.style.cursor = `url(${pauseCursor}), auto`;
                                                 try {
                                                     videoRef.current.muted = false;
                                                     await videoRef.current.play();
@@ -354,8 +355,7 @@ function LandingPage() {
                                                 }
                                             } else {
                                                 videoRef.current.pause();
-                                                videoOverRef.current.style.cursor =
-                                                    'url(https://i.ibb.co/J2Rs7CN/play.png), auto';
+                                                videoOverRef.current.style.cursor = `url(${playCursor}), auto`;
                                             }
                                         }}
                                     ></div>
