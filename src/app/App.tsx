@@ -17,6 +17,7 @@ import LandingPage from '@pages/LandingPage/LandingPage';
 import TeamsPage2 from '../routes/TeamsPage2';
 import ComingSoon from '@components/ComingSoon';
 import Sponsor from '../routes/Sponsors';
+import Banner from '@pages/demo/Banner';
 
 function App() {
     //useLocoScroll();
@@ -39,6 +40,8 @@ function App() {
                 <Route path="/events" element={<EventsPage />} />
                 <Route path="/team" element={<TeamsPage2 />} />
                 <Route path="/sponsors" element={<Sponsor />} />
+                {/* <Route path="/demo" element={<Demo />} /> */}
+                <Route path="/demo" element={<Banner />} />
             </Routes>
         </Router>
     );
