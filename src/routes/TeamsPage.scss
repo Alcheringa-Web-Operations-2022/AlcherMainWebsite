@@ -4,6 +4,7 @@
     width: 100%;
     .teams__container{
         position: fixed;
+        // margin-top: 25px;
         top:100%;
         display:flex;
         flex-direction: column;
@@ -19,7 +20,7 @@
             margin:1.2rem 0rem;
             h1{
                 color:white;
-                opacity: 0.7;
+                opacity: 0.6;
                 font-size: 4.5rem;
                 @media(max-width:1000px){
                     font-size: 4rem;
@@ -64,7 +65,7 @@
       }
     }
     .teams__scroller{
-        height: 200vh;
+        height: 50vh;
         position: relative;
         z-index: -1;
     }
@@ -196,7 +197,7 @@
     justify-content: space-between;
   }
   .snip1527 figcaption {
-    padding:  5%;
+    padding: 0% 5%;
     width: 100%;
     position: absolute;
     bottom: 0;

@@ -1,90 +1,90 @@
-.events-container-main{
+.events-container-main {
     background-color: black;
     transform-origin: center;
     width: 100%;
     min-height: 150vh;
 
-    .round__spacer{
-        @media (max-width:700px){
+    .round__spacer {
+        @media (max-width: 700px) {
             display: none;
         }
     }
-    .global__center{
+    .global__center {
         position: fixed;
-        top:50%;
-        left:50%;
+        top: 50%;
+        left: 50%;
     }
-    .events-container-banner{
+    .events-container-banner {
         position: fixed;
-        top:0%;
-        left:0%;
+        top: 0%;
+        left: 0%;
         width: 100%;
         height: 100vh;
-        .alcher__planet{
-            position:absolute;
-            width: 450px;
-            top:50%;
-            left:50%;
-            transform: translate(-50%,-50%);
-            z-index:1;
+        .alcher__planet {
+            position: absolute;
+            width: 530px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
             max-width: 80vw;
             object-position: center;
             object-fit: contain;
             transform-origin: center;
         }
 
-        .events__title{
-            position:absolute;
+        .events__title {
+            position: absolute;
             z-index: 2;
-            font-size: 5rem;
-            color:white;
-            top:50%;
-            left:50%;
-            transform: translate(-50%,-50%);
+            font-size: 6.5rem;
+            color: white;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             transform-origin: center;
         }
     }
-    .events__nav{
-        position:fixed;
-        bottom:0;
+    .events__nav {
+        position: fixed;
+        bottom: 0;
         display: flex;
-        gap:1rem;
-        color:white;
+        gap: 1rem;
+        color: white;
         justify-content: center;
-        padding:1rem;
-        left:0;
-        right:0;
+        padding: 1rem;
+        left: 0;
+        right: 0;
         z-index: 3;
 
-        @media (max-width:700px){
+        @media (max-width: 700px) {
             display: none;
         }
-        .event__name{
+        .event__name {
             font-size: 0.9rem;
             cursor: pointer;
             display: flex;
-            gap:0.5rem;
+            gap: 0.5rem;
             align-items: center;
             justify-content: space-between;
-            font-family:'clashdisplay';
-            &.active{
+            font-family: 'clashdisplay';
+            &.active {
                 transform: scale(1.2);
                 font-weight: bold;
-                div{
+                div {
                     transform: scale(1.2);
                     background-color: white;
                 }
             }
-            p{
+            p {
                 transition: all 0.1s ease-in;
             }
-            div{
+            div {
                 height: 6px;
                 width: 6px;
                 border-radius: 100%;
                 background-color: rgb(214, 204, 204);
             }
-            &:hover{
+            &:hover {
                 transform: scale(1.1);
                 font-weight: bold;
             }
@@ -92,72 +92,69 @@
     }
 }
 
-.events__section{
+.events__section {
     position: relative;
     background-color: black;
-    .car__wrapper{
+    .car__wrapper {
         height: 100vh;
-        position:fixed;
-        top:0;
-        left:0;
-    }
-    .carousel__section{
-        color:white;
         position: fixed;
-        top:0;
-        left:0;
+        top: 0;
+        left: 0;
+    }
+    .carousel__section {
+        color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 100vw;
         background: transparent;
         z-index: 100;
         opacity: 0;
-        .event__wrapper{
+        .event__wrapper {
             height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-family:'clashdisplay';
+            font-family: 'clashdisplay';
 
-            h1{
-                font-size:2rem;
+            h1 {
+                font-size: 2rem;
                 opacity: 0.9;
             }
-           
-            .event__data{
+
+            .event__data {
                 margin-top: 1rem;
-                display:flex;
+                display: flex;
                 align-items: center;
                 width: 200px;
                 justify-content: space-between;
                 font-size: 1rem;
                 opacity: 0.8;
-                font-family:'hk'
-                
+                font-family: 'hk';
             }
 
-            .current__image{
+            .current__image {
                 text-align: center;
                 font-size: 1.5rem;
                 opacity: 0.9;
-                font-family:'clashdisplay'
+                font-family: 'clashdisplay';
             }
-            
-            .current__description{
+
+            .current__description {
                 text-align: center;
                 font-size: 1rem;
                 opacity: 0.9;
-                font-family:'hk';
-               
+                font-family: 'hk';
             }
 
-            .slider{
+            .slider {
                 opacity: 0;
             }
-            
         }
     }
 
-    .event__spacer{
-        height:200vh;
+    .event__spacer {
+        height: 200vh;
     }
 }

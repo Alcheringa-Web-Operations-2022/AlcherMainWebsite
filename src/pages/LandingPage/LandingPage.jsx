@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, forwardRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import useCacheBannerImages from '../../hooks/useCacheBannerImages';
@@ -6,16 +6,20 @@ import whiteRings from '@assets/images/white_rings.svg';
 import starsBg from '@assets/images/stars.webp';
 import alcherlogo from '@assets/images/alcherlogo.png';
 import alcherLogo from '@assets/images/alcher-logo.svg';
+import playCursor from '@assets/cursor/play.png';
+import pauseCursor from '@assets/cursor/pause.png';
 import './LandingPage.scss';
 import Footer from '../../routes/Footer';
 const landingImage = 'https://bucket-s3.alcheringa.in/alcheringain/animation1frames/zoom%20ree0001.png';
 import Events from '../../components/Events';
+import ThemeMain1080 from '@assets/ALCHERINGA 2022 OFFICIAL THEME VIDEO-(1080p).mp4';
 import mobileNavIcon from '@assets/images/mobile-nav-icon.svg';
 import footerStarsBg from '@assets/images/stars.webp';
 const totalFrames = 90;
 import Loading from '@components/Loading';
 import mountainImage from '@assets/images/mountain.webp';
 import skyBg from '@assets/images/sky.jpg';
+import Banner from '@pages/demo/Banner';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -24,6 +28,7 @@ function LandingPage() {
     const frameCount = mql ? 20 : 30;
     const { images, loading } = useCacheBannerImages(frameCount, totalFrames);
     const imageObj = { currentImage: 0 };
+    const imageRef = useRef(null);
     const videoRef = useRef(null);
     const videoOverRef = useRef(null);
     const navRef = useRef(null);
@@ -42,11 +47,12 @@ function LandingPage() {
                     trigger: '#hero-trigger',
                     pin: true,
                     start: 'top top',
-                    end: mql ? '+=150%' : '+=200%',
+                    end: mql ? '+=100%' : '+=150%',
                     scrub: true,
                     id: 'banner-trigger',
                 },
                 onUpdate: () => {
+                    // console.log(bannnerRef.current);
                     const imgSrc = images[Math.round(imageObj.currentImage)];
                     if (imgSrc) imageRef.current.src = imgSrc;
                 },
@@ -80,7 +86,7 @@ function LandingPage() {
                 duration: window.innerWidth < 800 ? 10 : 20,
                 ease: 'ease-in',
                 onStart: async () => {
-                    videoOverRef.current.style.cursor = 'url(https://i.ibb.co/5YjXb7X/play.png), auto';
+                    videoOverRef.current.style.cursor = `url(${pauseCursor}), auto`;
                     try {
                         videoRef.current.muted = false;
                         await videoRef.current.play();
@@ -118,11 +124,11 @@ function LandingPage() {
             },
             '<',
         );
-        tl.fromTo(
+        +tl.fromTo(
             '.video_top_text',
-            { y: 100, autoAlpha: 0 },
-            { autoAlpha: 1, y: 0, duration: window.innerWidth < 800 ? 4 : 8 },
-            window.innerWidth < 800 ? '<+4' : '<+8',
+            { y: 300, autoAlpha: 0 },
+            { autoAlpha: 1, y: -45, duration: window.innerWidth < 800 ? 4 : 8 },
+            window.innerWidth < 800 ? '<+0.5' : '<+1',
         );
         tl.to('#banner-img', { y: '-=100%', duration: 0 }, '>');
         tl.to(
@@ -133,15 +139,6 @@ function LandingPage() {
             },
             '>',
         );
-        tl.to(
-            '.mountain',
-            {
-                autoAlpha: 0,
-                duration: 4,
-            },
-            '<+2',
-        );
-
         gsap.to('.img-container', {
             scrollTrigger: {
                 trigger: '#events-container',
@@ -163,7 +160,7 @@ function LandingPage() {
             css: {
                 'margin-top': '-50vh',
             },
-            duration: 0.8,
+            duration: 0.5,
             ease: 'power0',
         });
 
@@ -184,9 +181,9 @@ function LandingPage() {
         const ht = window.innerHeight;
         document.addEventListener('wheel', (e) => {
             e.deltaY > 0 ? ntl.play() : ntl.reverse();
-            window.pageYOffset > 2 * ht
-                ? (bottomNavRef.current.style.display = 'none')
-                : (bottomNavRef.current.style.display = 'flex');
+            // window.scrollY > 2 * ht
+            //     ? (bottomNavRef.current.style.display = 'none')
+            //     : (bottomNavRef.current.style.display = 'flex');
         });
         //position of the circles
         gsap.to('.white__rings', {
@@ -222,7 +219,6 @@ function LandingPage() {
         });
         document.title = 'Alcheringa 2022 | Home';
     }, [loading]);
-    const imageRef = useRef(null);
 
     return (
         <div>
@@ -287,7 +283,7 @@ function LandingPage() {
                             <div className="">SPONSORS</div> */}
                         </div>
                     </div>
-                    <div className="bottom-nav" ref={(e) => (bottomNavRef.current = e)}>
+                    {/* <div className="bottom-nav" ref={(e) => (bottomNavRef.current = e)}>
                         <a href="/events">
                             <div className="">EVENTS</div>
                         </a>
@@ -303,9 +299,9 @@ function LandingPage() {
                         <a href="/sponsors">
                             <div className="">SPONSORS</div>
                         </a>
-                        {/* <div className="">CONTACT</div>
-                        <div className="">SPONSORS</div> */}
-                    </div>
+                        <div className="">CONTACT</div>
+                        <div className="">SPONSORS</div>
+                    </div> */}
                 </div>
                 <section id="banner-image-wrapper">
                     <div className="logo-container">
@@ -313,8 +309,9 @@ function LandingPage() {
                         <button style={{ display: 'none' }}>JOIN NOW</button>
                     </div>
                     <img id="banner-img" alt="Alcheringa 2022" src={landingImage} ref={imageRef} />
+                    <Banner />
                 </section>
-                <section id="hero-trigger"></section>
+                <section style={{ minHeight: '90vh' }} id="hero-trigger"></section>
                 <section
                     id="green_bg_wrapper"
                     style={{
@@ -348,8 +345,7 @@ function LandingPage() {
                                         onClick={async () => {
                                             // videoRef.current.controls = false;
                                             if (videoRef.current.paused) {
-                                                videoOverRef.current.style.cursor =
-                                                    'url(https://i.ibb.co/5YjXb7X/play.png), auto';
+                                                videoOverRef.current.style.cursor = `url(${pauseCursor}), auto`;
                                                 try {
                                                     videoRef.current.muted = false;
                                                     await videoRef.current.play();
@@ -359,13 +355,12 @@ function LandingPage() {
                                                 }
                                             } else {
                                                 videoRef.current.pause();
-                                                videoOverRef.current.style.cursor =
-                                                    'url(https://i.ibb.co/J2Rs7CN/play.png), auto';
+                                                videoOverRef.current.style.cursor = `url(${playCursor}), auto`;
                                             }
                                         }}
                                     ></div>
                                     <video
-                                        src="https://bucket-s3.alcheringa.in/alcheringain/theme.mp4"
+                                        src={ThemeMain1080}
                                         playsInline
                                         webkit-playsinline="true"
                                         preload="none"

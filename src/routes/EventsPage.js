@@ -86,6 +86,11 @@ function EventsPage() {
             const PI = Math.PI;
             const radius = (alcherPlanetRef.current.width / 2) * 1.2;
 
+            gsap.to(window, {
+                scrollTo: 10,
+                duration: 0.1,
+            });
+
             gsap.delayedCall(1, () => {
                 gsap.to('.events-animation', { visibility: 'visible' });
                 const rv_tl = gsap.timeline({
@@ -196,6 +201,8 @@ function EventsPage() {
                         '<',
                     );
                 });
+
+                tl.kill();
             });
         }
         document.title = 'Alcheringa 2022 | Events';

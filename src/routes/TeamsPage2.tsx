@@ -313,8 +313,8 @@ function TeamsPage2() {
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     x="0px"
                                                     y="0px"
-                                                    width="24"
-                                                    height="24"
+                                                    width="18"
+                                                    height="18"
                                                     viewBox="0 0 24 24"
                                                     style={{ fill: '#FFFFFF' }}
                                                 >
@@ -324,8 +324,8 @@ function TeamsPage2() {
                                             </a>
                                             <a href={el.fb_link} target="__blank">
                                                 <svg
-                                                    width="24"
-                                                    height="24"
+                                                    width="18"
+                                                    height="18"
                                                     viewBox="0 0 24 42"
                                                     fill="none"
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -336,7 +336,7 @@ function TeamsPage2() {
                                                     />
                                                 </svg>
                                             </a>
-                                            <a href={el.twitter_link} target="__blank">
+                                            {/* <a href={el.twitter_link} target="__blank">
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     x="0px"
@@ -349,7 +349,7 @@ function TeamsPage2() {
                                                     {' '}
                                                     <path d="M28,6.937c-0.957,0.425-1.985,0.711-3.064,0.84c1.102-0.66,1.947-1.705,2.345-2.951c-1.03,0.611-2.172,1.055-3.388,1.295 c-0.973-1.037-2.359-1.685-3.893-1.685c-2.946,0-5.334,2.389-5.334,5.334c0,0.418,0.048,0.826,0.138,1.215 c-4.433-0.222-8.363-2.346-10.995-5.574C3.351,6.199,3.088,7.115,3.088,8.094c0,1.85,0.941,3.483,2.372,4.439 c-0.874-0.028-1.697-0.268-2.416-0.667c0,0.023,0,0.044,0,0.067c0,2.585,1.838,4.741,4.279,5.23 c-0.447,0.122-0.919,0.187-1.406,0.187c-0.343,0-0.678-0.034-1.003-0.095c0.679,2.119,2.649,3.662,4.983,3.705 c-1.825,1.431-4.125,2.284-6.625,2.284c-0.43,0-0.855-0.025-1.273-0.075c2.361,1.513,5.164,2.396,8.177,2.396 c9.812,0,15.176-8.128,15.176-15.177c0-0.231-0.005-0.461-0.015-0.69C26.38,8.945,27.285,8.006,28,6.937z"></path>
                                                 </svg>
-                                            </a>
+                                            </a> */}
                                         </p>
                                     </div>
                                 </figcaption>
@@ -383,8 +383,8 @@ function TeamsPage2() {
                                                         xmlns="http://www.w3.org/2000/svg"
                                                         x="0px"
                                                         y="0px"
-                                                        width="24"
-                                                        height="24"
+                                                        width="18"
+                                                        height="18"
                                                         viewBox="0 0 24 24"
                                                         style={{ fill: '#FFFFFF' }}
                                                     >
@@ -394,8 +394,8 @@ function TeamsPage2() {
                                                 </a>
                                                 <a href={el.fb_link} target="__blank">
                                                     <svg
-                                                        width="24"
-                                                        height="24"
+                                                        width="18"
+                                                        height="18"
                                                         viewBox="0 0 24 42"
                                                         fill="none"
                                                         xmlns="http://www.w3.org/2000/svg"
@@ -406,7 +406,7 @@ function TeamsPage2() {
                                                         />
                                                     </svg>
                                                 </a>
-                                                <a href={el.twitter_link} target="__blank">
+                                                {/* <a href={el.twitter_link} target="__blank">
                                                     <svg
                                                         xmlns="http://www.w3.org/2000/svg"
                                                         x="0px"
@@ -419,7 +419,7 @@ function TeamsPage2() {
                                                         {' '}
                                                         <path d="M28,6.937c-0.957,0.425-1.985,0.711-3.064,0.84c1.102-0.66,1.947-1.705,2.345-2.951c-1.03,0.611-2.172,1.055-3.388,1.295 c-0.973-1.037-2.359-1.685-3.893-1.685c-2.946,0-5.334,2.389-5.334,5.334c0,0.418,0.048,0.826,0.138,1.215 c-4.433-0.222-8.363-2.346-10.995-5.574C3.351,6.199,3.088,7.115,3.088,8.094c0,1.85,0.941,3.483,2.372,4.439 c-0.874-0.028-1.697-0.268-2.416-0.667c0,0.023,0,0.044,0,0.067c0,2.585,1.838,4.741,4.279,5.23 c-0.447,0.122-0.919,0.187-1.406,0.187c-0.343,0-0.678-0.034-1.003-0.095c0.679,2.119,2.649,3.662,4.983,3.705 c-1.825,1.431-4.125,2.284-6.625,2.284c-0.43,0-0.855-0.025-1.273-0.075c2.361,1.513,5.164,2.396,8.177,2.396 c9.812,0,15.176-8.128,15.176-15.177c0-0.231-0.005-0.461-0.015-0.69C26.38,8.945,27.285,8.006,28,6.937z"></path>
                                                     </svg>
-                                                </a>
+                                                </a> */}
                                             </p>
                                         </div>
                                     </figcaption>
@@ -434,26 +434,26 @@ function TeamsPage2() {
     };
     useEffect(() => {
         gsap.delayedCall(0, () => {
-            const st_tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: '.teams__info',
-                    start: '10% top',
-                    end: '+=100%',
-                    toggleActions: 'play none none reverse',
-                },
-            });
-            st_tl.to('.teams_info_data', {
-                y: `-=${window.innerHeight / 2}`,
+            // const st_tl = gsap.timeline({
+            //     // scrollTrigger: {
+            //     //     trigger: '.teams__info',
+            //     //     start: '10% top',
+            //     //     end: '+=100%',
+            //     //     toggleActions: 'play none none reverse',
+            //     // },
+            // });
+            // st_tl.to('.teams_info_data', {
+            //     y: `-=${window.innerHeight / 2}`,
+            //     duration: 1,
+            // });
+            gsap.to('.teams__container', {
+                top: '60%',
                 duration: 1,
             });
-            st_tl.to(
-                '.teams__container',
-                {
-                    top: '60%',
-                    duration: 1,
-                },
-                '<',
-            );
+            gsap.to(window, {
+                scrollTo: 100,
+                duration: 1,
+            });
 
             sectionTitles.map((el, i) => {
                 const tl = gsap.timeline({
@@ -467,10 +467,10 @@ function TeamsPage2() {
                 });
                 tl.fromTo(
                     '.teams__images__main',
-                    { y: () => `-${window.innerHeight * i}px`, duration: 1 },
+                    { y: () => `-${window.innerHeight * i}px`, duration: 0.5 },
                     {
                         y: () => `-${window.innerHeight * (i + 1)}px`,
-                        duration: 1,
+                        duration: 0.5,
                     },
                 );
 
@@ -479,7 +479,7 @@ function TeamsPage2() {
                     {
                         scale: 1.3,
                         opacity: 1,
-                        duration: 0.9,
+                        duration: 0.4,
                     },
                     '<',
                 );
@@ -487,17 +487,17 @@ function TeamsPage2() {
                     titlesRef.current[(i - 1) % sectionsRef.current.length],
                     {
                         scale: 0.9,
-                        opacity: 0.8,
-                        duration: 0.8,
+                        opacity: 0.6,
+                        duration: 0.3,
                     },
                     '<',
                 );
                 tl.fromTo(
                     '.teams__container',
-                    { y: () => `-${(titlesRef.current[i].clientHeight + 40) * i}px`, duration: 1 },
+                    { y: () => `-${(titlesRef.current[i].clientHeight + 40) * i}px`, duration: 0.5 },
                     {
                         y: () => `-${(titlesRef.current[i].clientHeight + 40) * (i + 1)}px`,
-                        duration: 1,
+                        duration: 0.5,
                     },
                     '<',
                 );
@@ -522,7 +522,7 @@ function TeamsPage2() {
                         );
                     })}
                 </div>
-                <div className="teams__info">
+                {/* <div className="teams__info">
                     <div className="teams_info_data">
                         <h1>TEAM</h1>
                         <p style={{ fontFamily: 'clashdisplay' }}>
@@ -532,8 +532,8 @@ function TeamsPage2() {
                             their vision of Alcher come to life.
                         </p>
                     </div>
-                </div>
-                <section style={{ height: mql ? '0vh' : '150vh' }} />
+                </div> */}
+                <section style={{ height: mql ? '0vh' : '0vh' }} />
                 {mql
                     ? new Array(sectionTitles.length).fill(0).map((el, i) => {
                           return (
@@ -555,6 +555,7 @@ function TeamsPage2() {
                               ></div>
                           );
                       })}
+                <section style={{ height: '10vh' }} />
                 <div className="teams__images__main">
                     {teamsImages.map((el, i) => {
                         return (
