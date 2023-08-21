@@ -17,7 +17,7 @@ This is a core React project, built in TypeScript and SCSS. It contains Graphic 
 - Google GCP: https://alcheringa-2022.web.app
 - Vercel: https://alcheringa-2022.vercel.app
 - Gitpod: https://gitpod.io#snapshot/8cc7dd4d-7a4e-4629-a7b8-f111451edce8
-## Run Locally
+### Run Locally
 ```
 $ yarn or npm install
 $ npm run start or yarn run start
@@ -28,29 +28,22 @@ $ npm run build or yarn build
 
 # Demo
 ### Landing Page:
-<video width="100%" controls>
-  <source src="./demo/Landing_Page1.mp4" type="video/mp4">
-</video>
-<!-- https://github.com/Shankar203/AlcherMainWebsite/assets/77261089/02e8b4b2-ce7a-4377-88c1-44cfc23b29bb -->
-<video width="100%" controls>
-  <source src="./demo/Landing_Page2.mp4" type="video/mp4">
-</video>
-<!-- https://github.com/Shankar203/AlcherMainWebsite/assets/77261089/5868ec2a-aa15-4a24-856d-c9d563fdae31 -->
+
+https://github.com/Shankar203/AlcherMainWebsite1/assets/77261089/4ae519e7-ab1a-456a-a6a5-5524484ee0a7
+
+https://github.com/Shankar203/AlcherMainWebsite1/assets/77261089/d5bf5e88-6b13-4797-961c-de5262a0b17b
 
 ### Events Page: 
-<video width="100%" controls>
-  <source src="./demo/Events_Page.mp4" type="video/mp4">
-</video>
-<!-- https://github.com/Shankar203/AlcherMainWebsite/assets/77261089/a1b5dae5-b00a-4833-a02f-cb5a24c0bcee -->
+
+https://github.com/Shankar203/AlcherMainWebsite1/assets/77261089/77641896-dfbb-4193-b293-a53313f3bf91
 
 ### Teams Page: 
-<video width="100%" controls>
-  <source src="./demo/Teams_page.mp4" type="video/mp4">
-</video>
-<!-- https://github.com/Shankar203/AlcherMainWebsite/assets/77261089/f873a80d-d36e-446c-8b93-e0d154ef7aad -->
+
+https://github.com/Shankar203/AlcherMainWebsite1/assets/77261089/46878390-08fa-4f64-a10f-6a015cd0d627
+
 
 ### Campaigns Page: 
-<video width="100%" controls>
-  <source src="./demo/Campaigns.mp4" type="video/mp4">
-</video>
-<!-- https://github.com/Shankar203/AlcherMainWebsite/assets/77261089/87b61e50-c93c-4561-9f7b-03a585818bf9 -->
+
+https://github.com/Shankar203/AlcherMainWebsite1/assets/77261089/e83780fe-9560-4d94-aa9f-7412d46dbf74
+
+
